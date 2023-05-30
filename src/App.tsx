@@ -1,6 +1,6 @@
 import './styles/App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1>Project manager</h1>
