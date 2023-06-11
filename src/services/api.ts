@@ -1,7 +1,7 @@
-import axios, { AxiosInstance } from "axios"
+import axios from "axios"
 import { API_BASE_URL } from "../global"
 
-const Client: AxiosInstance = axios.create({baseURL: API_BASE_URL })
+const Client = axios.create({baseURL: API_BASE_URL })
 
 Client.interceptors.request.use(
   (config) => {
