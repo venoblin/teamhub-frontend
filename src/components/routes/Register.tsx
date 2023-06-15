@@ -12,6 +12,9 @@ const Register = () => {
         <label htmlFor='password'>Password</label>
         <input type='password' id='password' name='password' required />
 
+        <label htmlFor='confirmPassword'>Confirm Password</label>
+        <input type='password' id='confirmPassword' name='confirmPassword' required />
+
         <input type='text' />
 
         <input type='text' />
