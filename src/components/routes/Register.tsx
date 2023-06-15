@@ -17,8 +17,9 @@ const Register = () => {
         
         <label htmlFor="name">Name</label>
         <input type='text' id='name' name='name' required />
-
-        <input type='text' />
+        
+        <label htmlFor='username'>Username</label>
+        <input type='text' id='username' name='username' required />
 
       </form>
     </div>
