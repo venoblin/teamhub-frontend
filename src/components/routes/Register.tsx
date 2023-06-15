@@ -7,10 +7,15 @@ const Register = () => {
 
       <form>
         <label htmlFor='email'>Email</label>
-        <input type='text' id='email' name='email' required />
+        <input type='email' id='email' name='email' required />
+
+        <label htmlFor='password'>Password</label>
+        <input type='password' id='password' name='password' required />
+
         <input type='text' />
+
         <input type='text' />
-        <input type='text' />
+
       </form>
     </div>
   )
