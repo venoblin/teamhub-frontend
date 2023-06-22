@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Register from './components/routes/Register'
 import Login from './components/routes/Login'
 import Home from './components/routes/Home'
+import Project from './components/routes/Project'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/projects/:id' element={<Project />} />
       </Routes>      
     </div>
   )
