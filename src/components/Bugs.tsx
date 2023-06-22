@@ -3,7 +3,7 @@ import '../styles/Bugs.css'
 const Bugs = () => {
   return (
     <div className='Bugs'>
-      <h1>Bugs</h1>
+      <h2>Bugs</h2>
     </div>
   )
 }
