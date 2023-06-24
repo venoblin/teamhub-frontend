@@ -10,7 +10,6 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <h1>Project manager</h1>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
