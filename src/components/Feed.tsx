@@ -1,3 +1,5 @@
+import '../styles/Feed.css'
+
 const Feed = () => {
   return (
     <div className="Feed">
@@ -6,4 +8,4 @@ const Feed = () => {
   )
 }
 
-export default Fee
+export default Feed
