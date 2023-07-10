@@ -1,5 +1,4 @@
 import '../../styles/Register.css'
-import { useState } from 'react'
 
 const Register = () => {
   return (
