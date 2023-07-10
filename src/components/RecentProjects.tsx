@@ -1,3 +1,5 @@
+import '../styles/RecentProjects.css'
+
 const RecentProjects = () => {
   return (
     <div className="RecentProjects">
