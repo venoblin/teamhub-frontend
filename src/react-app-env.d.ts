@@ -4,4 +4,4 @@ type Payload = {
   password: string
 }
 
-type WrapperIdentifier = 'panel' | 'card'
+type WrapperType = {type: 'panel' | 'card'}
