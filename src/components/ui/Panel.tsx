@@ -1,3 +1,4 @@
+import '../../styles/Panel.css'
 import { PropsWithChildren } from "react"
 
 const Panel = (props: PropsWithChildren) => {

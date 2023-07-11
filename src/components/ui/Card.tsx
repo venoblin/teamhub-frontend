@@ -1,3 +1,4 @@
+import '../../styles/Card.css'
 import { PropsWithChildren } from "react"
 
 const Card = (props: PropsWithChildren) => {
