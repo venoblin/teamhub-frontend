@@ -1,8 +1,9 @@
+import { PropsWithChildren } from 'react'
 import '../../styles/Wrapper.css'
 
-const Wrapper = () => {
+const Wrapper = (props: PropsWithChildren<WrapperIdentifier>) => {
   return (
-    <div className="Wrapper"></div>
+    <div className="Wrapper">{props.children}</div>
   )
 }
 
