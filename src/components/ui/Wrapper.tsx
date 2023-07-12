@@ -1,3 +1,4 @@
+import '../../styles/Wrapper.css'
 import { PropsWithChildren } from "react"
 
 const Wrapper = (props: PropsWithChildren) => {
