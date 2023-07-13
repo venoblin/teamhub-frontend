@@ -1,7 +1,7 @@
+import { UiProps } from '../../react-app-env'
 import '../../styles/Panel.css'
-import { PropsWithChildren } from "react"
 
-const Panel = (props: PropsWithChildren) => {
+const Panel = (props: UiProps) => {
   return (
     <div className="panel">{props.children}</div>
   )
