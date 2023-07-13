@@ -1,5 +1,5 @@
-import { UiProps } from '../../react-app-env'
 import '../../styles/Card.css'
+import { UiProps } from '../../react-app-env'
 
 const Card = (props: UiProps) => {
   return (

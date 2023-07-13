@@ -1,5 +1,5 @@
-import { UiProps } from '../../react-app-env'
 import '../../styles/Wrapper.css'
+import { UiProps } from '../../react-app-env'
 
 const Wrapper = (props: UiProps) => {
   return (

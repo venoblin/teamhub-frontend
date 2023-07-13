@@ -1,13 +1,11 @@
 /// <reference types="react-scripts" />
+import { PropsWithChildren, ReactNode } from "react"
 
-import { ReactNode } from "react"
-
-type Payload = {
+interface Payload {
   email: string,
   password: string
 }
 
-type UiProps = {
-  children: ReactNode,
-  className?: string = ''
+interface UiProps extends PropsWithChildren {
+  className?: string
 }

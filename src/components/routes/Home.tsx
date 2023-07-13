@@ -1,6 +1,6 @@
+import '../../styles/Home.css'
 import RecentProjects from '../RecentProjects'
 import Feed from '../Feed'
-import '../../styles/Home.css'
 
 const Home = () => {
   return (
