@@ -1,7 +1,7 @@
+import { UiProps } from '../../react-app-env'
 import '../../styles/Card.css'
-import { PropsWithChildren } from "react"
 
-const Card = (props: PropsWithChildren) => {
+const Card = (props: UiProps) => {
   return (
     <div className="card">{props.children}</div>
   )
