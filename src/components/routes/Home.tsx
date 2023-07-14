@@ -1,7 +1,8 @@
 import '../../styles/Home.css'
 import RecentProjects from '../RecentProjects'
 import Feed from '../Feed'
-import Wrapper from '../ui/Wrapper'
+import Card from '../ui/Card'
+import Panel from '../ui/Panel'
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
       <h1>Home</h1>
       <RecentProjects />
       <Feed />
-      <Wrapper></Wrapper>
+      
+      <Card></Card>
+      <Panel></Panel>
     </div>
   )
 }
