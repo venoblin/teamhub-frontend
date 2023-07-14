@@ -4,7 +4,7 @@ import Bugs from '../Bugs'
 
 const Project = () => {
   return (
-    <div className='Project'>
+    <div className='project'>
       <h1>Project</h1>
 
       <Todos />

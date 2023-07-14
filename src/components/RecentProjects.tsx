@@ -2,7 +2,7 @@ import '../styles/RecentProjects.css'
 
 const RecentProjects = () => {
   return (
-    <div className="RecentProjects">
+    <div className="recent-projects">
       <h2>Recent Projects</h2>
     </div>
   )

@@ -2,7 +2,7 @@ import '../styles/Bugs.css'
 
 const Bugs = () => {
   return (
-    <div className='Bugs'>
+    <div className='bugs'>
       <h2>Bugs</h2>
     </div>
   )

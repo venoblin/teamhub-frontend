@@ -2,7 +2,7 @@ import '../../styles/Register.css'
 
 const Register = () => {
   return (
-    <div className='Register'>
+    <div className='register'>
       <h1>Register</h1>
 
       <form>
