@@ -1,10 +1,11 @@
 import '../styles/RecentProjects.css'
+import Panel from './ui/Panel'
 
 const RecentProjects = () => {
   return (
-    <div className="recent-projects">
+    <Panel className="recent-projects">
       <h2>Recent Projects</h2>
-    </div>
+    </Panel>
   )
 }
 
