@@ -2,8 +2,10 @@ import '../../styles/Panel.css'
 import { UiProps } from '../../react-app-env'
 
 const Panel = (props: UiProps) => {
+  const classes: string = `${props.className ? props.className : ''} wrapper`
+  
   return (
-    <div className="panel">{props.children}</div>
+    <div className={classes}>{props.children}</div>
   )
 }
 
