@@ -7,7 +7,11 @@ const useFormState = (...args: string[]) => {
   })
   const [state, setState] = useState(initObj)
 
-  return [state, setState]
+  const resetFormState = () => {
+    setState({...initObj})
+  }
+
+  return [state, setState, resetFormState]
 }
 
 export default useFormState
