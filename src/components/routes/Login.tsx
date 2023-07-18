@@ -1,6 +1,8 @@
 import '../../styles/Login.css'
+import useFormState from '../../hooks/useFormState'
 
 const Login = () => {
+  const [formState, setFormState] = useFormState('email', 'password')
   
   return (
     <div className='login'>
