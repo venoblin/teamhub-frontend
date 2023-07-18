@@ -1,3 +1,4 @@
+import { Payload } from "../react-app-env"
 import Client from "./api"
 
 export const SignInUser = async (data: Payload) => {
