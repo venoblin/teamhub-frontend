@@ -1,4 +1,5 @@
 import '../../styles/Login.css'
+import InputHandler from '../../classes/InputHandler'
 import useFormState from '../../hooks/useFormState'
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
           name='email' 
           required
           value={formState.email}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)}
         />
 
         <label htmlFor='password'>Password</label>
