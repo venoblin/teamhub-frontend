@@ -27,6 +27,7 @@ const Login = () => {
           name='password' 
           required
           value={formState.password}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)}
         />
       </form>
     </div>
