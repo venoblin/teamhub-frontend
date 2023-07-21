@@ -20,7 +20,8 @@ const Register = () => {
           id='email'
           name='email'
           required
-          value={formState.email} 
+          value={formState.email}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
         />
 
         <label htmlFor='password'>Password</label>
@@ -29,7 +30,8 @@ const Register = () => {
           id='password' 
           name='password' 
           required
-          value={formState.password} 
+          value={formState.password}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
         />
 
         <label htmlFor='confirmPassword'>Confirm Password</label>
@@ -38,7 +40,8 @@ const Register = () => {
           id='confirmPassword' 
           name='confirmPassword' 
           required
-          value={formState.confirmPassword} 
+          value={formState.confirmPassword}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
         />
         
         <label htmlFor="name">Name</label>
@@ -47,7 +50,8 @@ const Register = () => {
           id='name' 
           name='name' 
           required
-          value={formState.name} 
+          value={formState.name}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
         />
         
         <label htmlFor='username'>Username</label>
@@ -57,6 +61,7 @@ const Register = () => {
           name='username' 
           required
           value={formState.username}
+          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)}
         />
       </form>
     </div>
