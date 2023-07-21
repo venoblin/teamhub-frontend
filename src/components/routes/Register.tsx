@@ -19,7 +19,8 @@ const Register = () => {
         <input type='email'
           id='email'
           name='email'
-          required 
+          required
+          value={formState.email} 
         />
 
         <label htmlFor='password'>Password</label>
@@ -27,7 +28,8 @@ const Register = () => {
           type='password' 
           id='password' 
           name='password' 
-          required 
+          required
+          value={formState.password} 
         />
 
         <label htmlFor='confirmPassword'>Confirm Password</label>
@@ -35,7 +37,8 @@ const Register = () => {
           type='password' 
           id='confirmPassword' 
           name='confirmPassword' 
-          required 
+          required
+          value={formState.confirmPassword} 
         />
         
         <label htmlFor="name">Name</label>
@@ -43,7 +46,8 @@ const Register = () => {
           type='text' 
           id='name' 
           name='name' 
-          required 
+          required
+          value={formState.name} 
         />
         
         <label htmlFor='username'>Username</label>
@@ -51,7 +55,8 @@ const Register = () => {
           type='text' 
           id='username' 
           name='username' 
-          required 
+          required
+          value={formState.username}
         />
       </form>
     </div>
