@@ -1,6 +1,14 @@
 import '../../styles/Register.css'
+import useFormState from '../../hooks/useFormState'
 
 const Register = () => {
+  const [formState, setFormState] = useFormState(
+    'email', 
+    'password', 
+    'confirmPassword', 
+    'name', 
+    'username')
+
   return (
     <div className='register'>
       <h1>Register</h1>
