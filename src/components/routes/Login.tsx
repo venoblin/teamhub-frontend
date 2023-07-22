@@ -17,7 +17,7 @@ const Login = () => {
           name='email' 
           required
           value={formState.email}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)}
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
 
         <label htmlFor='password'>Password</label>
@@ -27,7 +27,7 @@ const Login = () => {
           name='password' 
           required
           value={formState.password}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)}
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
       </form>
     </div>

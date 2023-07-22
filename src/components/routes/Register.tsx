@@ -8,7 +8,8 @@ const Register = () => {
     'password', 
     'confirmPassword', 
     'name', 
-    'username')
+    'username'
+  )
 
   return (
     <div className='register'>
@@ -21,7 +22,7 @@ const Register = () => {
           name='email'
           required
           value={formState.email}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
         />
 
         <label htmlFor='password'>Password</label>
@@ -31,7 +32,7 @@ const Register = () => {
           name='password' 
           required
           value={formState.password}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
         />
 
         <label htmlFor='confirmPassword'>Confirm Password</label>
@@ -41,7 +42,7 @@ const Register = () => {
           name='confirmPassword' 
           required
           value={formState.confirmPassword}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
         />
         
         <label htmlFor="name">Name</label>
@@ -51,7 +52,7 @@ const Register = () => {
           name='name' 
           required
           value={formState.name}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)} 
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
         />
         
         <label htmlFor='username'>Username</label>
@@ -61,7 +62,7 @@ const Register = () => {
           name='username' 
           required
           value={formState.username}
-          onChange={(evt) => InputHandler.listen(evt, formState, setFormState)}
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
       </form>
     </div>
