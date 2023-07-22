@@ -3,5 +3,6 @@ export interface User {
 }
 
 export interface UserContextType {
-  user: User
+  user: User,
+  setUser: (user: User) => void
 }
