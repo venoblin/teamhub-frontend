@@ -5,7 +5,3 @@ interface Payload {
   email: string,
   password: string
 }
-
-interface UiProps extends PropsWithChildren {
-  className?: string
-}

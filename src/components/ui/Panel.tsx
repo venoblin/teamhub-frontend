@@ -1,5 +1,5 @@
 import '../../styles/Panel.css'
-import { UiProps } from '../../react-app-env'
+import { UiProps } from '../../types/ui'
 import Wrapper from './Wrapper'
 
 const Panel = (props: UiProps) => {
