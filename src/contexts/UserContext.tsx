@@ -1,9 +1,10 @@
 import { PropsWithChildren, createContext, useState } from 'react'
+import { User, UserContextType } from '../@types/user'
 
-export const UserContext = createContext(null)
+export const UserContext = createContext<UserContextType | null>(null)
 
 const UserProvider = (props: PropsWithChildren) => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({name: ''})
   
   return (
     <UserContext.Provider value={{user, setUser}}>
