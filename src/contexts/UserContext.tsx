@@ -3,7 +3,7 @@ import { User, UserContextType } from '../@types/user'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
-const UserProvider = (props: PropsWithChildren) => {
+export const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser] = useState({name: ''})
   
   return (
@@ -12,4 +12,3 @@ const UserProvider = (props: PropsWithChildren) => {
     </UserContext.Provider>
   )
 }
-
