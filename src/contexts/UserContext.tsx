@@ -11,14 +11,21 @@ export const UserProvider = (props: PropsWithChildren) => {
 
   const handleLogout = () => {
     setUser({name: ''})
-    toggleAuthenticated()
+    toggleAuthenticated(false)
   }
 
   const checkToken = async () => {
     const userRes = await CheckSession()
     setUser(userRes)
-    toggleAuthenticated()
+    toggleAuthenticated(true)
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   return (
     <UserContext.Provider value={{user, setUser}}>
