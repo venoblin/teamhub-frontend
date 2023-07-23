@@ -6,13 +6,18 @@ import InputHandler from '../../classes/InputHandler'
 import useFormState from '../../hooks/useFormState'
 
 const Login = () => {
-  const [formState, setFormState] = useFormState('email', 'password')
+  const [formState, setFormState, resetFormState] = useFormState('email', 'password')
+
+  const loginUser = async () => {
+    console.log('hi')
+    resetFormState()
+  }
 
   return (
     <div className='login'>
       <h1>Login</h1>
 
-      <form onSubmit={(evt) => FormHandler.submit(evt)}>
+      <form onSubmit={(evt) => FormHandler.submit(evt, loginUser)}>
         <label htmlFor='email'>Email</label>
         <input 
           type='email' 
@@ -32,6 +37,8 @@ const Login = () => {
           value={formState.password}
           onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
+
+        <button>Login</button>
       </form>
 
       <Link to='/register'>Register</Link>

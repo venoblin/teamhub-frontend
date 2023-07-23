@@ -65,6 +65,8 @@ const Register = () => {
           value={formState.username}
           onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
+
+        <button>Register</button>
       </form>
 
       <Link to='/login'>Login</Link>
