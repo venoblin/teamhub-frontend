@@ -1,5 +1,5 @@
 import { PropsWithChildren, createContext, useState } from 'react'
-import { User, UserContextType } from '../@types/user'
+import { UserContextType } from '../@types/user'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
