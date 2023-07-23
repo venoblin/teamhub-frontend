@@ -1,16 +1,18 @@
 import '../../styles/Login.css'
 import { Link } from 'react-router-dom'
+import { LoginUser } from '../../services/auth'
+import FormHandler from '../../classes/FormHandler'
 import InputHandler from '../../classes/InputHandler'
 import useFormState from '../../hooks/useFormState'
 
 const Login = () => {
   const [formState, setFormState] = useFormState('email', 'password')
-  
+
   return (
     <div className='login'>
       <h1>Login</h1>
 
-      <form>
+      <form onSubmit={(evt) => FormHandler.submit(evt)}>
         <label htmlFor='email'>Email</label>
         <input 
           type='email' 
