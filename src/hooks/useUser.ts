@@ -11,8 +11,6 @@ const useUser = (initialUser?: User): any[] => {
   
   const [user, setUser] = useState<User>(nullUser)
 
-  if (initialUser) setUser(initialUser)
-
   const resetUser = () => {
     setUser(nullUser)
   }
