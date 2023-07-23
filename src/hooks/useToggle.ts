@@ -3,8 +3,10 @@ import { useState } from "react"
 const useToggle = (initialState: Boolean = false): any[] => {
   const [toggleState, setToggleState] = useState(initialState)
 
-  const toggle = (bool: Boolean) => {
-    if (bool !== toggleState) {
+  const toggle = (bool?: Boolean) => {
+    if (bool && bool !== toggleState) {
+      setToggleState(bool)
+    } else { 
       setToggleState(!toggleState)
     }
   }
