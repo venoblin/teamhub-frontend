@@ -7,7 +7,7 @@ export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser] = useState({name: ''})
-  const [authenitcated, toggleAuthenticated] = useToggle(false)
+  const [authenticated, toggleAuthenticated] = useToggle(false)
 
   const handleLogout = () => {
     setUser({name: ''})
@@ -28,7 +28,14 @@ export const UserProvider = (props: PropsWithChildren) => {
   }, [])
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{
+        user, 
+        setUser, 
+        authenticated, 
+        toggleAuthenticated,
+        handleLogout
+      }}
+    >
       {props.children}
     </UserContext.Provider>
   )
