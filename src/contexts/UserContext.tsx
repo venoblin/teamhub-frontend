@@ -1,21 +1,22 @@
-import { PropsWithChildren, createContext, useState, useEffect } from 'react'
-import { UserContextType } from '../@types/user'
+import { PropsWithChildren, createContext, useEffect } from 'react'
+import { User, UserContextType } from '../@types/user'
 import { CheckSession } from '../services/auth'
 import useToggle from '../hooks/useToggle'
+import useUser from '../hooks/useUser'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
-  const [user, setUser] = useState({name: ''})
+  const [user, setUser, resetUser] = useUser()
   const [authenticated, toggleAuthenticated] = useToggle(false)
 
   const handleLogout = () => {
-    setUser({name: ''})
+    resetUser()
     toggleAuthenticated(false)
   }
 
   const checkToken = async () => {
-    const userRes = await CheckSession()
+    const userRes: User = await CheckSession()
     setUser(userRes)
     toggleAuthenticated(true)
   }

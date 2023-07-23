@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { User } from '../@types/user'
 
-const useUser = (initialUser?: User) => {
+const useUser = (initialUser?: User): any[] => {
   const nullUser = {
     id: null,
     name: null,
