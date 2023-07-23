@@ -7,6 +7,7 @@ import Register from './components/routes/Register'
 import Login from './components/routes/Login'
 import Home from './components/routes/Home'
 import Project from './components/routes/Project'
+import NotFound from './components/routes/NotFound'
 
 const App = () => {
   const userContext = useContext(UserContext)
@@ -18,11 +19,12 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/projects/:id' element={<Project />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       ) : (
         <Routes>
           <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='*' element={<Login />} />
         </Routes>
       )}
             
