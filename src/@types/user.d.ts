@@ -1,5 +1,8 @@
 export interface User {
-  name: string
+  id: Number | null,
+  name: String,
+  username: String,
+  email: String
 }
 
 export interface UserContextType {
