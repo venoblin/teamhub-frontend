@@ -1,4 +1,5 @@
 import '../../styles/Login.css'
+import { Link } from 'react-router-dom'
 import InputHandler from '../../classes/InputHandler'
 import useFormState from '../../hooks/useFormState'
 
@@ -30,6 +31,8 @@ const Login = () => {
           onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
       </form>
+
+      <Link to='/register'>Register</Link>
     </div>
   )
 }
