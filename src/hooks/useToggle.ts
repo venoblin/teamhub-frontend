@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useToggle = (initialState: Boolean = false) => {
+const useToggle = (initialState: Boolean = false): any[] => {
   const [toggleState, setToggleState] = useState(initialState)
 
   const toggle = () => {
