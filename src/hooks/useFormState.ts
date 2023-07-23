@@ -5,7 +5,7 @@ const useFormState = (...args: string[]): any[] => {
   args.forEach((arg: string) => {
     initObj[arg] = ''
   })
-  const [state, setState] = useState(initObj)
+  const [state, setState] = useState<Object>(initObj)
 
   const resetFormState = () => {
     setState({...initObj})
