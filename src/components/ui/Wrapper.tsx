@@ -1,5 +1,5 @@
 import '../../styles/Wrapper.css'
-import { UiProps } from '../../@types/ui'
+import { UiProps } from '../../types/ui'
 
 const Wrapper = (props: UiProps) => {
   const classes: string = `${props.className ? props.className : ''} wrapper`

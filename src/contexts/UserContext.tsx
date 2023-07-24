@@ -1,5 +1,5 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
-import { User, UserContextType } from '../@types/user'
+import { User, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'

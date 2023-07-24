@@ -1,4 +1,4 @@
-import { Payload } from "../@types/payload"
+import { Payload } from "../types/payload"
 import Client from "./api"
 
 export const LoginUser = async (data: Payload) => {
