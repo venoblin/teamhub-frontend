@@ -13,6 +13,7 @@ export const UserProvider = (props: PropsWithChildren) => {
   const handleLogout = () => {
     resetUser()
     toggleAuthenticated(false)
+    localStorage.clear()
   }
 
   const checkToken = async () => {
