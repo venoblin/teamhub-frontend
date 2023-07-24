@@ -1,5 +1,5 @@
 import './styles/App.css'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { UserContext } from './contexts/UserContext'
 import NavBar from './components/NavBar'
@@ -23,6 +23,7 @@ const App = () => {
         </Routes>
       ) : (
         <Routes>
+          <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='*' element={<NotFound />} />

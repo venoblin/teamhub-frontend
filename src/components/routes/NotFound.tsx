@@ -7,12 +7,6 @@ const NotFound = () => {
   const userContext = useContext(UserContext)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (!userContext?.authenticated) {
-      navigate('/login')
-    }
-  }, [])
-  
   return (
     <div className='not-found'>
       <h1>404 Not Found!</h1>
