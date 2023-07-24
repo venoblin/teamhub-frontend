@@ -22,7 +22,7 @@ export const RegisterUser = async (data: Payload) => {
 
 export const CheckSession = async () => {
   try {
-    const res = await Client.get('/session')
+    const res = await Client.post('/session')
     return res.data
   } catch (error) {
     throw error
