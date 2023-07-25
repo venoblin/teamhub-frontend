@@ -1,6 +1,13 @@
 import '../../styles/NewProject.css'
+import InputHandler from '../../classes/InputHandler'
+import useFormState from '../../hooks/useFormState'
 
 const NewProject = () => {
+  const [formState, setFormState, resetFormState] = useFormState([
+    'name',
+    'gitUrl'
+  ])
+  
   return (
     <div className='new-poject'>
       <h1>New Project</h1>
@@ -11,15 +18,18 @@ const NewProject = () => {
           type='name' 
           id='name' 
           name='name' 
-          required 
+          required
+          value={formState.name}
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
 
         <label htmlFor="gitUrl">Git URL</label>
         <input 
           type='gitUrl' 
           id='gitUrl' 
-          name='gitUrl' 
-          required 
+          name='gitUrl'
+          value={formState.gitUrl}
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
 
         <button>Create</button>
