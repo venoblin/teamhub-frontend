@@ -9,7 +9,7 @@ import useFormState from '../../hooks/useFormState'
 
 const Login = () => {
   const userContext = useContext(UserContext)
-  const [formState, setFormState, resetFormState] = useFormState('email', 'password')
+  const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
   const navigate = useNavigate()
 
   const loginUser = async () => {

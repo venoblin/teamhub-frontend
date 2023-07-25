@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-const useFormState = (...args: string[]): any[] => {
+const useFormState = (keys: string[]): any[] => {
   const initObj: any = {}
-  args.forEach((arg: string) => {
+  keys.forEach((arg: string) => {
     initObj[arg] = ''
   })
   const [state, setState] = useState<Object>(initObj)

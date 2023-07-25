@@ -4,13 +4,13 @@ import InputHandler from '../../classes/InputHandler'
 import useFormState from '../../hooks/useFormState'
 
 const Register = () => {
-  const [formState, setFormState] = useFormState(
+  const [formState, setFormState] = useFormState([
     'email', 
     'password', 
     'confirmPassword', 
     'name', 
     'username'
-  )
+  ])
 
   return (
     <div className='register'>
