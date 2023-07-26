@@ -1,18 +1,25 @@
 import '../../styles/NewProject.css'
 import InputHandler from '../../classes/InputHandler'
+import FormHandler from '../../classes/FormHandler'
 import useFormState from '../../hooks/useFormState'
+import { CreateProject } from '../../services'
 
 const NewProject = () => {
   const [formState, setFormState, resetFormState] = useFormState([
     'name',
     'gitUrl'
   ])
+
+  const createProject = () => {
+    console.log('project created')
+    resetFormState()
+  }
   
   return (
     <div className='new-poject'>
       <h1>New Project</h1>
 
-      <form>
+      <form onSubmit={(evt) => FormHandler.submit(evt, createProject)}>
         <label htmlFor="name">Name</label>
         <input 
           type='name' 
