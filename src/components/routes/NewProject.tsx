@@ -1,17 +1,19 @@
 import '../../styles/NewProject.css'
+import { useContext } from 'react'
 import InputHandler from '../../classes/InputHandler'
 import FormHandler from '../../classes/FormHandler'
 import useFormState from '../../hooks/useFormState'
+import { UserContext } from '../../contexts/UserContext'
 import { CreateProject } from '../../services'
 
 const NewProject = () => {
+  const userContext = useContext(UserContext)
   const [formState, setFormState, resetFormState] = useFormState([
     'name',
     'gitUrl'
   ])
 
   const createProject = () => {
-    console.log('project created')
     resetFormState()
   }
   
