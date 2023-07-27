@@ -14,6 +14,7 @@ const NewProject = () => {
   ])
 
   const createProject = () => {
+    // CreateProject({})
     resetFormState()
   }
   
