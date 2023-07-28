@@ -14,7 +14,11 @@ const NewProject = () => {
   ])
 
   const createProject = () => {
-    // CreateProject({})
+    CreateProject({
+      name: formState.name,
+      git_url: formState.git_url,
+      owner_id: userContext?.user.id
+    })
     resetFormState()
   }
   

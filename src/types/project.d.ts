@@ -1,5 +1,5 @@
 export interface Project {
   name: String,
-  gitUrl?: String,
-  ownerId: Number
+  git_url: String,
+  owner_id: Number | null | undefined
 }
