@@ -1,6 +1,6 @@
 import { Project } from "./project"
 
-export interface User {
+export interface UserPayload {
   id: Number | null,
   name: String | null,
   username: String | null,

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { User } from '../types/user'
+import { UserPayload } from '../types/user'
 
-const useUser = (initialUser?: User): any[] => {
+const useUser = (initialUser?: UserPayload): any[] => {
   const nullUser = {
     id: null,
     name: null,
@@ -9,7 +9,7 @@ const useUser = (initialUser?: User): any[] => {
     email: null
   }
   
-  const [user, setUser] = useState<User>(nullUser)
+  const [user, setUser] = useState<UserPayload>(nullUser)
 
   const resetUser = () => {
     setUser(nullUser)
