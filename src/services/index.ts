@@ -9,3 +9,12 @@ export const PostProject = async (project: Project) => {
     throw err
   }
 }
+
+export const GetUserProjects = async (id: Number) => {
+  try {
+    const res = await Client.get(`/users/${id}`)
+    return res
+  } catch (err) {
+    throw err
+  }
+}
