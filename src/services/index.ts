@@ -1,7 +1,7 @@
-import { Project } from '../types/project'
+import { ProjectPayload } from '../types/project'
 import Client from './api'
 
-export const PostProject = async (project: Project) => {
+export const PostProject = async (project: ProjectPayload) => {
   try {
     const res = await Client.post('/projects', project)
     return res
