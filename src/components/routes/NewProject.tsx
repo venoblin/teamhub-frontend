@@ -4,7 +4,7 @@ import InputHandler from '../../classes/InputHandler'
 import FormHandler from '../../classes/FormHandler'
 import useFormState from '../../hooks/useFormState'
 import { UserContext } from '../../contexts/UserContext'
-import { CreateProject } from '../../services'
+import { PostProject } from '../../services'
 
 const NewProject = () => {
   const userContext = useContext(UserContext)
@@ -14,7 +14,7 @@ const NewProject = () => {
   ])
 
   const createProject = () => {  
-    CreateProject({
+    PostProject({
       name: formState.name,
       git_url: formState.gitUrl,
       owner_id: userContext?.user.id
