@@ -1,5 +1,3 @@
-import { Project } from "./project"
-
 export interface UserPayload {
   id: Number | null,
   name: String | null,

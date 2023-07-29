@@ -1,5 +1,5 @@
 import '../styles/ProjectCard.css'
-import { ProjectProps } from '../types/project'
+import { ProjectProps } from '../types/props'
 import Card from './ui/Card'
 
 const ProjectCard = (props: ProjectProps) => {

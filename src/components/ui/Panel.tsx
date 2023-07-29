@@ -1,5 +1,5 @@
 import '../../styles/Panel.css'
-import { UiProps } from '../../types/ui'
+import { UiProps } from '../../types/props'
 import Wrapper from './Wrapper'
 
 const Panel = (props: UiProps) => {
