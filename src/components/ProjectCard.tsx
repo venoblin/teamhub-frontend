@@ -1,11 +1,11 @@
 import '../styles/ProjectCard.css'
-import { Project } from '../types/project'
+import { ProjectProps } from '../types/project'
 import Card from './ui/Card'
 
-const ProjectCard = (project: Project) => {
+const ProjectCard = (props: ProjectProps) => {
   return (
     <Card>
-      <h3>{project.name}</h3>
+      <h3>{props.project.name}</h3>
     </Card>
   )
 }
