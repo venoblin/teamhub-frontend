@@ -7,6 +7,10 @@ export interface UserPayload {
   email: String | null
 }
 
+export interface User extends UserPayload {
+  projects: Project[] | null
+}
+
 export interface UserContextType {
   user: User,
   setUser: (user: User) => void,
