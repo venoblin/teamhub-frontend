@@ -20,8 +20,7 @@ export const UserProvider = (props: PropsWithChildren) => {
   const checkToken = async () => {
     const userRes: UserPayload = await CheckSession()
     const projectsRes = await GetUserProjects(userRes.id)
-    console.log(projectsRes)
-    setUser(userRes)
+    setUser({...userRes, projects: projectsRes})
     toggleAuthenticated(true)
   }
 

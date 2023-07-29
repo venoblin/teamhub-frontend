@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import { UserPayload } from '../types/user'
+import { User } from '../types/user'
 
-const useUser = (initialUser?: UserPayload): any[] => {
+const useUser = (initialUser?: User): any[] => {
   const nullUser = {
     id: null,
     name: null,
     username: null,
-    email: null
+    email: null,
+    projects: null
   }
   
-  const [user, setUser] = useState<UserPayload>(nullUser)
+  const [user, setUser] = useState<User>(nullUser)
 
   const resetUser = () => {
     setUser(nullUser)
