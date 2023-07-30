@@ -1,4 +1,5 @@
 import { Project } from "./project"
+import { User } from "./user"
 
 export interface ProjectProps extends Props {
   project: Project
@@ -9,5 +10,6 @@ export interface UiProps extends React.PropsWithChildren {
 }
 
 export interface ProjectLinkProps {
-  project: Project
+  project: Project,
+  owner: User
 }
