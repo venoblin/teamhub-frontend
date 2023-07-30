@@ -6,7 +6,7 @@ const ProjectLink = (props: ProjectLinkProps) => {
   
   return (
     <Link to={`/projects/${props.project.id}`}>
-      {`${props.owner.name}/${props.project.name}`}
+      {`${props.owner.username}/${props.project.name}`}
     </Link>
   )
 }
