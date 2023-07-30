@@ -1,10 +1,8 @@
-import { PropsWithChildren, MouseEvent } from 'react'
-
 export interface ProjectProps extends Props {
   project: Project
 }
 
-export interface UiProps extends PropsWithChildren {
+export interface UiProps extends React.PropsWithChildren {
   className?: string,
-  onClick?: (e?: MouseEvent<HTMLButtonElement>) => void
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void
 }
