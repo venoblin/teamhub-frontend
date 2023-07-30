@@ -12,7 +12,7 @@ const ProjectCard = (props: ProjectProps) => {
   }
 
   return (
-    <Card onClick={clickHandler}>
+    <Card>
       <h3>{props.project.name}</h3>
     </Card>
   )
