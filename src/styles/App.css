@@ -1,1 +1,5 @@
-/*# sourceMappingURL=App.css.map */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+}/*# sourceMappingURL=App.css.map */
