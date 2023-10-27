@@ -15,11 +15,12 @@ const Login = () => {
   const loginUser = async () => {
     try {
       const payload = await LoginUser(formState)
+      console.log(payload)
       userContext?.setUser(payload)
       userContext?.toggleAuthenticated(true)
       navigate('/')
     } catch (err) {
-      console.log('There was an error!')
+      console.error('There was an error!')
     }
     resetFormState()
   }
