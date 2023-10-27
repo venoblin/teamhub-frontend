@@ -19,8 +19,8 @@ const App = () => {
       {userContext?.authenticated ? (
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/new' element={<NewProject />} />
-          <Route path='/:username/:projectName' element={<Project />} />
+          <Route path='/projects/new' element={<NewProject />} />
+          <Route path='/projects/:id' element={<Project />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       ) : (
