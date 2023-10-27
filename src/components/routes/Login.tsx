@@ -15,7 +15,6 @@ const Login = () => {
   const loginUser = async () => {
     try {
       const payload = await LoginUser(formState)
-      console.log(payload)
       userContext?.setUser(payload)
       userContext?.toggleAuthenticated(true)
       navigate('/')
