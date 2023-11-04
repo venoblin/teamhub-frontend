@@ -25,8 +25,8 @@ const Project = () => {
     <div className='project'>
       <h1>Project</h1>
 
-      <Todos />
-      <Bugs />
+      <Todos project={project} />
+      <Bugs project={project} />
     </div>
   )
 }

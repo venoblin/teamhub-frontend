@@ -1,6 +1,7 @@
 import '../styles/Todos.css'
+import { ProjectPropsType } from '../types/props'
 
-const Todos = () => {
+const Todos = (props: ProjectPropsType) => {
   return (
     <div className='todos'>
       <h2>Todos</h2>
