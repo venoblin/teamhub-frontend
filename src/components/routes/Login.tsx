@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LoginUser } from '../../services/auth'
 import { UserContext } from '../../contexts/UserContext'
+import { GetUser } from '../../services'
 import FormHandler from '../../classes/FormHandler'
 import InputHandler from '../../classes/InputHandler'
 import useFormState from '../../hooks/useFormState'
@@ -15,8 +16,12 @@ const Login = () => {
   const loginUser = async () => {
     try {
       const payload = await LoginUser(formState)
-      userContext?.setUser(payload)
-      userContext?.toggleAuthenticated(true)
+      
+      if (typeof payload.id === 'number') {
+        const userRes = await GetUser(payload.id)
+        userContext?.setUser({...userRes})
+        userContext?.toggleAuthenticated(true)
+      }
       navigate('/')
     } catch (err) {
       console.error('There was an error!')
