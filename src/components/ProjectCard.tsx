@@ -1,9 +1,9 @@
 import '../styles/ProjectCard.css'
 import { useNavigate } from 'react-router-dom'
-import { ProjectProps } from '../types/props'
+import { ProjectPropsType } from '../types/props'
 import Card from './ui/Card'
 
-const ProjectCard = (props: ProjectProps) => {
+const ProjectCard = (props: ProjectPropsType) => {
   const navigate = useNavigate()
 
   const clickHandler = () => {

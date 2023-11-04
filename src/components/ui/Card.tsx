@@ -1,8 +1,8 @@
 import '../../styles/Card.css'
-import { UiProps } from '../../types/props'
+import { UiPropsType } from '../../types/props'
 import Wrapper from './Wrapper'
 
-const Card = (props: UiProps) => {
+const Card = (props: UiPropsType) => {
   const classes: string = `card ${props.className ? props.className : ''}`
 
   return (

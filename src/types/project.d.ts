@@ -1,8 +1,10 @@
-export interface ProjectPayload {
+export interface ProjectPayloadType {
   name: String,
   owner_id: Number | null | undefined
 }
 
-export interface Project extends ProjectPayload {
-  id: Number
+export interface ProjectType extends ProjectPayloadType {
+  id: Number,
+  bugs: string[],
+  todos: string[]
 }

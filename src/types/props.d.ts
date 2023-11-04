@@ -1,15 +1,12 @@
-import { Project } from "./project"
-import { User } from "./user"
-
-export interface ProjectProps extends Props {
-  project: Project
+export interface ProjectPropsType extends Props {
+  project: ProjectType
 }
 
-export interface UiProps extends React.PropsWithChildren {
+export interface UiPropsType extends React.PropsWithChildren {
   className?: string
 }
 
-export interface ProjectLinkProps {
-  project: Project,
-  owner: User
+export interface ProjectLinkPropsType {
+  project: ProjectType,
+  owner: UserType
 }

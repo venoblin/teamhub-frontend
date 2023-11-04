@@ -2,6 +2,7 @@ import '../styles/RecentProjects.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContext'
+import { ProjectType } from '../types/project'
 import Panel from './ui/Panel'
 import ProjectLink from './ProjectLink'
 

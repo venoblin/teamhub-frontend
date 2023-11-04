@@ -1,7 +1,7 @@
-import { Payload } from "../types/payload"
+import { PayloadType } from "../types/payload"
 import Client from "./api"
 
-export const LoginUser = async (data: Payload) => {
+export const LoginUser = async (data: PayloadType) => {
   try {
     const res = await Client.post('/login', data)
     localStorage.setItem('token', res.data.token)
@@ -11,7 +11,7 @@ export const LoginUser = async (data: Payload) => {
   }
 }
 
-export const RegisterUser = async (data: Payload) => {
+export const RegisterUser = async (data: PayloadType) => {
   try {
     const res = await Client.post('/register', data)
     return res.data
