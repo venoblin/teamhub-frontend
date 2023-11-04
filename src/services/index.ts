@@ -10,10 +10,10 @@ export const PostProject = async (project: ProjectPayload) => {
   }
 }
 
-export const GetUserProjects = async (id: Number | null) => {
+export const GetUser = async (id: Number) => {
   try {
     const res = await Client.get(`/users/${id}`)
-    return res.data.projects
+    return res.data
   } catch (err) {
     throw err
   }

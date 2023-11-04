@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserPayload, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { GetUserProjects } from '../services'
+import { GetUser } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 
@@ -18,10 +18,13 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const checkToken = async () => {
-    const userRes: UserPayload = await CheckSession()
-    const projectsRes = await GetUserProjects(userRes.id)
-    setUser({...userRes, projects: projectsRes})
-    toggleAuthenticated(true)
+    const userPayload: UserPayload = await CheckSession()
+    
+    if (typeof userPayload.id === 'number') {
+      const userRes = await GetUser(userPayload.id)
+      setUser({...userRes})
+      toggleAuthenticated(true)
+    }
   }
 
   useEffect(() => {
