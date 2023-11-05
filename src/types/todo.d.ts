@@ -1,5 +1,5 @@
 export interface TodoType {
-  Todo: String,
+  todo: String,
   id: Number,
   project_id: Number
 }
