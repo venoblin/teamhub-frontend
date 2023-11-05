@@ -8,7 +8,13 @@ const Bugs = (props: ProjectPropsType) => {
       <div>
         {props.project?.bugs.length ? (
           props.project?.bugs.map(singleBug => (
-            <p>{ singleBug.bug }</p>
+            <div>
+              <p className='bug'>{ singleBug.bug }</p>
+              
+              {singleBug.bug_info &&
+                <p className='bug-info'>{ singleBug.bug_info }</p>
+              }
+            </div>
           ))
         ) : (
           <p>No bugs!</p>
