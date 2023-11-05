@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { UserContext } from './contexts/UserContext'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import Register from './components/routes/Register'
 import Login from './components/routes/Login'
 import Home from './components/routes/Home'
@@ -31,6 +32,8 @@ const App = () => {
           <Route path='*' element={<NotFound />} />
         </Routes>
       )}
+
+      <Footer />
     </div>
   )
 }
