@@ -8,12 +8,12 @@ const ProjectCard = (props: ProjectPropsType) => {
 
   const clickHandler = () => {
     console.log('click')
-    navigate(`/projects/${props.project.id}`)
+    navigate(`/projects/${props.project?.id}`)
   }
 
   return (
     <Card>
-      <h3>{props.project.name}</h3>
+      <h3>{props.project?.name}</h3>
     </Card>
   )
 }

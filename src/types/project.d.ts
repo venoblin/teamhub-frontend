@@ -1,3 +1,5 @@
+import { BugType } from "./bug"
+import { TodoType } from "./todo"
 
 export interface ProjectPayloadType {
   name: String,

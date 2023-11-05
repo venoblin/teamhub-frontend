@@ -1,5 +1,8 @@
+import { ProjectType } from "./project"
+import { UserType } from "./user"
+
 export interface ProjectPropsType extends Props {
-  project: ProjectType
+  project: ProjectType | null
 }
 
 export interface ProjectLinkPropsType extends ProjectPropsType {
