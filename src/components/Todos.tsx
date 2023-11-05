@@ -11,7 +11,7 @@ const Todos = (props: ProjectPropsType) => {
             <p>{ singleTodo.todo }</p>
           ))
         ) : (
-          <p>No bugs!</p>
+          <p>No todos!</p>
         )}
       </div>
     </div>
