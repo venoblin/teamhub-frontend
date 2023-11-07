@@ -11,7 +11,7 @@ export interface ProjectLinkPropsType extends ProjectPropsType {
 }
 
 export interface BugPropsType extends Props {
-  bug: BugType
+  singleBug: BugType
 }
 
 export interface UiPropsType extends React.PropsWithChildren {
