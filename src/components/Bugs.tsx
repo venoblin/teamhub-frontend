@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { ProjectPropsType } from '../types/props'
 import useToggle from '../hooks/useToggle'
 import Panel from './ui/Panel'
+import BugCard from './BugCard'
 
 const Bugs = (props: ProjectPropsType) => {
   const [showInfo, setShowInfo] = useToggle()
