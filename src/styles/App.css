@@ -2,4 +2,8 @@ form {
   display: flex;
   flex-direction: column;
   max-width: 700px;
+}
+
+.hide-font-size {
+  font-size: 0;
 }/*# sourceMappingURL=App.css.map */

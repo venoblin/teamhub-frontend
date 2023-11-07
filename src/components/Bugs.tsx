@@ -1,8 +1,18 @@
 import '../styles/Bugs.css'
+import { useRef } from 'react'
 import { ProjectPropsType } from '../types/props'
+import useToggle from '../hooks/useToggle'
 import Panel from './ui/Panel'
 
 const Bugs = (props: ProjectPropsType) => {
+  const [showInfo, setShowInfo] = useToggle()
+  const bugInfoRef = useRef<HTMLParagraphElement | null>(null)
+
+  const clickHandler = () => {
+    // bugInfoRef.current?.classList.toggle('hide-font-size')
+    console.log(bugInfoRef.current?.innerText)
+  }
+  
   return (
     <Panel className='bugs'>
       <h2>Bugs</h2>
@@ -13,7 +23,10 @@ const Bugs = (props: ProjectPropsType) => {
               <p className='bug'>{singleBug.bug}</p>
               
               {singleBug.bug_info &&
-                <p className='bug-info'>{singleBug.bug_info}</p>
+                <div className='bug-info'>
+                  <p ref={bugInfoRef}>{singleBug.bug_info}</p>
+                  <button onClick={clickHandler}>View bug info</button>
+                </div>
               }
             </div>
           ))
