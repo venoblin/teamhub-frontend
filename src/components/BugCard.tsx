@@ -1,16 +1,15 @@
 import '../styles/BugCard.css'
-import { useRef } from 'react'
+import { MouseEventHandler } from 'react'
 import { BugPropsType } from '../types/props'
 import useToggle from '../hooks/useToggle'
 import Card from './ui/Card'
 
 const BugCard = (props: BugPropsType) => {
-  const [showInfo, setShowInfo] = useToggle()
-  const bugInfoRef = useRef<HTMLParagraphElement | null>(null)
+  const [isShown, toggleShown] = useToggle()
 
-  const clickHandler = () => {
-    // bugInfoRef.current?.classList.toggle('hide-font-size')
-    console.log(bugInfoRef.current?.innerText)
+  const clickHandler: MouseEventHandler<HTMLButtonElement> = (evt) => {
+    
+    toggleShown()
   }
   
   return (
@@ -19,8 +18,11 @@ const BugCard = (props: BugPropsType) => {
 
       {props.singleBug.bug_info &&
         <div className='bug-info'>
-          <p ref={bugInfoRef}>{props.singleBug.bug_info}</p>
           <button onClick={clickHandler}>View bug info</button>
+
+          {isShown && 
+            <p>{props.singleBug.bug_info}</p>
+          }
         </div>
       }
     </Card>
