@@ -1,0 +1,13 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    margin-left: 0.75rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}
