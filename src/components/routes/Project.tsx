@@ -4,10 +4,11 @@ import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import Todos from '../Todos'
 import Bugs from '../Bugs'
+import { ProjectType } from '../../types/project'
 
 const Project = () => {
   const userContext = useContext(UserContext)
-  const [project, setProject] = useState(null)
+  const [project, setProject] = useState<ProjectType | null>(null)
   const { projectName } = useParams()
 
   const findProject = () => {
@@ -22,7 +23,7 @@ const Project = () => {
 
   return (
     <div className='project'>
-      <h1>Project</h1>
+      <h1>{project?.name}</h1>
 
       <Todos project={project} />
       <Bugs project={project} />
