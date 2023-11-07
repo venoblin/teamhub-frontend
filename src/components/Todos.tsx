@@ -8,7 +8,7 @@ const Todos = (props: ProjectPropsType) => {
       <div>
         {props.project?.todos.length ? (
           props.project?.todos.map(singleTodo => (
-            <p key={String(singleTodo.id)}>{ singleTodo.todo }</p>
+            <p key={String(singleTodo.id)}>{singleTodo.todo}</p>
           ))
         ) : (
           <p>No todos!</p>

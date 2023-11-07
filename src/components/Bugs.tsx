@@ -9,10 +9,10 @@ const Bugs = (props: ProjectPropsType) => {
         {props.project?.bugs.length ? (
           props.project?.bugs.map(singleBug => (
             <div key={String(singleBug.id)}>
-              <p className='bug'>{ singleBug.bug }</p>
+              <p className='bug'>{singleBug.bug}</p>
               
               {singleBug.bug_info &&
-                <p className='bug-info'>{ singleBug.bug_info }</p>
+                <p className='bug-info'>{singleBug.bug_info}</p>
               }
             </div>
           ))

@@ -2,9 +2,9 @@ import '../../styles/Project.css'
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../contexts/UserContext'
+import { ProjectType } from '../../types/project'
 import Todos from '../Todos'
 import Bugs from '../Bugs'
-import { ProjectType } from '../../types/project'
 
 const Project = () => {
   const userContext = useContext(UserContext)
