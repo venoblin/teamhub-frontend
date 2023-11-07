@@ -1,9 +1,10 @@
 import '../styles/Todos.css'
 import { ProjectPropsType } from '../types/props'
+import Panel from './ui/Panel'
 
 const Todos = (props: ProjectPropsType) => {
   return (
-    <div className='todos'>
+    <Panel className='todos'>
       <h2>Todos</h2>
       <div>
         {props.project?.todos.length ? (
@@ -14,7 +15,7 @@ const Todos = (props: ProjectPropsType) => {
           <p>No todos!</p>
         )}
       </div>
-    </div>
+    </Panel>
   )
 }
 
