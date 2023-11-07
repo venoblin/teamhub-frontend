@@ -1,9 +1,10 @@
 import '../styles/Bugs.css'
 import { ProjectPropsType } from '../types/props'
+import Panel from './ui/Panel'
 
 const Bugs = (props: ProjectPropsType) => {
   return (
-    <div className='bugs'>
+    <Panel className='bugs'>
       <h2>Bugs</h2>
       <div>
         {props.project?.bugs.length ? (
@@ -20,7 +21,7 @@ const Bugs = (props: ProjectPropsType) => {
           <p>No bugs!</p>
         )}
       </div>
-    </div>
+    </Panel>
   )
 }
 
