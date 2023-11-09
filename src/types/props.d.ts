@@ -1,5 +1,6 @@
 import { BugType } from "./bug"
 import { ProjectType } from "./project"
+import { TodoType } from "./todo"
 import { UserType } from "./user"
 
 export interface ProjectPropsType extends Props {
@@ -12,6 +13,10 @@ export interface ProjectLinkPropsType extends ProjectPropsType {
 
 export interface BugPropsType extends Props {
   singleBug: BugType
+}
+
+export interface TodoPropsType extends Props {
+  singleTodo: TodoType
 }
 
 export interface UiPropsType extends React.PropsWithChildren {
