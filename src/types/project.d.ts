@@ -8,6 +8,7 @@ export interface ProjectPayloadType {
 
 export interface ProjectType extends ProjectPayloadType {
   id: Number,
+  git_url: String,
   bugs: BugType[],
   todos: TodoType[]
 }
