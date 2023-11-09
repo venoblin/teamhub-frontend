@@ -1,9 +1,10 @@
-import '../styles/TodoCards.css'
+import '../styles/TodoCard.css'
+import { TodoPropsType } from '../types/props'
 import Card from './ui/Card'
 
-const TodoCard = () => {
+const TodoCard = (props: TodoPropsType) => {
   return (
-    <Card></Card>
+    <Card>{props.singleTodo.todo}</Card>
   )
 }
 
