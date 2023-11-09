@@ -16,7 +16,10 @@ const App = () => {
   
   return (
     <div className="app">
-      <NavBar />
+      <header>
+        <NavBar />
+      </header>
+      
       {userContext?.authenticated ? (
         <Routes>
           <Route path='/' element={<Home />} />
