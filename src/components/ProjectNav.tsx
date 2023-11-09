@@ -15,3 +15,5 @@ const ProjectNav = (props: ProjectPropsType) => {
     </nav>
   )
 }
+
+export default ProjectNav

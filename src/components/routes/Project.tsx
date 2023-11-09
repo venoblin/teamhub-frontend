@@ -5,6 +5,7 @@ import { UserContext } from '../../contexts/UserContext'
 import { ProjectType } from '../../types/project'
 import Todos from '../Todos'
 import Bugs from '../Bugs'
+import ProjectNav from '../ProjectNav'
 
 const Project = () => {
   const userContext = useContext(UserContext)
@@ -23,13 +24,9 @@ const Project = () => {
 
   return (
     <div className='project'>
+      <ProjectNav project={project} />
+      
       <h1>{project?.name}</h1>
-
-      {project?.git_url.length ? (
-        <a href={project?.git_url} target='_blank'>Git Url</a>
-      ) : (
-        ''
-      )}
 
       <Todos project={project} />
       <Bugs project={project} />
