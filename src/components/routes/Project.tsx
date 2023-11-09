@@ -24,7 +24,7 @@ const Project = () => {
 
   return (
     <div className='project'>
-      <ProjectNav project={project} />
+      <ProjectNav owner={userContext?.user} project={project} />
       
       <h1>{project?.name}</h1>
 
