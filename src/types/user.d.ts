@@ -1,8 +1,8 @@
 export interface UserPayloadType {
-  id: Number | null,
-  name: String | null,
-  username: String | null,
-  email: String | null
+  id: number | null,
+  name: string | null,
+  username: string | null,
+  email: string | null
 }
 
 export interface UserType extends UserPayloadType {

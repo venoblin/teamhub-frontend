@@ -24,6 +24,7 @@ const Project = () => {
   return (
     <div className='project'>
       <h1>{project?.name}</h1>
+      <a href={project?.git_url} target='_blank'>Git Url</a>
 
       <Todos project={project} />
       <Bugs project={project} />

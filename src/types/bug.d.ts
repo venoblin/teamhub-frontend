@@ -1,6 +1,6 @@
 export interface BugType {
-  bug: String,
-  bug_info: String,
-  id: Number,
-  project_id: Number
+  bug: string,
+  bug_info: string,
+  id: number,
+  project_id: number
 }
