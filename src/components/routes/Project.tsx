@@ -24,7 +24,9 @@ const Project = () => {
 
   return (
     <div className='project'>
-      <ProjectNav owner={userContext?.user} project={project} />
+      {userContext?.user &&
+        <ProjectNav owner={userContext.user} project={project} />
+      }
       
       <h1>{project?.name}</h1>
 
