@@ -9,6 +9,7 @@ const ProjectNav = (props: ProjectLinkPropsType) => {
     <nav>
       <div className='links'>
         <Link to={projectLink}>Feed</Link>
+        <Link to={`${projectLink}/settings`}>Settings</Link>
       </div>
 
       <div className='icon-links'>
