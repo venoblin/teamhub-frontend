@@ -1,4 +1,4 @@
-import '../styles/ProjectSettings.css'
+import '../../styles/ProjectSettings.css'
 
 const ProjectSettings = () => {
   return (
@@ -7,3 +7,5 @@ const ProjectSettings = () => {
     </div>
   )
 }
+
+export default ProjectSettings
