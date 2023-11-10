@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { ProjectLinkPropsType } from '../types/props'
 
 const ProjectNav = (props: ProjectLinkPropsType) => {
+  const projectLink = `/${props.owner.username}/${props.project?.name}`
+  
   return (
     <nav>
       <div className='links'>
-        <Link to={`/${props.owner.username}/${props.project?.name}`}>Feed</Link>
+        <Link to={projectLink}>Feed</Link>
       </div>
 
       <div className='icon-links'>
