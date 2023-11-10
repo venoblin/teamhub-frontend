@@ -6,11 +6,11 @@ const ProjectNav = (props: ProjectLinkPropsType) => {
   return (
     <nav>
       <div className='links'>
-        <Link to={`/${props.owner.username}/${props.project?.name}`}>Feed</Link>
+        <Link to={`/${props.owner.username}/${props.project?.name}`} target='_blank'>Feed</Link>
       </div>
 
       <div className='icon-links'>
-        <button>Git</button>
+        <Link to='' target='_blank'>Git</Link>
       </div>
     </nav>
   )
