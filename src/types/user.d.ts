@@ -12,6 +12,7 @@ export interface UserType extends UserPayloadType {
 export interface UserContextType {
   user: UserType,
   setUser: (user: UserType) => void,
+  updateUser: () => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

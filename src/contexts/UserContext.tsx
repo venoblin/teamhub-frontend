@@ -27,6 +27,11 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
+  const updateUser = async () => {
+    const userRes = await GetUser(user.id)
+    setUser({...userRes})
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -37,7 +42,8 @@ export const UserProvider = (props: PropsWithChildren) => {
   return (
     <UserContext.Provider value={{
         user, 
-        setUser, 
+        setUser,
+        updateUser,
         authenticated, 
         toggleAuthenticated,
         handleLogout
