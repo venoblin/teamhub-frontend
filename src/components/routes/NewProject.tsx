@@ -1,5 +1,6 @@
 import '../../styles/NewProject.css'
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import InputHandler from '../../classes/InputHandler'
 import FormHandler from '../../classes/FormHandler'
 import useFormState from '../../hooks/useFormState'
@@ -9,14 +10,16 @@ import { PostProject } from '../../services'
 const NewProject = () => {
   const userContext = useContext(UserContext)
   const [formState, setFormState, resetFormState] = useFormState(['name', 'gitUrl'])
+  const navigate = useNavigate()
 
-  const createProject = () => {  
-    PostProject({
+  const createProject = async () => {  
+    const project = await PostProject({
       name: formState.name,
       git_url: formState.gitUrl,
       owner_id: userContext?.user.id
     })
 
+    navigate(`/${userContext?.user.username}/${project.data.name}`)
     resetFormState()
   }
   
