@@ -13,6 +13,7 @@ export interface UserContextType {
   user: UserType,
   setUser: (user: UserType) => void,
   updateUser: () => void,
+  findProject: (name: string) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

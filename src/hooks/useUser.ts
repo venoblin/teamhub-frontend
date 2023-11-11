@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { UserType } from '../types/user'
 
-const useUser = (initialUser?: UserType): any[] => {
+const useUser = (initialUser?: UserType): [UserType, React.Dispatch<React.SetStateAction<UserType>>, () => void] => {
   const nullUser = {
     id: null,
     name: null,

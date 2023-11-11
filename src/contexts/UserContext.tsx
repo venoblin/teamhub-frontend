@@ -28,8 +28,16 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const updateUser = async () => {
-    const userRes = await GetUser(user.id)
-    setUser({...userRes})
+    if (typeof user.id === 'number') {
+      const userRes = await GetUser(user.id)
+      setUser({...userRes})
+    }
+  }
+
+  const findProject = (name: string) => {
+    user.projects?.forEach(project => {
+      if (project.name === name) return project
+    })
   }
 
   useEffect(() => {
@@ -44,6 +52,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         user, 
         setUser,
         updateUser,
+        findProject,
         authenticated, 
         toggleAuthenticated,
         handleLogout
