@@ -8,11 +8,12 @@ import { PostProject } from '../../services'
 
 const NewProject = () => {
   const userContext = useContext(UserContext)
-  const [formState, setFormState, resetFormState] = useFormState(['name'])
+  const [formState, setFormState, resetFormState] = useFormState(['name', 'gitUrl'])
 
   const createProject = () => {  
     PostProject({
       name: formState.name,
+      git_url: formState.gitUrl,
       owner_id: userContext?.user.id
     })
 
@@ -31,6 +32,15 @@ const NewProject = () => {
           name='name' 
           required
           value={formState.name}
+          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+        />
+
+        <label htmlFor="gitUrl">Git Url (optional)</label>
+        <input 
+          type='gitUrl' 
+          id='gitUrl' 
+          name='gitUrl'
+          value={formState.gitUrl}
           onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
 
