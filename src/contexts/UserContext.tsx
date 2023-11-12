@@ -4,6 +4,7 @@ import { CheckSession } from '../services/auth'
 import { GetUser } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
+import { ProjectType } from '../types/project'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
