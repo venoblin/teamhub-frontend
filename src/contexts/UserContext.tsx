@@ -35,9 +35,13 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const findProject = (name: string) => {
+    let foundProject = null
+
     user.projects?.forEach(project => {
-      if (project.name === name) return project
+      if (project.name === name) foundProject = project
     })
+
+    return foundProject
   }
 
   useEffect(() => {

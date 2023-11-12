@@ -1,3 +1,5 @@
+import { ProjectType } from "./project"
+
 export interface UserPayloadType {
   id: number | null,
   name: string | null,
@@ -13,7 +15,7 @@ export interface UserContextType {
   user: UserType,
   setUser: (user: UserType) => void,
   updateUser: () => void,
-  findProject: (name: string) => void,
+  findProject: (name: string) => ProjectType | null,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

@@ -12,14 +12,11 @@ const Project = () => {
   const [project, setProject] = useState<ProjectType | null>(null)
   const { projectName } = useParams()
 
-  const findProject = () => {
-    userContext?.user.projects?.forEach(project => {
-      if (project.name === projectName) setProject(project)
-    })
-  }
-
   useEffect(() => {
-    findProject()
+    if (projectName) {
+      const foundProject = userContext?.findProject(projectName)
+      setProject(foundProject)
+    }
   }, [])
 
   return (
