@@ -16,6 +16,12 @@ const useUser = (initialUser?: UserType): [UserType, React.Dispatch<React.SetSta
     setUser(nullUser)
   }
 
+  if (initialUser) {
+    const [user, setUser] = useState<UserType>(initialUser)
+
+    return [user, setUser, resetUser]
+  }
+
   return [user, setUser, resetUser]
 }
 
