@@ -22,9 +22,8 @@ const NewProject = () => {
 
       userContext?.addProject(newProject.data)
       navigate(`/${userContext?.user.username}/${formState.name}`)
+      resetFormState()
     }
-    
-    resetFormState()
   }
   
   return (
