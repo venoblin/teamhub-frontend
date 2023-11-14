@@ -4,7 +4,7 @@ import { TodoType } from "./todo"
 import { UserType } from "./user"
 
 export interface ProjectPropsType extends Props {
-  project: ProjectType | null
+  project: ProjectType
 }
 
 export interface ProjectLinkPropsType extends ProjectPropsType {

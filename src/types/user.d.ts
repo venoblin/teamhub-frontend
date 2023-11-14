@@ -1,14 +1,14 @@
 import { ProjectType } from "./project"
 
 export interface UserPayloadType {
-  id: number | null,
-  name: string | null,
-  username: string | null,
-  email: string | null
+  id: number,
+  name: string,
+  username: string,
+  email: string
 }
 
 export interface UserType extends UserPayloadType {
-  projects: ProjectType[] | null
+  projects: ProjectType[]
 }
 
 export interface UserContextType {
