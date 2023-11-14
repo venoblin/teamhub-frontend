@@ -7,7 +7,7 @@ const useUser = (): [UserType, React.Dispatch<React.SetStateAction<UserType>>, (
     name: null,
     username: null,
     email: null,
-    projects: null
+    projects: []
   }
   
   const [user, setUser] = useState<UserType>(nullUser)

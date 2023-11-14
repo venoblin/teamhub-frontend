@@ -16,6 +16,7 @@ export interface UserContextType {
   setUser: (user: UserType) => void,
   updateUser: () => void,
   findProject: (name: string) => ProjectType | null,
+  addProject: (project: ProjectType) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

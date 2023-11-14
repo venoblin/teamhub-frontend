@@ -13,10 +13,12 @@ const Project = () => {
   const { projectName } = useParams()
 
   useEffect(() => {
-    if (projectName) {
+    if (typeof projectName !== 'undefined') {
       const foundProject = userContext?.findProject(projectName)
-      setProject(foundProject)
+
+      if (foundProject) setProject(foundProject)
     }
+
   }, [])
 
   return (
