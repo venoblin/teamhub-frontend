@@ -18,6 +18,7 @@ const Project = () => {
 
       if (foundProject) setProject(foundProject)
     }
+
   }, [])
 
   return (

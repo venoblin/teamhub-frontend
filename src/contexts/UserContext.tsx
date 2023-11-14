@@ -35,6 +35,12 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
+  const addProject = (project: ProjectType) => {
+    const newProjects = [...user.projects]
+    newProjects.push(project)
+    setUser({...user, projects: newProjects})
+  }
+
   const findProject = (name: string) => {
     let foundProject = null
 
@@ -58,6 +64,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         setUser,
         updateUser,
         findProject,
+        addProject,
         authenticated, 
         toggleAuthenticated,
         handleLogout
