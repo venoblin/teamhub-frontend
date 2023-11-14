@@ -1,8 +1,8 @@
 import '../styles/ProjectNav.css'
 import { Link } from 'react-router-dom'
-import { ProjectLinkPropsType } from '../types/props'
+import { ProjectOwnerPropsType } from '../types/props'
 
-const ProjectNav = (props: ProjectLinkPropsType) => {
+const ProjectNav = (props: ProjectOwnerPropsType) => {
   const projectLink = `/${props.owner.username}/${props.project?.name}`
   
   return (

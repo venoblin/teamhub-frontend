@@ -7,7 +7,7 @@ export interface ProjectPropsType extends Props {
   project: ProjectType
 }
 
-export interface ProjectLinkPropsType extends ProjectPropsType {
+export interface ProjectOwnerPropsType extends ProjectPropsType {
   owner: UserType
 }
 

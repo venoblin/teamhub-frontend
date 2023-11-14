@@ -1,15 +1,15 @@
 import '../../styles/Project.css'
 import { useParams } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
+import useProject from '../../hooks/useProject'
 import { UserContext } from '../../contexts/UserContext'
-import { ProjectType } from '../../types/project'
 import Todos from '../Todos'
 import Bugs from '../Bugs'
 import ProjectNav from '../ProjectNav'
 
 const Project = () => {
   const userContext = useContext(UserContext)
-  const [project, setProject] = useState<ProjectType | null>(null)
+  const [project, setProject] = useProject()
   const { projectName } = useParams()
 
   useEffect(() => {

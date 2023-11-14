@@ -4,9 +4,9 @@ import { UserType } from '../types/user'
 const useUser = (): [UserType, React.Dispatch<React.SetStateAction<UserType>>, () => void] => {
   const nullUser = {
     id: null,
-    name: null,
-    username: null,
-    email: null,
+    name: '',
+    username: '',
+    email: '',
     projects: []
   }
   

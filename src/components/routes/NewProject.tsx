@@ -12,15 +12,18 @@ const NewProject = () => {
   const [formState, setFormState, resetFormState] = useFormState(['name', 'gitUrl'])
   const navigate = useNavigate()
 
-  const createProject = async () => {  
-    const newProject = await PostProject({
-      name: formState.name,
-      git_url: formState.gitUrl,
-      owner_id: userContext?.user.id
-    })
+  const createProject = async () => {
+    if (userContext?.authenticated) {
+      const newProject = await PostProject({
+        name: formState.name,
+        git_url: formState.gitUrl,
+        owner_id: userContext.user.id
+      })
 
-    userContext?.addProject(newProject.data)
-    navigate(`/${userContext?.user.username}/${formState.name}`)
+      userContext?.addProject(newProject.data)
+      navigate(`/${userContext?.user.username}/${formState.name}`)
+    }
+    
     resetFormState()
   }
   

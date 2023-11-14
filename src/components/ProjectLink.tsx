@@ -1,8 +1,8 @@
 import '../styles/ProjectLink.css'
 import { Link } from 'react-router-dom'
-import { ProjectLinkPropsType } from '../types/props'
+import { ProjectOwnerPropsType } from '../types/props'
 
-const ProjectLink = (props: ProjectLinkPropsType) => {
+const ProjectLink = (props: ProjectOwnerPropsType) => {
   
   return (
     <Link to={`/${props.owner.username}/${props.project?.name}`} className='project-link'>

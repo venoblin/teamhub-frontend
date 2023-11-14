@@ -1,7 +1,7 @@
 import { ProjectType } from "./project"
 
 export interface UserPayloadType {
-  id: number,
+  id: number | null,
   name: string,
   username: string,
   email: string
