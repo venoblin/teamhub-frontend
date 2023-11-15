@@ -9,7 +9,8 @@ import ProjectNav from '../ProjectNav'
 
 const Project = () => {
   const userContext = useContext(UserContext)
-  const [project, setProject] = useProject(useParams().projectName)
+  const [project, setProject] = useProject()
+  const { projectName } = useParams()
 
   useEffect(() => {
     if (typeof projectName !== 'undefined') {
