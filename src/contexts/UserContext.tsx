@@ -41,6 +41,10 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUser({...user, projects: newProjects})
   }
 
+  const postProject = (project: ProjectType) => {
+    
+  }
+
   const findProject = (name: string) => {
     let foundProject = null
 

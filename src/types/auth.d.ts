@@ -1,4 +1,4 @@
-export interface PayloadType {
+export interface LoginType {
   email: string,
   password: string
 }
