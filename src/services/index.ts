@@ -10,7 +10,7 @@ export const PostProject = async (project: ProjectPayloadType) => {
   }
 }
 
-export const DeleteProject = async (id: number) => {
+export const DeleteProject = async (id: number | null) => {
   try {
     const res = await Client.delete(`/projects/${id}`)
     return res
