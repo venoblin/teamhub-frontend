@@ -21,7 +21,7 @@ const RecentProjects = () => {
       <div className='projects'>
         {userContext?.user.projects ? (
           userContext.user.projects.map(project => (
-            <ProjectLink key={project.id} owner={userContext.user} project={project} />
+            <ProjectLink key={project.id} project={project} />
           ))
         ) : (
           <p>No projects found!</p>

@@ -7,10 +7,6 @@ export interface ProjectPropsType extends Props {
   project: ProjectType
 }
 
-export interface ProjectOwnerPropsType extends ProjectPropsType {
-  owner: UserType
-}
-
 export interface BugPropsType extends Props {
   singleBug: BugType
 }

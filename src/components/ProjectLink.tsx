@@ -1,12 +1,15 @@
 import '../styles/ProjectLink.css'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { ProjectOwnerPropsType } from '../types/props'
+import { UserContext } from '../contexts/UserContext'
+import { ProjectPropsType } from '../types/props'
 
-const ProjectLink = (props: ProjectOwnerPropsType) => {
+const ProjectLink = (props: ProjectPropsType) => {
+  const userContext = useContext(UserContext)
   
   return (
-    <Link to={`/${props.owner.username}/${props.project?.name}`} className='project-link'>
-      {`${props.owner.username}/${props.project?.name}`}
+    <Link to={`/${userContext?.user.username}/${props.project?.name}`} className='project-link'>
+      {`${userContext?.user.username}/${props.project?.name}`}
     </Link>
   )
 }

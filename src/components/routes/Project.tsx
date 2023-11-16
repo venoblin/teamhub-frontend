@@ -24,11 +24,11 @@ const Project = () => {
     <div className='project'>
       
       {userContext?.user &&
-        <ProjectNav owner={userContext.user} project={project} />
+        <ProjectNav project={project} />
       }
 
       <Routes>
-        <Route path='/' element={<ProjectFeed />} />
+        <Route path='/' element={<ProjectFeed project={project} />} />
       </Routes>
       
       
