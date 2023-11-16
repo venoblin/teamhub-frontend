@@ -1,16 +1,19 @@
 import '../../../styles/ProjectSettings.css'
 import { useNavigate } from 'react-router-dom'
-import { DeleteProject } from '../../../services'
+import { useContext } from 'react'
+import { UserContext } from '../../../contexts/UserContext'
 import { ProjectPropsType } from '../../../types/props'
 
 const ProjectSettings = (props: ProjectPropsType) => {
+  const userContext = useContext(UserContext)
   const navigate = useNavigate()
 
-  const deleteProject = () => {
-    DeleteProject(props.project.id)
-    navigate('/')
+  const deleteProject = async () => {
+    if (props.project.id) {
+      await userContext?.deleteProject(props.project.id)
+      navigate('/')
+    }
   }
-  
   
   return (
     <div className='project-settings'>

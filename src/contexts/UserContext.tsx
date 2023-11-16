@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserPayloadType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { GetUser, PostProject } from '../services'
+import { DeleteProject, GetUser, PostProject } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import { ProjectPayloadType } from '../types/project'
@@ -51,6 +51,10 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
+  const deleteProject = async (id: number) => {
+    await DeleteProject(id)
+  }
+
   const findProject = (name: string) => {
     let foundProject = null
 
@@ -75,6 +79,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         updateUser,
         findProject,
         postProject,
+        deleteProject,
         authenticated, 
         toggleAuthenticated,
         handleLogout
