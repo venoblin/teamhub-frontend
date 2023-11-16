@@ -22,11 +22,8 @@ const Project = () => {
 
   return (
     <div className='project'>
+      <ProjectNav project={project} />
       
-      {userContext?.user &&
-        <ProjectNav project={project} />
-      }
-
       <Routes>
         <Route path='/' element={<ProjectFeed project={project} />} />
       </Routes>
