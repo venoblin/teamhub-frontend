@@ -1,1 +1,14 @@
-/*# sourceMappingURL=ProjectNav.css.map */
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+}
+.project-nav .links {
+  display: flex;
+  align-items: center;
+}
+.project-nav .links * {
+  margin-left: 0.75rem;
+}
+.project-nav .links *:first-child {
+  margin-left: 0;
+}/*# sourceMappingURL=ProjectNav.css.map */

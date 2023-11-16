@@ -11,7 +11,7 @@ const NavBar = () => {
   }
   
   return (
-    <nav className='navbar'>
+    <nav className='main-nav'>
       <h2>Project Manager</h2>
 
       <div className='links'>

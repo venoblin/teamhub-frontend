@@ -10,8 +10,9 @@ const ProjectNav = (props: ProjectPropsType) => {
   const projectLink = `/${userContext?.user.username}/${props.project?.name}`
   
   return (
-    <nav>
+    <nav className='project-nav'>
       <div className='links'>
+        <p>{props.project.name}</p>
         <Link to={projectLink}>Feed</Link>
         <Link to={`${projectLink}/settings`}>Settings</Link>
       </div>

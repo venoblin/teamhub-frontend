@@ -1,11 +1,11 @@
-nav {
+.main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-nav a {
+.main-nav a {
   margin-left: 0.75rem;
 }
-nav a:first-of-type {
+.main-nav a:first-of-type {
   margin-left: 0;
 }/*# sourceMappingURL=NavBar.css.map */
