@@ -43,8 +43,6 @@ export const UserProvider = (props: PropsWithChildren) => {
         owner_id: user.id
       })
 
-      console.log(project)
-
       const newProjects = [...user.projects]
       newProjects.push(project)
       setUser({...user, projects: newProjects})
