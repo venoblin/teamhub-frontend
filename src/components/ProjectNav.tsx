@@ -19,7 +19,7 @@ const ProjectNav = (props: ProjectPropsType) => {
 
       <div className='icon-links'>
         {props.project?.git_url.length ? (
-          <Link to='' target='_blank'>Git</Link>
+          <Link to={props.project.git_url} target='_blank'>Git</Link>
         ) : (
           ''
         )}
