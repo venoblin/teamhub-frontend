@@ -3,9 +3,8 @@ import { Route, Routes, useParams } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import useProject from '../../hooks/useProject'
 import { UserContext } from '../../contexts/UserContext'
-import Todos from '../Todos'
-import Bugs from '../Bugs'
 import ProjectNav from '../ProjectNav'
+import ProjectFeed from './project/ProjectFeed'
 
 const Project = () => {
   const userContext = useContext(UserContext)
@@ -27,11 +26,12 @@ const Project = () => {
       {userContext?.user &&
         <ProjectNav owner={userContext.user} project={project} />
       }
-      
-      <h1>{project?.name}</h1>
 
-      <Todos project={project} />
-      <Bugs project={project} />
+      <Routes>
+        <Route path='/' element={<ProjectFeed />} />
+      </Routes>
+      
+      
     </div>
   )
 }
