@@ -10,7 +10,7 @@ const ProjectSettings = (props: ProjectPropsType) => {
 
   const deleteProject = async () => {
     if (props.project.id) {
-      await userContext?.deleteProject(props.project.id)
+      await userContext?.deleteProject(props.project)
       navigate('/')
     }
   }

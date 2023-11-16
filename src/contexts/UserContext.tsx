@@ -4,7 +4,7 @@ import { CheckSession } from '../services/auth'
 import { DeleteProject, GetUser, PostProject } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
-import { ProjectPayloadType } from '../types/project'
+import { ProjectPayloadType, ProjectType } from '../types/project'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -49,8 +49,16 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
-  const deleteProject = async (id: number) => {
-    await DeleteProject(id)
+  const deleteProject = async (project: ProjectType) => {
+    await DeleteProject(project.id)
+
+    const newProjects = [...user.projects]
+    user.projects.forEach((p, i) => {
+      if (p.id === project.id) {
+        newProjects.splice(i, 1);
+      }
+    })
+    setUser({...user, projects: newProjects})
   }
 
   const findProject = (name: string) => {
