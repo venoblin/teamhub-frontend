@@ -1,6 +1,7 @@
-import '../../styles/ProjectSettings.css'
+import '../../../styles/ProjectSettings.css'
+import { ProjectPropsType } from '../../../types/props'
 
-const ProjectSettings = () => {
+const ProjectSettings = (props: ProjectPropsType) => {
   
   return (
     <div className='project-settings'>
