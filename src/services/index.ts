@@ -4,7 +4,7 @@ import Client from './api'
 export const PostProject = async (project: ProjectPayloadType) => {
   try {
     const res = await Client.post('/projects', project)
-    return res
+    return res.data
   } catch (err) {
     throw err
   }

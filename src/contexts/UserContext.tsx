@@ -1,10 +1,10 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserPayloadType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { GetUser } from '../services'
+import { GetUser, PostProject } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
-import { ProjectType } from '../types/project'
+import { ProjectPayloadType } from '../types/project'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -35,14 +35,20 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
-  const addProject = (project: ProjectType) => {
-    const newProjects = [...user.projects]
-    newProjects.push(project)
-    setUser({...user, projects: newProjects})
-  }
+  const postProject = async (payload: ProjectPayloadType) => {
+    if (user.id) {
+      const project = await PostProject({
+        name: payload.name,
+        git_url: payload.git_url,
+        owner_id: user.id
+      })
 
-  const postProject = (project: ProjectType) => {
-    
+      console.log(project)
+
+      const newProjects = [...user.projects]
+      newProjects.push(project)
+      setUser({...user, projects: newProjects})
+    }
   }
 
   const findProject = (name: string) => {
@@ -68,7 +74,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         setUser,
         updateUser,
         findProject,
-        addProject,
+        postProject,
         authenticated, 
         toggleAuthenticated,
         handleLogout

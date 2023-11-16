@@ -5,25 +5,19 @@ import InputHandler from '../../classes/InputHandler'
 import FormHandler from '../../classes/FormHandler'
 import useFormState from '../../hooks/useFormState'
 import { UserContext } from '../../contexts/UserContext'
-import { PostProject } from '../../services'
 
 const NewProject = () => {
   const userContext = useContext(UserContext)
-  const [formState, setFormState, resetFormState] = useFormState(['name', 'gitUrl'])
+  const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url'])
   const navigate = useNavigate()
 
   const createProject = async () => {
-    if (userContext?.authenticated) {
-      const newProject = await PostProject({
-        name: formState.name,
-        git_url: formState.gitUrl,
-        owner_id: userContext.user.id
-      })
-
-      userContext?.addProject(newProject.data)
-      navigate(`/${userContext?.user.username}/${formState.name}`)
-      resetFormState()
-    }
+    await userContext?.postProject({
+      name: formState.name,
+      git_url: formState.git_url,
+    })
+    navigate(`/${userContext?.user.username}/${formState.name}`)
+    resetFormState()
   }
   
   return (
@@ -41,12 +35,12 @@ const NewProject = () => {
           onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
 
-        <label htmlFor="gitUrl">Git Url (optional)</label>
+        <label htmlFor="git_url">Git Url (optional)</label>
         <input 
-          type='gitUrl' 
-          id='gitUrl' 
-          name='gitUrl'
-          value={formState.gitUrl}
+          type='git_url' 
+          id='git_url' 
+          name='git_url'
+          value={formState.git_url}
           onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
         />
 
