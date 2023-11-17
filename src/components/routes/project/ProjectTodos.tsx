@@ -22,7 +22,10 @@ const ProjectTodos = (props: ProjectPropsType) => {
     <div className='project-todos'>
       <h1>Todos</h1>
 
-      <button onClick={toggleMode}>Add</button>
+      <button onClick={toggleMode}>
+        {addMode ? 'X' : 'Add'}
+      </button>
+
       {addMode && 
         <form onSubmit={(evt) => FormHandler.submit(evt, createTodo)}>
           <label htmlFor="todo">Todo</label>
