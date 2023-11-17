@@ -7,9 +7,6 @@ const ProjectFeed = (props: ProjectPropsType) => {
   return (
     <div className='project-feed'>
       <h1>Feed</h1>
-
-      <Todos project={props.project} />
-      <Bugs project={props.project} />
     </div>
   )
 }

@@ -14,6 +14,8 @@ const ProjectNav = (props: ProjectPropsType) => {
       <div className='links'>
         <p>{props.project.name}</p>
         <Link to={projectLink}>Feed</Link>
+        <Link to={`${projectLink}/todos`}>Todos</Link>
+        <Link to={`${projectLink}/bugs`}>Bugs</Link>
         <Link to={`${projectLink}/settings`}>Settings</Link>
       </div>
 
