@@ -17,7 +17,7 @@ const ProjectSettings = (props: ProjectPropsType) => {
   
   return (
     <div className='project-settings'>
-      <h1>Project settings</h1>
+      <h1>Settings</h1>
 
       <button onClick={deleteProject}>DELETE</button>
     </div>

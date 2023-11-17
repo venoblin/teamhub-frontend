@@ -31,7 +31,7 @@ const Project = () => {
         <Route path='/' element={<ProjectFeed project={project} />} />
         <Route path='/settings' element={<ProjectSettings project={project} />} />
         <Route path='/todos' element={<ProjectTodos />} />
-        <Route path='/bugs' element={<ProjectBugs />} />
+        <Route path='/bugs' element={<ProjectBugs project={project} />} />
       </Routes>
       
       
