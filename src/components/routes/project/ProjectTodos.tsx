@@ -13,12 +13,16 @@ const ProjectTodos = (props: ProjectPropsType) => {
   const createTodo = () => {
     resetFormState()
   }
+
+  const toggleMode = () => {
+    toggleAddMode()
+  }
   
   return (
     <div className='project-todos'>
       <h1>Todos</h1>
 
-      <button onClick={toggleAddMode}>Add</button>
+      <button onClick={toggleMode}>Add</button>
       {addMode && 
         <form onSubmit={(evt) => FormHandler.submit(evt, createTodo)}>
           <label htmlFor="todo">Todo</label>
