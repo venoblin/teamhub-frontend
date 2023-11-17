@@ -15,6 +15,7 @@ const ProjectTodos = (props: ProjectPropsType) => {
   }
 
   const toggleMode = () => {
+    resetFormState()
     toggleAddMode()
   }
   

@@ -15,6 +15,7 @@ const ProjectBugs = (props: ProjectPropsType) => {
   }
 
   const toggleMode = () => {
+    resetFormState()
     toggleAddMode()
   }
   
