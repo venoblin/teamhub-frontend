@@ -38,7 +38,7 @@ const ProjectTodos = (props: ProjectPropsType) => {
             value={formState.todo}
             onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
           />
-          <button>Create</button>
+          <button>Add Todo</button>
         </form>
       }
 

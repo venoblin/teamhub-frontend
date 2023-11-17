@@ -47,7 +47,7 @@ const ProjectBugs = (props: ProjectPropsType) => {
             value={formState.bug_info}
             onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
           />
-          <button>Create</button>
+          <button>Add Bug</button>
         </form>
       }
 
