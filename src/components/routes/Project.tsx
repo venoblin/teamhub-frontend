@@ -6,6 +6,8 @@ import { UserContext } from '../../contexts/UserContext'
 import ProjectNav from '../ProjectNav'
 import ProjectFeed from './project/ProjectFeed'
 import ProjectSettings from './project/ProjectSettings'
+import ProjectTodos from './project/ProjectTodos'
+import ProjectBugs from './project/ProjectBugs'
 
 const Project = () => {
   const userContext = useContext(UserContext)
@@ -28,6 +30,8 @@ const Project = () => {
       <Routes>
         <Route path='/' element={<ProjectFeed project={project} />} />
         <Route path='/settings' element={<ProjectSettings project={project} />} />
+        <Route path='/todos' element={<ProjectTodos />} />
+        <Route path='/bugs' element={<ProjectBugs />} />
       </Routes>
       
       
