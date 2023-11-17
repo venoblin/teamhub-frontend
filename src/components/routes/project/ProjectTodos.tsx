@@ -11,7 +11,6 @@ const ProjectTodos = (props: ProjectPropsType) => {
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
 
   const createTodo = () => {
-    console.log('todo')
     resetFormState()
   }
   
