@@ -1,4 +1,5 @@
 import { ProjectPayloadType, ProjectType } from "./project"
+import { TodoPayloadType, TodoType } from "./todo"
 
 export interface UserPayloadType {
   id: number | null,
@@ -18,6 +19,7 @@ export interface UserContextType {
   findProject: (name: string) => ProjectType | null,
   postProject: (payload: ProjectPayloadType) => void,
   deleteProject: (project: ProjectType) => void,
+  postTodo: (todo: TodoPayloadType) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

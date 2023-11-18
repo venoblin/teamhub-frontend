@@ -1,10 +1,11 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserPayloadType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteProject, GetUser, PostProject } from '../services'
+import { DeleteProject, GetUser, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import { ProjectPayloadType, ProjectType } from '../types/project'
+import { TodoPayloadType } from '../types/todo'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -71,6 +72,10 @@ export const UserProvider = (props: PropsWithChildren) => {
     return foundProject
   }
 
+  const postTodo = async (todo: TodoPayloadType) => {
+    return PostTodo(todo)
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -86,6 +91,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         findProject,
         postProject,
         deleteProject,
+        postTodo,
         authenticated, 
         toggleAuthenticated,
         handleLogout
