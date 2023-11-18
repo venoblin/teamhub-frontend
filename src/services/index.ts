@@ -2,9 +2,9 @@ import { ProjectPayloadType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import Client from './api'
 
-export const PostProject = async (project: ProjectPayloadType) => {
+export const PostProject = async (payload: ProjectPayloadType) => {
   try {
-    const res = await Client.post('/projects', project)
+    const res = await Client.post('/projects', payload)
     return res.data
   } catch (err) {
     throw err
@@ -20,9 +20,9 @@ export const DeleteProject = async (id: number | null) => {
   }
 }
 
-export const PostTodo = async (todo: TodoPayloadType) => {
+export const PostTodo = async (payload: TodoPayloadType) => {
   try {
-    const res = await Client.post('/todos', todo)
+    const res = await Client.post('/todos', payload)
     return res.data
   } catch (err) {
     throw err

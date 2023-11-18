@@ -19,7 +19,7 @@ const ProjectTodos = (props: ProjectPropsType) => {
         todo: formState.todo,
         project_id: props.project.id
       }
-      userContext?.postTodo(payload)
+      userContext?.postTodo(payload, props.project)
       resetFormState()
     }
   }

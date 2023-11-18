@@ -36,6 +36,16 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
+  const findProject = (name: string) => {
+    let foundProject = null
+
+    user.projects?.forEach(project => {
+      if (project.name === name) foundProject = project
+    })
+
+    return foundProject
+  }
+
   const postProject = async (payload: ProjectPayloadType) => {
     if (user.id) {
       const project = await PostProject({
@@ -62,18 +72,12 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUser({...user, projects: newProjects})
   }
 
-  const findProject = (name: string) => {
-    let foundProject = null
+  const postTodo = async (payload: TodoPayloadType, project: ProjectType) => {
+    const todo = await PostTodo(payload)
 
-    user.projects?.forEach(project => {
-      if (project.name === name) foundProject = project
-    })
-
-    return foundProject
-  }
-
-  const postTodo = async (todo: TodoPayloadType) => {
-    return PostTodo(todo)
+    const newTodos = [...project.todos]
+    newTodos.push(todo)
+    const newProject = {...project, todos: newTodos}
   }
 
   useEffect(() => {
