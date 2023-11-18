@@ -1,4 +1,6 @@
 import '../../../styles/ProjectTodos.css'
+import { useContext } from 'react'
+import { UserContext } from '../../../contexts/UserContext'
 import useToggle from '../../../hooks/useToggle'
 import useFormState from '../../../hooks/useFormState'
 import { ProjectPropsType } from '../../../types/props'
@@ -7,11 +9,19 @@ import FormHandler from '../../../classes/FormHandler'
 import Todos from '../../Todos'
 
 const ProjectTodos = (props: ProjectPropsType) => {
+  const userContext = useContext(UserContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
 
   const createTodo = () => {
-    resetFormState()
+    if (props.project.id) {
+      const payload = {
+        todo: formState.todo,
+        project_id: props.project.id
+      }
+      userContext?.postTodo(payload)
+      resetFormState()
+    }
   }
 
   const toggleMode = () => {
