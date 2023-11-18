@@ -1,5 +1,8 @@
-export interface TodoType {
+export interface TodoPayloadType {
   todo: string,
-  id: number,
   project_id: number
+}
+
+export interface TodoType extends TodoPayloadType {
+  id: number
 }
