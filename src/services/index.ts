@@ -22,7 +22,8 @@ export const DeleteProject = async (id: number | null) => {
 
 export const PostTodo = async (todo: TodoPayloadType) => {
   try {
-    const res = await.Client.post('/todos', todo)
+    const res = await Client.post('/todos', todo)
+    return res.data
   } catch (err) {
     throw err
   }
