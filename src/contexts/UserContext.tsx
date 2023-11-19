@@ -77,7 +77,14 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newTodos = [...project.todos]
     newTodos.push(todo)
-    const newProject = {...project, todos: newTodos}
+
+    const newProjects = [...user.projects]
+    newProjects.forEach((p, i) => {
+      if (p.id === project.id) {
+        newProjects[i] = {...p, todos: newTodos}
+      }
+    })
+    setUser({...user, projects: newProjects})
   }
 
   useEffect(() => {
