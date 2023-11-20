@@ -4,7 +4,7 @@ import { CheckSession } from '../services/auth'
 import { DeleteProject, GetUser, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
-import useAllProjects from '../hooks/useUserProjects'
+import useUserProjects from '../hooks/useUserProjects'
 import { ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 
@@ -12,7 +12,7 @@ export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser, resetUser] = useUser()
-  const [projects, setProjects] = useAllProjects()
+  const [projects, setProjects] = useUserProjects()
   const [authenticated, toggleAuthenticated] = useToggle(false)
 
   const handleLogout = () => {
