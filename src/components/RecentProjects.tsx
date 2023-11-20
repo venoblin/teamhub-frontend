@@ -19,8 +19,8 @@ const RecentProjects = () => {
       <button onClick={newHandler}>New</button>
 
       <div className='projects'>
-        {userContext?.user.projects ? (
-          userContext.user.projects.map(project => (
+        {userContext?.projects ? (
+          userContext.projects.map(project => (
             <ProjectLink key={project.id} project={project} />
           ))
         ) : (

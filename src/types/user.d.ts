@@ -1,15 +1,11 @@
 import { ProjectPayloadType, ProjectType } from "./project"
 import { TodoPayloadType, TodoType } from "./todo"
 
-export interface UserPayloadType {
+export interface UserType {
   id: number | null,
   name: string,
   username: string,
   email: string
-}
-
-export interface UserType extends UserPayloadType {
-  projects: ProjectType[]
 }
 
 export interface UserContextType {
@@ -17,6 +13,8 @@ export interface UserContextType {
   setUser: (user: UserType) => void,
   getAndSetUser: (id: number) => void,
   updateUser: () => void,
+  projects: ProjectType[],
+  setProjects: (projects: ProjectType[]) => void,
   findProject: (name: string) => ProjectType | null,
   postProject: (payload: ProjectPayloadType) => void,
   deleteProject: (project: ProjectType) => void,

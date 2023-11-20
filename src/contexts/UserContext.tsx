@@ -1,9 +1,10 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
-import { UserPayloadType, UserContextType } from '../types/user'
+import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
 import { DeleteProject, GetUser, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
+import useAllProjects from '../hooks/useUserProjects'
 import { ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 
@@ -11,6 +12,7 @@ export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser, resetUser] = useUser()
+  const [projects, setProjects] = useAllProjects()
   const [authenticated, toggleAuthenticated] = useToggle(false)
 
   const handleLogout = () => {
@@ -23,13 +25,19 @@ export const UserProvider = (props: PropsWithChildren) => {
     if (typeof id === 'number') {
       const userRes = await GetUser(id)
 
-      setUser({...userRes})
+      setUser({
+        id: userRes.id,
+        username: userRes.username,
+        name: userRes.name,
+        email: userRes.email
+      })
+      setProjects([...userRes.projects])
       toggleAuthenticated(true)
     }
   }
 
   const checkToken = async () => {
-    const userPayload: UserPayloadType = await CheckSession()
+    const userPayload: UserType = await CheckSession()
     
     if (userPayload.id) await getAndSetUser(userPayload.id)
   }
@@ -44,7 +52,7 @@ export const UserProvider = (props: PropsWithChildren) => {
   const findProject = (name: string) => {
     let foundProject = null
 
-    user.projects?.forEach(project => {
+    projects.forEach(project => {
       if (project.name === name) foundProject = project
     })
 
@@ -53,28 +61,28 @@ export const UserProvider = (props: PropsWithChildren) => {
 
   const postProject = async (payload: ProjectPayloadType) => {
     if (user.id) {
-      const project = await PostProject({
+      const newProject = await PostProject({
         name: payload.name,
         git_url: payload.git_url,
         owner_id: user.id
       })
 
-      const newProjects = [...user.projects]
-      newProjects.push(project)
-      setUser({...user, projects: newProjects})
+      const updatedProjects = [...projects]
+      updatedProjects.push(newProject)
+      setProjects([...updatedProjects])
     }
   }
 
   const deleteProject = async (project: ProjectType) => {
     await DeleteProject(project.id)
 
-    const newProjects = [...user.projects]
-    user.projects.forEach((p, i) => {
+    const updatedProjects = [...projects]
+    updatedProjects.forEach((p, i) => {
       if (p.id === project.id) {
-        newProjects.splice(i, 1);
+        updatedProjects.splice(i, 1);
       }
     })
-    setUser({...user, projects: newProjects})
+    setProjects([...updatedProjects])
   }
 
   const postTodo = async (payload: TodoPayloadType, project: ProjectType) => {
@@ -83,13 +91,13 @@ export const UserProvider = (props: PropsWithChildren) => {
     const newTodos = [...project.todos]
     newTodos.push(todo)
 
-    const newProjects = [...user.projects]
-    newProjects.forEach((p, i) => {
+    const updatedProjects = [...projects]
+    updatedProjects.forEach((p, i) => {
       if (p.id === project.id) {
-        newProjects[i] = {...p, todos: newTodos}
+        updatedProjects[i] = {...p, todos: newTodos}
       }
     })
-    setUser({...user, projects: newProjects})
+    setProjects([...updatedProjects])
   }
 
   useEffect(() => {
@@ -105,6 +113,8 @@ export const UserProvider = (props: PropsWithChildren) => {
         setUser,
         getAndSetUser,
         updateUser,
+        projects,
+        setProjects,
         findProject,
         postProject,
         deleteProject,
