@@ -19,14 +19,19 @@ export const UserProvider = (props: PropsWithChildren) => {
     localStorage.clear()
   }
 
-  const checkToken = async () => {
-    const userPayload: UserPayloadType = await CheckSession()
-    
-    if (typeof userPayload.id === 'number') {
-      const userRes = await GetUser(userPayload.id)
+  const getAndSetUser = async (id: number) => {
+    if (typeof id === 'number') {
+      const userRes = await GetUser(id)
+
       setUser({...userRes})
       toggleAuthenticated(true)
     }
+  }
+
+  const checkToken = async () => {
+    const userPayload: UserPayloadType = await CheckSession()
+    
+    if (userPayload.id) await getAndSetUser(userPayload.id)
   }
 
   const updateUser = async () => {
@@ -98,6 +103,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     <UserContext.Provider value={{
         user, 
         setUser,
+        getAndSetUser,
         updateUser,
         findProject,
         postProject,

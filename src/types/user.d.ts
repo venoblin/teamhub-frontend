@@ -15,6 +15,7 @@ export interface UserType extends UserPayloadType {
 export interface UserContextType {
   user: UserType,
   setUser: (user: UserType) => void,
+  getAndSetUser: (id: number) => void,
   updateUser: () => void,
   findProject: (name: string) => ProjectType | null,
   postProject: (payload: ProjectPayloadType) => void,

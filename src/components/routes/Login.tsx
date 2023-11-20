@@ -17,11 +17,7 @@ const Login = () => {
     try {
       const payload = await LoginUser(formState)
       
-      if (typeof payload.id === 'number') {
-        const userRes = await GetUser(payload.id)
-        userContext?.setUser({...userRes})
-        userContext?.toggleAuthenticated(true)
-      }
+      userContext?.getAndSetUser(payload.id)
       navigate('/')
     } catch (err) {
       console.error('There was an error!')
