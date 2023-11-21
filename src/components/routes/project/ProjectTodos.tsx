@@ -13,13 +13,13 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
 
-  const createTodo = () => {
+  const createTodo = async () => {
     if (props.project.id) {
       const payload = {
         todo: formState.todo,
         project_id: props.project.id
       }
-      userContext?.postTodo(payload, props.project, props.setProject)
+      await userContext?.postTodo(payload, props.project, props.setProject)
       resetFormState()
     }
   }

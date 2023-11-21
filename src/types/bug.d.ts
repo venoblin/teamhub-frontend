@@ -1,6 +1,9 @@
-export interface BugType {
+export interface BugPayloadType {
   bug: string,
   bug_info: string,
-  id: number,
   project_id: number
+}
+
+export interface BugType extends BugPayloadType {
+  id: number
 }

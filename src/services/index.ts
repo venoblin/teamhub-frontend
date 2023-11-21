@@ -1,3 +1,4 @@
+import { BugPayloadType } from '../types/bug'
 import { ProjectPayloadType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import Client from './api'
@@ -23,6 +24,15 @@ export const DeleteProject = async (id: number | null) => {
 export const PostTodo = async (payload: TodoPayloadType) => {
   try {
     const res = await Client.post('/todos', payload)
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}
+
+export const PostBug = async (payload: BugPayloadType) => {
+  try {
+    const res = await Client.post('/bugs', payload)
     return res.data
   } catch (err) {
     throw err
