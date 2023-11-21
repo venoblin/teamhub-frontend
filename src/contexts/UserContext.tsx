@@ -69,7 +69,7 @@ export const UserProvider = (props: PropsWithChildren) => {
 
       const updatedProjects = [...userProjects]
       updatedProjects.push(newProject)
-      setUserProjects([...updatedProjects])
+      setUserProjects(updatedProjects)
     }
   }
 
@@ -82,7 +82,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         updatedProjects.splice(i, 1);
       }
     })
-    setUserProjects([...updatedProjects])
+    setUserProjects(updatedProjects)
   }
 
   const postTodo = async (payload: TodoPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
@@ -97,7 +97,7 @@ export const UserProvider = (props: PropsWithChildren) => {
       }
     })
     setProject(newProject)
-    setUserProjects([...updatedProjects])
+    setUserProjects(updatedProjects)
   }
 
   useEffect(() => {
