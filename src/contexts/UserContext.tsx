@@ -12,7 +12,7 @@ export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser, resetUser] = useUser()
-  const [projects, setProjects] = useUserProjects()
+  const [userProjects, setUserProjects] = useUserProjects()
   const [authenticated, toggleAuthenticated] = useToggle(false)
 
   const handleLogout = () => {
@@ -31,7 +31,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         name: userRes.name,
         email: userRes.email
       })
-      setProjects([...userRes.projects])
+      setUserProjects([...userRes.projects])
       toggleAuthenticated(true)
     }
   }
@@ -52,7 +52,7 @@ export const UserProvider = (props: PropsWithChildren) => {
   const findProject = (name: string) => {
     let foundProject = null
 
-    projects.forEach(project => {
+    userProjects.forEach(project => {
       if (project.name === name) foundProject = project
     })
 
@@ -67,37 +67,37 @@ export const UserProvider = (props: PropsWithChildren) => {
         owner_id: user.id
       })
 
-      const updatedProjects = [...projects]
+      const updatedProjects = [...userProjects]
       updatedProjects.push(newProject)
-      setProjects([...updatedProjects])
+      setUserProjects([...updatedProjects])
     }
   }
 
   const deleteProject = async (project: ProjectType) => {
     await DeleteProject(project.id)
 
-    const updatedProjects = [...projects]
+    const updatedProjects = [...userProjects]
     updatedProjects.forEach((p, i) => {
       if (p.id === project.id) {
         updatedProjects.splice(i, 1);
       }
     })
-    setProjects([...updatedProjects])
+    setUserProjects([...updatedProjects])
   }
 
-  const postTodo = async (payload: TodoPayloadType, project: ProjectType) => {
+  const postTodo = async (payload: TodoPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
     const todo = await PostTodo(payload)
 
-    const newTodos = [...project.todos]
-    newTodos.push(todo)
+    const newProject = {...project, todos: [...project.todos, todo]}
 
-    const updatedProjects = [...projects]
+    const updatedProjects = [...userProjects]
     updatedProjects.forEach((p, i) => {
       if (p.id === project.id) {
-        updatedProjects[i] = {...p, todos: newTodos}
+        updatedProjects[i] = newProject
       }
     })
-    setProjects([...updatedProjects])
+    setProject(newProject)
+    setUserProjects([...updatedProjects])
   }
 
   useEffect(() => {
@@ -113,8 +113,8 @@ export const UserProvider = (props: PropsWithChildren) => {
         setUser,
         getAndSetUser,
         updateUser,
-        projects,
-        setProjects,
+        userProjects,
+        setUserProjects,
         findProject,
         postProject,
         deleteProject,

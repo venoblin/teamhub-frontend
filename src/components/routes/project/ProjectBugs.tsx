@@ -1,12 +1,12 @@
 import '../../../styles/ProjectBugs.css'
 import useToggle from '../../../hooks/useToggle'
 import useFormState from '../../../hooks/useFormState'
-import { ProjectPropsType } from '../../../types/props'
+import { SetProjectPropsType } from '../../../types/props'
 import InputHandler from '../../../classes/InputHandler'
 import FormHandler from '../../../classes/FormHandler'
 import Bugs from '../../Bugs'
 
-const ProjectBugs = (props: ProjectPropsType) => {
+const ProjectBugs = (props: SetProjectPropsType) => {
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['bug', 'bug_info'])
 

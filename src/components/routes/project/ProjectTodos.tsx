@@ -3,12 +3,12 @@ import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 import useToggle from '../../../hooks/useToggle'
 import useFormState from '../../../hooks/useFormState'
-import { ProjectPropsType } from '../../../types/props'
+import { SetProjectPropsType } from '../../../types/props'
 import InputHandler from '../../../classes/InputHandler'
 import FormHandler from '../../../classes/FormHandler'
 import Todos from '../../Todos'
 
-const ProjectTodos = (props: ProjectPropsType) => {
+const ProjectTodos = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
@@ -19,7 +19,7 @@ const ProjectTodos = (props: ProjectPropsType) => {
         todo: formState.todo,
         project_id: props.project.id
       }
-      userContext?.postTodo(payload, props.project)
+      userContext?.postTodo(payload, props.project, props.setProject)
       resetFormState()
     }
   }
