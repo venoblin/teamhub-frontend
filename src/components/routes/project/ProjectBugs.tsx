@@ -5,13 +5,24 @@ import { SetProjectPropsType } from '../../../types/props'
 import InputHandler from '../../../classes/InputHandler'
 import FormHandler from '../../../classes/FormHandler'
 import Bugs from '../../Bugs'
+import { useContext } from 'react'
+import { UserContext } from '../../../contexts/UserContext'
 
 const ProjectBugs = (props: SetProjectPropsType) => {
+  const userContext = useContext(UserContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['bug', 'bug_info'])
 
-  const createBug = () => {
-    resetFormState()
+  const createBug = async () => {
+    if (props.project.id) {
+      const payload = {
+        bug: formState.bug,
+        bug_info: formState.bug_info,
+        project_id: props.project.id
+      }
+      await userContext?.postBug(payload, props.project, props.setProject)
+      resetFormState()
+    }
   }
 
   const toggleMode = () => {
