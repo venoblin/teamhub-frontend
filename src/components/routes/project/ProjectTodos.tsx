@@ -4,8 +4,8 @@ import { UserContext } from '../../../contexts/UserContext'
 import useToggle from '../../../hooks/useToggle'
 import useFormState from '../../../hooks/useFormState'
 import { SetProjectPropsType } from '../../../types/props'
-import InputHandler from '../../../classes/InputHandler'
-import FormHandler from '../../../classes/FormHandler'
+import { changeListen } from '../../../utils/inputHandler'
+import { submit } from '../../../utils/formHandler'
 import Todos from '../../Todos'
 
 const ProjectTodos = (props: SetProjectPropsType) => {
@@ -39,7 +39,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
       </button>
 
       {addMode && 
-        <form onSubmit={(evt) => FormHandler.submit(evt, createTodo)}>
+        <form onSubmit={(evt) => submit(evt, createTodo)}>
           <label htmlFor="todo">Todo</label>
           <input 
             type='todo' 
@@ -47,7 +47,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
             name='todo' 
             required
             value={formState.todo}
-            onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
           />
           <button>Add Todo</button>
         </form>

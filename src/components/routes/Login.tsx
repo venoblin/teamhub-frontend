@@ -3,8 +3,8 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LoginUser } from '../../services/auth'
 import { UserContext } from '../../contexts/UserContext'
-import FormHandler from '../../classes/FormHandler'
-import InputHandler from '../../classes/InputHandler'
+import { changeListen } from '../../utils/inputHandler'
+import { submit } from '../../utils/formHandler'
 import useFormState from '../../hooks/useFormState'
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
     <div className='login'>
       <h1>Login</h1>
 
-      <form onSubmit={(evt) => FormHandler.submit(evt, loginUser)}>
+      <form onSubmit={(evt) => submit(evt, loginUser)}>
         <label htmlFor='email'>Email</label>
         <input 
           type='email' 
@@ -36,7 +36,7 @@ const Login = () => {
           name='email' 
           required
           value={formState.email}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
         <label htmlFor='password'>Password</label>
@@ -46,7 +46,7 @@ const Login = () => {
           name='password' 
           required
           value={formState.password}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
         <button>Login</button>

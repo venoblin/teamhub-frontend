@@ -1,8 +1,8 @@
 import '../../styles/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../../services/auth'
-import FormHandler from '../../classes/FormHandler'
-import InputHandler from '../../classes/InputHandler'
+import { changeListen } from '../../utils/inputHandler'
+import { submit } from '../../utils/formHandler'
 import useFormState from '../../hooks/useFormState'
 
 const Register = () => {
@@ -29,14 +29,14 @@ const Register = () => {
     <div className='register'>
       <h1>Register</h1>
 
-      <form onSubmit={(evt) => FormHandler.submit(evt, registerUser)}>
+      <form onSubmit={(evt) => submit(evt, registerUser)}>
         <label htmlFor='email'>Email</label>
         <input type='email'
           id='email'
           name='email'
           required
           value={formState.email}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
+          onChange={(evt) => changeListen(evt, formState, setFormState)} 
         />
 
         <label htmlFor='password'>Password</label>
@@ -46,7 +46,7 @@ const Register = () => {
           name='password' 
           required
           value={formState.password}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
+          onChange={(evt) => changeListen(evt, formState, setFormState)} 
         />
 
         <label htmlFor='confirmPassword'>Confirm Password</label>
@@ -56,7 +56,7 @@ const Register = () => {
           name='confirmPassword' 
           required
           value={formState.confirmPassword}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
+          onChange={(evt) => changeListen(evt, formState, setFormState)} 
         />
         
         <label htmlFor="name">Name</label>
@@ -66,7 +66,7 @@ const Register = () => {
           name='name' 
           required
           value={formState.name}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)} 
+          onChange={(evt) => changeListen(evt, formState, setFormState)} 
         />
         
         <label htmlFor='username'>Username</label>
@@ -76,7 +76,7 @@ const Register = () => {
           name='username' 
           required
           value={formState.username}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
         <button>Register</button>

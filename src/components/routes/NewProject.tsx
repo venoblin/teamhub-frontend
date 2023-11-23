@@ -1,8 +1,8 @@
 import '../../styles/NewProject.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import InputHandler from '../../classes/InputHandler'
-import FormHandler from '../../classes/FormHandler'
+import { changeListen } from '../../utils/inputHandler'
+import { submit } from '../../utils/formHandler'
 import useFormState from '../../hooks/useFormState'
 import { UserContext } from '../../contexts/UserContext'
 
@@ -24,7 +24,7 @@ const NewProject = () => {
     <div className='new-poject'>
       <h1>New Project</h1>
 
-      <form onSubmit={(evt) => FormHandler.submit(evt, createProject)}>
+      <form onSubmit={(evt) => submit(evt, createProject)}>
         <label htmlFor="name">Name</label>
         <input 
           type='name' 
@@ -32,7 +32,7 @@ const NewProject = () => {
           name='name' 
           required
           value={formState.name}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
         <label htmlFor="git_url">Git Url (optional)</label>
@@ -41,7 +41,7 @@ const NewProject = () => {
           id='git_url' 
           name='git_url'
           value={formState.git_url}
-          onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
         <button>Create</button>

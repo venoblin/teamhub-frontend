@@ -2,8 +2,8 @@ import '../../../styles/ProjectBugs.css'
 import useToggle from '../../../hooks/useToggle'
 import useFormState from '../../../hooks/useFormState'
 import { SetProjectPropsType } from '../../../types/props'
-import InputHandler from '../../../classes/InputHandler'
-import FormHandler from '../../../classes/FormHandler'
+import { changeListen } from '../../../utils/inputHandler'
+import { submit } from '../../../utils/formHandler'
 import Bugs from '../../Bugs'
 import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
@@ -40,7 +40,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
       </button>
 
       {addMode && 
-        <form onSubmit={(evt) => FormHandler.submit(evt, createBug)}>
+        <form onSubmit={(evt) => submit(evt, createBug)}>
           <label htmlFor="bug">Bug</label>
           <input 
             type='bug' 
@@ -48,7 +48,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
             name='bug' 
             required
             value={formState.bug}
-            onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
           />
 
           <label htmlFor="bug_info">Bug Info (optional)</label>
@@ -57,7 +57,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
             id='bug_info' 
             name='bug_info'
             value={formState.bug_info}
-            onChange={(evt) => InputHandler.changeListen(evt, formState, setFormState)}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
           />
           <button>Add Bug</button>
         </form>
