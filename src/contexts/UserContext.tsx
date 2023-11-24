@@ -8,6 +8,7 @@ import useUserProjects from '../hooks/useUserProjects'
 import { ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import { BugPayloadType } from '../types/bug'
+import { updateProjects } from '../utils/userHandler'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -41,13 +42,6 @@ export const UserProvider = (props: PropsWithChildren) => {
     const userPayload: UserType = await CheckSession()
     
     if (userPayload.id) await getAndSetUser(userPayload.id)
-  }
-
-  const updateUser = async () => {
-    if (typeof user.id === 'number') {
-      const userRes = await GetUser(user.id)
-      setUser({...userRes})
-    }
   }
 
   const findProject = (name: string) => {
@@ -91,12 +85,8 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newProject = {...project, todos: [...project.todos, todo]}
 
-    const updatedProjects = [...userProjects]
-    updatedProjects.forEach((p, i) => {
-      if (p.id === project.id) {
-        updatedProjects[i] = newProject
-      }
-    })
+    const updatedProjects = updateProjects(userProjects, project, newProject)
+
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
@@ -106,12 +96,7 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newProject = {...project, bugs: [...project.bugs, bug]}
 
-    const updatedProjects = [...userProjects]
-    updatedProjects.forEach((p, i) => {
-      if (p.id === project.id) {
-        updatedProjects[i] = newProject
-      }
-    })
+    const updatedProjects = updateProjects(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
@@ -128,7 +113,6 @@ export const UserProvider = (props: PropsWithChildren) => {
         user, 
         setUser,
         getAndSetUser,
-        updateUser,
         userProjects,
         setUserProjects,
         findProject,

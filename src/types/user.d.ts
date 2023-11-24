@@ -13,7 +13,6 @@ export interface UserContextType {
   user: UserType,
   setUser: (user: UserType) => void,
   getAndSetUser: (id: number) => void,
-  updateUser: () => void,
   userProjects: ProjectType[],
   setUserProjects: (projects: ProjectType[]) => void,
   findProject: (name: string) => ProjectType | null,
