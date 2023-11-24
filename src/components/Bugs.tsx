@@ -1,9 +1,9 @@
 import '../styles/Bugs.css'
-import { ProjectPropsType } from '../types/props'
+import { SetProjectPropsType } from '../types/props'
 import Panel from './ui/Panel'
 import BugCard from './BugCard'
 
-const Bugs = (props: ProjectPropsType) => {
+const Bugs = (props: SetProjectPropsType) => {
   
   return (
     <Panel className='bugs'>
@@ -11,7 +11,12 @@ const Bugs = (props: ProjectPropsType) => {
       <div>
         {props.project?.bugs.length ? (
           props.project?.bugs.map(singleBug => (
-            <BugCard key={String(singleBug.id)} singleBug={singleBug} />
+            <BugCard 
+              key={String(singleBug.id)} 
+              singleBug={singleBug} 
+              project={props.project}
+              setProject={props.setProject}
+              />
           ))
         ) : (
           <p>No bugs!</p>

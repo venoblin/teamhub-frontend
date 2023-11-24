@@ -11,7 +11,7 @@ export interface SetProjectPropsType extends ProjectPropsType {
   setProject: React.Dispatch<React.SetStateAction<ProjectType>>
 }
 
-export interface BugPropsType extends Props {
+export interface BugPropsType extends SetProjectPropsType {
   singleBug: BugType
 }
 

@@ -63,7 +63,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
         </form>
       }
 
-      <Bugs project={props.project} />
+      <Bugs project={props.project} setProject={props.setProject} />
     </div>
   )
 }
