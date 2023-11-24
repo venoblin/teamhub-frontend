@@ -8,13 +8,18 @@ const TodoCard = (props: TodoPropsType) => {
   const userContext = useContext(UserContext)
 
   const deleteHandler = async () => {
+    await userContext?.deleteTodo(
+      props.project, 
+      props.singleTodo.id,
+      props.setProject
+      )
   }
-  
+
   return (
     <Card>
       <p>{props.singleTodo.todo}</p>
       
-      <button>DELETE</button>
+      <button onClick={deleteHandler}>DELETE</button>
     </Card>
   )
 }

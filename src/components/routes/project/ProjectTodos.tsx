@@ -53,7 +53,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
         </form>
       }
 
-      <Todos project={props.project} />
+      <Todos project={props.project} setProject={props.setProject} />
     </div>
   )
 }
