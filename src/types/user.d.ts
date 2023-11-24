@@ -21,6 +21,7 @@ export interface UserContextType {
   postTodo: (payload: TodoPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   deleteTodo: (project: ProjectType, todoId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   postBug: (payload: BugPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
+  deleteBug: (project: ProjectType, bugId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

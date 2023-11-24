@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteProject, DeleteTodo, GetUser, PostBug, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PostBug, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -111,6 +111,16 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserProjects(updatedProjects)
   }
 
+  const deleteBug = async (project: ProjectType, bugId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
+    await DeleteBug(bugId)
+
+    const newBugs = project.bugs.filter(b => b.id !== bugId)
+    const newProject = {...project, bugs: newBugs}
+    const updatedProjects = updateProjects(userProjects, project, newProject)
+    setProject(newProject)
+    setUserProjects(updatedProjects)
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -131,6 +141,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         postTodo,
         deleteTodo,
         postBug,
+        deleteBug,
         authenticated, 
         toggleAuthenticated,
         handleLogout
