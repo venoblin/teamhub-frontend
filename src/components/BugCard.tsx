@@ -7,8 +7,7 @@ import Card from './ui/Card'
 const BugCard = (props: BugPropsType) => {
   const [isShown, toggleShown] = useToggle()
 
-  const clickHandler: MouseEventHandler<HTMLButtonElement> = (evt) => {
-    
+  const clickHandler = () => {
     toggleShown()
   }
   
@@ -25,6 +24,8 @@ const BugCard = (props: BugPropsType) => {
           }
         </div>
       }
+
+      <button>DELETE</button>
     </Card>
   )
 }
