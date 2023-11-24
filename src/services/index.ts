@@ -33,7 +33,7 @@ export const PostTodo = async (payload: TodoPayloadType) => {
 export const DeleteTodo = async (id: number | null) => {
   try {
     const res = await Client.delete(`/todos/${id}`)
-    return res.data
+    return res
   } catch (err) {
     throw err
   }
@@ -43,6 +43,15 @@ export const PostBug = async (payload: BugPayloadType) => {
   try {
     const res = await Client.post('/bugs', payload)
     return res.data
+  } catch (err) {
+    throw err
+  }
+}
+
+export const DeleteBug = async (id: number | null) => {
+  try {
+    const res = await Client.delete(`/bugs/${id}`)
+    return res
   } catch (err) {
     throw err
   }

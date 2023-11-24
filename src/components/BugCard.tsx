@@ -1,5 +1,4 @@
 import '../styles/BugCard.css'
-import { MouseEventHandler } from 'react'
 import { BugPropsType } from '../types/props'
 import useToggle from '../hooks/useToggle'
 import Card from './ui/Card'
