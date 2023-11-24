@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteProject, GetUser, PostBug, PostProject, PostTodo } from '../services'
+import { DeleteProject, DeleteTodo, GetUser, PostBug, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -91,7 +91,17 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserProjects(updatedProjects)
   }
 
-  const postBug = async (payload: BugPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>> ) => {
+  const deleteTodo = async (project: ProjectType, todoId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
+    await DeleteTodo(todoId)
+
+    const newTodos = project.todos.filter(t => t.id !== todoId)
+    const newProject = {...project, todos: newTodos}
+    const updatedProjects = updateProjects(userProjects, project, newProject)
+    setProject(newProject)
+    setUserProjects(updatedProjects)
+  }
+
+  const postBug = async (payload: BugPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
     const bug = await PostBug(payload)
 
     const newProject = {...project, bugs: [...project.bugs, bug]}
@@ -119,6 +129,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         postProject,
         deleteProject,
         postTodo,
+        deleteTodo,
         postBug,
         authenticated, 
         toggleAuthenticated,
