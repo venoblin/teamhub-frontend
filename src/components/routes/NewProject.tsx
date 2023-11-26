@@ -27,7 +27,7 @@ const NewProject = () => {
       <form onSubmit={(evt) => submit(evt, createProject)}>
         <label htmlFor="name">Name</label>
         <input 
-          type='name' 
+          type='text' 
           id='name' 
           name='name' 
           required
@@ -37,7 +37,7 @@ const NewProject = () => {
 
         <label htmlFor="git_url">Git Url (optional)</label>
         <input 
-          type='git_url' 
+          type='url' 
           id='git_url' 
           name='git_url'
           value={formState.git_url}
