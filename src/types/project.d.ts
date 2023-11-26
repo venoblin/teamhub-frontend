@@ -13,7 +13,7 @@ export interface ProjectType extends ProjectPayloadType {
   todos: TodoType[]
 }
 
-export interface ProjectPatchPayload {
+export interface ProjectPatchType {
   name?: string,
   git_url?: string
 }

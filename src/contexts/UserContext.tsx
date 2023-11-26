@@ -5,7 +5,7 @@ import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchProject, PostBug, P
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
-import { ProjectPatchPayload, ProjectPayloadType, ProjectType } from '../types/project'
+import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import { BugPayloadType } from '../types/bug'
 import { updateProjects } from '../utils/userHandler'
@@ -80,7 +80,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserProjects(updatedProjects)
   }
 
-  const patchProject = async (project: ProjectType, update: ProjectPatchPayload) => {
+  const patchProject = async (project: ProjectType, update: ProjectPatchType) => {
     if (update.name?.length || update.git_url?.length) {
       await PatchProject(project.id, update)
     }
@@ -144,6 +144,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         findProject,
         postProject,
         deleteProject,
+        patchProject,
         postTodo,
         deleteTodo,
         postBug,

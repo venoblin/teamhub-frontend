@@ -1,5 +1,5 @@
 import { BugPayloadType } from "./bug"
-import { ProjectPayloadType, ProjectType } from "./project"
+import { ProjectPatchType, ProjectPayloadType, ProjectType } from "./project"
 import { TodoPayloadType, TodoType } from "./todo"
 
 export interface UserType {
@@ -18,6 +18,7 @@ export interface UserContextType {
   findProject: (name: string) => ProjectType | null,
   postProject: (payload: ProjectPayloadType) => void,
   deleteProject: (project: ProjectType) => void,
+  patchProject: (project: ProjectType, update: ProjectPatchType) => void,
   postTodo: (payload: TodoPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   deleteTodo: (project: ProjectType, todoId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   postBug: (payload: BugPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
