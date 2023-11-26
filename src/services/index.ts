@@ -1,5 +1,5 @@
 import { BugPayloadType } from '../types/bug'
-import { ProjectPayloadType } from '../types/project'
+import { ProjectPatchPayload, ProjectPayloadType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import Client from './api'
 
@@ -21,7 +21,7 @@ export const DeleteProject = async (id: number | null) => {
   }
 }
 
-export const PatchProject = async (id: number | null) => {
+export const PatchProject = async (id: number | null, payload: ProjectPatchPayload) => {
   try {
     const res = await Client.patch(`/projects/${id}`)
     return res

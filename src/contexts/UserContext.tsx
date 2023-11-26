@@ -1,11 +1,11 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PostBug, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchProject, PostBug, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
-import { ProjectPayloadType, ProjectType } from '../types/project'
+import { ProjectPatchPayload, ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import { BugPayloadType } from '../types/bug'
 import { updateProjects } from '../utils/userHandler'
@@ -78,6 +78,12 @@ export const UserProvider = (props: PropsWithChildren) => {
       }
     })
     setUserProjects(updatedProjects)
+  }
+
+  const patchProject = async (project: ProjectType, update: ProjectPatchPayload) => {
+    if (update.name?.length || update.git_url?.length) {
+      await PatchProject(project.id, update)
+    }
   }
 
   const postTodo = async (payload: TodoPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {

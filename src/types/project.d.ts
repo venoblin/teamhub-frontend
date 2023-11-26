@@ -12,3 +12,8 @@ export interface ProjectType extends ProjectPayloadType {
   bugs: BugType[],
   todos: TodoType[]
 }
+
+export interface ProjectPatchPayload {
+  name?: string,
+  git_url?: string
+}
