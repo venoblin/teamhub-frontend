@@ -9,7 +9,7 @@ import { ProjectPropsType } from '../../../types/props'
 
 const ProjectSettings = (props: ProjectPropsType) => {
   const userContext = useContext(UserContext)
-  const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url'])
+  const [formState, setFormState] = useFormState(['name', 'git_url'])
   const navigate = useNavigate()
 
   const deleteProject = async () => {
@@ -18,19 +18,27 @@ const ProjectSettings = (props: ProjectPropsType) => {
       navigate('/')
     }
   }
+
+  const renameProject = async () => {
+    await userContext?.patchProject(props.project, formState.name)
+    navigate(`/${userContext?.user.username}/${props.project?.name}`)
+  }
   
   return (
     <div className='project-settings'>
       <h1>Settings</h1>
 
-      <form>
+      <form onSubmit={(evt) => submit(evt, renameProject)}>
         <label htmlFor='name'>Rename</label>
         <input
           type='text'
           name='name'
           id='name'
+          value={formState.name}
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
+
+        <button>Rename</button>
       </form>
 
       <button onClick={deleteProject}>DELETE</button>
