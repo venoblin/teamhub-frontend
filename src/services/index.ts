@@ -23,7 +23,7 @@ export const DeleteProject = async (id: number | null) => {
 
 export const PatchProject = async (id: number | null, payload: ProjectPatchType) => {
   try {
-    const res = await Client.patch(`/projects/${id}`)
+    const res = await Client.patch(`/projects/${id}`, payload)
     return res
   } catch (err) {
     throw err
