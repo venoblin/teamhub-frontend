@@ -1,6 +1,6 @@
 import '../../../styles/ProjectSettings.css'
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import useFormState from '../../../hooks/useFormState'
 import { submit } from '../../../utils/formHandler'
 import { changeListen } from '../../../utils/inputHandler'
@@ -9,7 +9,10 @@ import { ProjectPropsType } from '../../../types/props'
 
 const ProjectSettings = (props: ProjectPropsType) => {
   const userContext = useContext(UserContext)
-  const [formState, setFormState] = useFormState(['name', 'git_url'])
+  const [formState, setFormState] = useFormState({
+    name: props.project.name, 
+    git_url: props.project.git_url
+  })
   const navigate = useNavigate()
 
   const deleteProject = async () => {
