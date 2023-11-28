@@ -80,9 +80,15 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserProjects(updatedProjects)
   }
 
-  const patchProject = async (project: ProjectType, update: ProjectPatchType) => {
+  const patchProject = async (project: ProjectType, update: ProjectPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
     if (update.name?.length || update.git_url?.length) {
       await PatchProject(project.id, update)
+      
+      const newProject = {...project, ...update}
+      const updatedProjects = updateProjects(userProjects, project, newProject)
+
+      setProject(newProject)
+      setUserProjects(updatedProjects)  
     }
   }
 

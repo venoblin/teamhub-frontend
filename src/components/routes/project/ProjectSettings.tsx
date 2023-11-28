@@ -1,13 +1,13 @@
 import '../../../styles/ProjectSettings.css'
 import { useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import useFormState from '../../../hooks/useFormState'
 import { submit } from '../../../utils/formHandler'
 import { changeListen } from '../../../utils/inputHandler'
 import { UserContext } from '../../../contexts/UserContext'
-import { ProjectPropsType } from '../../../types/props'
+import { SetProjectPropsType } from '../../../types/props'
 
-const ProjectSettings = (props: ProjectPropsType) => {
+const ProjectSettings = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const [formState, setFormState] = useFormState({
     name: props.project.name, 
@@ -23,7 +23,7 @@ const ProjectSettings = (props: ProjectPropsType) => {
   }
 
   const renameProject = async () => {
-    await userContext?.patchProject(props.project, {name: formState.name})
+    await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
     navigate(`/${userContext?.user.username}/${formState.name}`)
   }
   
