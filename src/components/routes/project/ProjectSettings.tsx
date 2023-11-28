@@ -21,7 +21,7 @@ const ProjectSettings = (props: ProjectPropsType) => {
 
   const renameProject = async () => {
     await userContext?.patchProject(props.project, {name: formState.name})
-    // navigate(`/${userContext?.user.username}/${formState.name}`)
+    navigate(`/${userContext?.user.username}/${formState.name}`)
   }
   
   return (
