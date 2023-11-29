@@ -28,7 +28,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   }
 
   const changeGitLink = async () => {
-    await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
+    await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
     navigate(`/${userContext?.user.username}/${formState.name}`)
   }
   
