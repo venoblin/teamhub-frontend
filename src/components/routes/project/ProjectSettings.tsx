@@ -26,13 +26,18 @@ const ProjectSettings = (props: SetProjectPropsType) => {
     await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
     navigate(`/${userContext?.user.username}/${formState.name}`)
   }
+
+  const changeGitLink = async () => {
+    await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
+    navigate(`/${userContext?.user.username}/${formState.name}`)
+  }
   
   return (
     <div className='project-settings'>
       <h1>Settings</h1>
 
       <form onSubmit={(evt) => submit(evt, renameProject)}>
-        <label htmlFor='name'>Rename</label>
+        <label htmlFor='name'>Rename Project</label>
         <input
           type='text'
           name='name'
@@ -42,6 +47,19 @@ const ProjectSettings = (props: SetProjectPropsType) => {
         />
 
         <button>Rename</button>
+      </form>
+
+      <form onSubmit={(evt) => submit(evt, changeGitLink)}>
+        <label htmlFor='git_link'>Change Git Url</label>
+        <input
+          type='url'
+          name='git_url'
+          id='git_url'
+          value={formState.git_url}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
+        />
+
+        <button>Change</button>
       </form>
 
       <button onClick={deleteProject}>DELETE</button>
