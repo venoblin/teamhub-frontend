@@ -6,6 +6,7 @@ import { submit } from '../../../utils/formHandler'
 import { changeListen } from '../../../utils/inputHandler'
 import { UserContext } from '../../../contexts/UserContext'
 import { SetProjectPropsType } from '../../../types/props'
+import useToggle from '../../../hooks/useToggle'
 
 const ProjectSettings = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
@@ -13,6 +14,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
     name: props.project.name, 
     git_url: props.project.git_url
   })
+  const [isUrlPresent, toggleUrlPresent] = useToggle(props.project.git_url.length ? true : false )
   const navigate = useNavigate()
 
   const deleteProject = async () => {
@@ -49,7 +51,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
       </form>
 
       <form onSubmit={(evt) => submit(evt, changeGitLink)}>
-        <label htmlFor='git_link'>Change Git Url</label>
+        <label htmlFor='git_link'>{isUrlPresent ? "Change Git Url" : "Add Git Url"}</label>
         <input
           type='url'
           name='git_url'
@@ -58,9 +60,9 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <button>Change</button>
-      </form>
-
+        <button>{isUrlPresent ? "Change" : "Add"}</button>
+      </form> 
+      
       <button onClick={deleteProject}>DELETE</button>
     </div>
   )
