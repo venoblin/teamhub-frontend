@@ -54,7 +54,6 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           type='url'
           name='git_url'
           id='git_url'
-          required
           value={formState.git_url}
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
