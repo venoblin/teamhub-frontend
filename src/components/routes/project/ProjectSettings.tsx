@@ -24,12 +24,10 @@ const ProjectSettings = (props: SetProjectPropsType) => {
 
   const renameProject = async () => {
     await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
-    navigate(`/${userContext?.user.username}/${formState.name}`)
   }
 
   const changeGitLink = async () => {
     await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
-    navigate(`/${userContext?.user.username}/${formState.name}`)
   }
   
   return (
@@ -42,6 +40,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           type='text'
           name='name'
           id='name'
+          required
           value={formState.name}
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
@@ -55,6 +54,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           type='url'
           name='git_url'
           id='git_url'
+          required
           value={formState.git_url}
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
