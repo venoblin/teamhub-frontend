@@ -28,7 +28,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
     await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
   }
 
-  const changeGitLink = async (deleteMode: Boolean = false) => {
+  const updateGitLink = async (deleteMode: Boolean = false) => {
     await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
     if (!isUrlPresent) toggleUrlPresent()
   }
@@ -51,7 +51,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
         <button>Rename</button>
       </form>
 
-      <form onSubmit={(evt) => submit(evt, changeGitLink)}>
+      <form onSubmit={(evt) => submit(evt, updateGitLink)}>
         <label htmlFor='git_link'>{isUrlPresent ? "Change Git Url" : "Add Git Url"}</label>
         <input
           type='url'
