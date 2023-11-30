@@ -34,6 +34,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
       if (!isUrlPresent) toggleUrlPresent()
     } else {
       await userContext?.patchProject(props.project, {git_url: ''}, props.setProject)
+      setFormState({...formState, git_url: ''})
       if (isUrlPresent) toggleUrlPresent()
     }
 
