@@ -28,7 +28,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
     await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
   }
 
-  const changeGitLink = async () => {
+  const changeGitLink = async (deleteMode: Boolean = false) => {
     await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
     if (!isUrlPresent) toggleUrlPresent()
   }
