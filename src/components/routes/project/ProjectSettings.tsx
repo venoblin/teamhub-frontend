@@ -29,7 +29,12 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   }
 
   const updateGitLink = async (deleteMode: Boolean = false) => {
-    await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
+    if (!deleteMode) {
+      await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
+    } else {
+      await userContext?.patchProject(props.project, {git_url: ''}, props.setProject)
+    }
+
     if (!isUrlPresent) toggleUrlPresent()
   }
   
@@ -63,7 +68,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
         />
 
         <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
-        <button type='button'>DELETE URL</button>
+        <button onClick={() => updateGitLink(true)} type='button'>DELETE URL</button>
       </form> 
       
       <button onClick={deleteProject}>DELETE</button>
