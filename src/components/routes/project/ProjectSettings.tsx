@@ -29,6 +29,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   }
 
   const changeGitLink = async () => {
+    console.log(formState.git_url)
     await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
     if (!isUrlPresent) toggleUrlPresent()
   }
@@ -57,6 +58,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           type='url'
           name='git_url'
           id='git_url'
+          placeholder='https://git-url.com'
           value={formState.git_url}
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
