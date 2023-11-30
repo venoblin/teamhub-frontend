@@ -37,7 +37,6 @@ const ProjectSettings = (props: SetProjectPropsType) => {
       setFormState({...formState, git_url: ''})
       if (isUrlPresent) toggleUrlPresent()
     }
-
   }
   
   return (
