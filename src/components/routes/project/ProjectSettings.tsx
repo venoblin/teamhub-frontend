@@ -31,11 +31,12 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   const updateGitLink = async (deleteMode: Boolean = false) => {
     if (!deleteMode) {
       await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
+      if (!isUrlPresent) toggleUrlPresent()
     } else {
       await userContext?.patchProject(props.project, {git_url: ''}, props.setProject)
+      if (isUrlPresent) toggleUrlPresent()
     }
 
-    if (!isUrlPresent) toggleUrlPresent()
   }
   
   return (
