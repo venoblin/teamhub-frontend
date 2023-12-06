@@ -12,11 +12,9 @@ const NavBar = () => {
   
   return (
     <nav className='main-nav'>
-      <h2>Project Manager</h2>
+      <Link to='/'>Project Manager</Link>
 
       <div className='links'>
-        <Link to='/'>Home</Link>
-
         {userContext?.authenticated ? (
           <Link to='/' onClick={logoutHandler}>Log Out</Link>
         ) : (
