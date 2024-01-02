@@ -1,9 +1,25 @@
+@import "vars/variables.scss";
+
 form {
   display: flex;
   flex-direction: column;
   max-width: 700px;
 }
 
+a {
+  color: $textColor;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .hide-font-size {
   font-size: 0;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: bold;
 }

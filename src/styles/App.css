@@ -4,6 +4,19 @@ form {
   max-width: 700px;
 }
 
+a {
+  color: #e9eaf0;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 .hide-font-size {
   font-size: 0;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: bold;
 }/*# sourceMappingURL=App.css.map */
