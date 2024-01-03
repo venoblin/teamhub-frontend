@@ -12,7 +12,7 @@ const NavBar = () => {
   
   return (
     <nav className='main-nav'>
-      <Link className='logo' to='/'>Project Manager</Link>
+      <Link className='logo' to='/'>ProjectManager</Link>
 
       <div className='links'>
         {userContext?.authenticated ? (

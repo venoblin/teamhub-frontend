@@ -20,8 +20,11 @@ a {
 }
 
 .logo {
-  text-transform: uppercase;
-  font-weight: bold; 
+  
+  &:hover {
+    text-decoration: none;
+    color: $primaryColor;
+  }
 }
 
 button {

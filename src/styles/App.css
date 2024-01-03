@@ -16,9 +16,9 @@ a:hover {
   font-size: 0;
 }
 
-.logo {
-  text-transform: uppercase;
-  font-weight: bold;
+.logo:hover {
+  text-decoration: none;
+  color: #ff394f;
 }
 
 button {
