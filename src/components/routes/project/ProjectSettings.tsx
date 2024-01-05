@@ -68,8 +68,10 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
-        <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>
+        <div className='btns'>
+          <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
+          <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
+        </div>
       </form> 
       
       <button className='danger' onClick={deleteProject}>Delete Project</button>

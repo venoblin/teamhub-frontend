@@ -3,6 +3,15 @@ form {
   flex-direction: column;
   max-width: 700px;
 }
+form .btns {
+  display: inline;
+}
+form .btns button {
+  margin-right: 1rem;
+}
+form .btns button:last-of-type {
+  margin-right: 0;
+}
 
 a {
   color: #e9eaf0;
