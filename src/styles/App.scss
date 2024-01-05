@@ -36,10 +36,14 @@ button {
   border-radius: 5px;
   padding: 5px 10px;
   color: $textColor;
-  background-color: $btnColor;
+  background-color: $bgColorLight;
 
   &.success {
     background-color: $greenColor;
+  }
+
+  &.danger {
+    background-color: $redColor;
   }
 }
 
