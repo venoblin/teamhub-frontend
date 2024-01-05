@@ -1,7 +1,10 @@
+@import "vars/variables.scss";
+
 .main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: $bgColorDarker;
 
   a {
     margin-left: 0.75rem;

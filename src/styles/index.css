@@ -9,7 +9,7 @@ body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(45deg, hsl(222, 59%, 7%) 0%, hsl(222, 59%, 8%) 9%, hsl(222, 60%, 9%) 18%, hsl(222, 60%, 10%) 27%, hsl(222, 60%, 11%) 36%, hsl(222, 60%, 12%) 45%, hsl(222, 59%, 12%) 55%, hsl(222, 57%, 12%) 64%, hsl(223, 54%, 11%) 73%, hsl(223, 50%, 10%) 82%, hsl(224, 45%, 9%) 91%, hsl(225, 38%, 8%) 100%);
+  background-color: #0f141a;
   background-repeat: no-repeat;
   background-size: cover;
   color: #e9eaf0;
