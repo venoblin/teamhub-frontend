@@ -18,23 +18,25 @@ a:hover {
 
 .logo:hover {
   text-decoration: none;
-  color: #ff394f;
 }
 
 button {
-  cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;
+  cursor: pointer;
   outline: none;
   border: none;
   font-size: 0.75em;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 20px;
   color: #e9eaf0;
   background-color: #2d3a4a;
 }
 button.success {
   background-color: #238636;
+}
+button.danger {
+  background-color: #ff394f;
 }
 
 main {
