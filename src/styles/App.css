@@ -23,12 +23,15 @@ a:hover {
 
 button {
   cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
   outline: none;
   border: none;
   font-size: 0.75em;
   border-radius: 5px;
   padding: 5px 10px;
   color: #e9eaf0;
+  background-color: #2d3a4a;
 }
 button.success {
   background-color: #238636;

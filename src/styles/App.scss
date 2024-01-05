@@ -29,12 +29,14 @@ a {
 
 button {
   cursor: pointer;
+  width: fit-content;
   outline: none;
   border: none;
   font-size: 0.75em;
   border-radius: 5px;
   padding: 5px 10px;
   color: $textColor;
+  background-color: $btnColor;
 
   &.success {
     background-color: $greenColor;
