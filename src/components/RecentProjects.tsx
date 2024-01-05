@@ -16,7 +16,7 @@ const RecentProjects = () => {
   return (
     <Panel className="recent-projects">
       <h2>Recent Projects</h2>
-      <button onClick={newHandler}>New</button>
+      <button className="success" onClick={newHandler}>New</button>
 
       <div className='projects'>
         {userContext?.userProjects ? (

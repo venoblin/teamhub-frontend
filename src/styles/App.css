@@ -23,6 +23,15 @@ a:hover {
 
 button {
   cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 0.75em;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #e9eaf0;
+}
+button.success {
+  background-color: #238636;
 }
 
 main {
