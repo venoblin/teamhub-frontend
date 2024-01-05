@@ -7,7 +7,6 @@ const Bugs = (props: SetProjectPropsType) => {
   
   return (
     <Panel className='bugs'>
-      <h2>Bugs</h2>
       <div>
         {props.project?.bugs.length ? (
           props.project?.bugs.map(singleBug => (

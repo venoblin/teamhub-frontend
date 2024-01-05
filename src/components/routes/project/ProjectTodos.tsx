@@ -32,7 +32,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   
   return (
     <div className='project-todos'>
-      <h1>Todos</h1>
+      <h2>Todos</h2>
 
       <button onClick={toggleMode}>
         {addMode ? 'X' : 'Add'}
