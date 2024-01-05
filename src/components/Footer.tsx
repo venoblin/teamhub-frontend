@@ -3,7 +3,8 @@ import '../styles/Footer.css'
 const Footer = () => {
   return (
     <footer>
-      <p>Project Manager Footer</p>
+      <p>Jon / Web Dev</p>
+      <p>Project Manager</p>
     </footer>
   )
 }

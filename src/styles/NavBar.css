@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #0f141a;
+  padding: 1rem;
 }
 .main-nav a {
   margin-left: 0.75rem;
