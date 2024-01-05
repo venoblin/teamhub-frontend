@@ -19,23 +19,25 @@ const App = () => {
       <header>
         <NavBar />
       </header>
-      
-      {userContext?.authenticated ? (
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/projects/new' element={<NewProject />} />
-          <Route path='/:username/:projectName/*' element={<Project />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      )}
 
+      <main>
+        {userContext?.authenticated ? (
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/projects/new' element={<NewProject />} />
+            <Route path='/:username/:projectName/*' element={<Project />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        )}
+      </main>      
+      
       <Footer />
     </div>
   )
