@@ -74,7 +74,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
         </div>
       </form> 
       
-      <button className='danger' onClick={deleteProject}>Delete Project</button>
+      <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
     </div>
   )
 }
