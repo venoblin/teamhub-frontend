@@ -11,7 +11,7 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $bgColorDarker;
+  background-color: $bgColorDark;
   background-repeat: no-repeat;
   background-size: cover;
   color: $textColor;
@@ -35,5 +35,5 @@ h3 {
 }
 
 p, a {
-  font-size: 1em;
+  font-size: 0.75em;
 }

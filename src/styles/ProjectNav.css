@@ -1,14 +1,17 @@
 .project-nav {
   display: flex;
   justify-content: space-between;
+  background-color: #0f141a;
+  padding: 1rem 2rem;
+  border-radius: 0 0 1rem 1rem;
 }
 .project-nav .links {
   display: flex;
   align-items: center;
 }
 .project-nav .links * {
-  margin-left: 0.75rem;
+  margin-right: 1rem;
 }
-.project-nav .links *:first-child {
-  margin-left: 0;
+.project-nav .links *:last-child {
+  margin-right: 0;
 }/*# sourceMappingURL=ProjectNav.css.map */

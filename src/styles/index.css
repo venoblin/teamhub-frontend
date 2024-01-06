@@ -9,7 +9,7 @@ body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0f141a;
+  background-color: #141a21;
   background-repeat: no-repeat;
   background-size: cover;
   color: #e9eaf0;
@@ -32,5 +32,5 @@ h3 {
 }
 
 p, a {
-  font-size: 1em;
+  font-size: 0.75em;
 }/*# sourceMappingURL=index.css.map */
