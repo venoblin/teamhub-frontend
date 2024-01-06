@@ -27,14 +27,14 @@ const Project = () => {
     <div className='project'>
       <ProjectNav project={project} />
       
-      <Routes>
-        <Route path='/' element={<ProjectFeed project={project} />} />
-        <Route path='/settings' element={<ProjectSettings project={project} setProject={setProject} />} />
-        <Route path='/todos' element={<ProjectTodos project={project} setProject={setProject} />} />
-        <Route path='/bugs' element={<ProjectBugs project={project} setProject={setProject} />} />
-      </Routes>
-      
-      
+      <div className='project-container'>
+        <Routes>
+          <Route path='/' element={<ProjectFeed project={project} />} />
+          <Route path='/settings' element={<ProjectSettings project={project} setProject={setProject} />} />
+          <Route path='/todos' element={<ProjectTodos project={project} setProject={setProject} />} />
+          <Route path='/bugs' element={<ProjectBugs project={project} setProject={setProject} />} />
+        </Routes>
+      </div>
     </div>
   )
 }
