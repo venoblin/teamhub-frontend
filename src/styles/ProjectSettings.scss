@@ -2,7 +2,14 @@
 
 .project-settings {
 
+  form{
+
+    &:first-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+
   .delete-project {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 }

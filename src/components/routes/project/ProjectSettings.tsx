@@ -60,7 +60,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
       </form>
 
       <form onSubmit={(evt) => submit(evt, updateGitLink)}>
-        <label htmlFor='git_link'>{isUrlPresent ? "Change Git Url" : "Add Git Url"}</label>
+        <label htmlFor='git_url'>{isUrlPresent ? "Change Git Url" : "Add Git Url"}</label>
         <input
           type='url'
           name='git_url'
