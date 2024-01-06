@@ -54,7 +54,9 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <button>Rename</button>
+        <div className='btns'>
+          <button>Rename</button>
+        </div>
       </form>
 
       <form onSubmit={(evt) => submit(evt, updateGitLink)}>
