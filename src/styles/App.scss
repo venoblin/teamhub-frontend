@@ -29,6 +29,19 @@ a {
   }
 }
 
+nav {
+  a {
+    padding: 0 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: $bgColorLight;
+      text-decoration: none;
+    }
+  }
+}
+
 .hide-font-size {
   font-size: 0;
 }
