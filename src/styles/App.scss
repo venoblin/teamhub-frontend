@@ -5,6 +5,19 @@ form {
   flex-direction: column;
   max-width: 700px;
 
+  input {
+    background-color: $bgColorDarker;
+    color: $textColor;
+    border: 2px solid $bgColorLight;
+    padding: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+    
+    &:focus {
+      border-color: $blueColor;
+    }
+  }
+
   .btns {
     display: inline;
 
