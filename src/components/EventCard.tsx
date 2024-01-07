@@ -6,6 +6,7 @@ const EventCard = (props: EventPropsType) => {
   return (
     <Card>
       <p>{props.singleEvent.event}</p>
+      <p>{props.singleEvent.time}</p>
     </Card>
   )
 }

@@ -1,10 +1,12 @@
 import '../../../styles/ProjectFeed.css'
-import { ProjectPropsType } from '../../../types/props'
+import { ProjectPropsType, SetProjectPropsType } from '../../../types/props'
+import Feed from '../../Feed'
 
-const ProjectFeed = (props: ProjectPropsType) => {
+const ProjectFeed = (props: SetProjectPropsType) => {
   return (
     <div className='project-feed'>
-      <h1>Feed</h1>
+      <h2>Project Feed</h2>
+      <Feed project={props.project} setProject={props.setProject} />
     </div>
   )
 }
