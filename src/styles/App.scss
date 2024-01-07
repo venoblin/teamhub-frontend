@@ -107,3 +107,17 @@ button {
 main {
   padding: 0 2rem 2rem 2rem;
 }
+
+.bug-todo-card {
+  margin-top: 1rem;
+}
+
+.project-todos ,
+.project-bugs {
+  
+  form {
+    button {
+      margin-top: 0.5rem;
+    }
+  }
+}

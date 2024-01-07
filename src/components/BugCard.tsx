@@ -22,7 +22,7 @@ const BugCard = (props: BugPropsType) => {
   }
   
   return (
-    <Card>
+    <Card className='bug-todo-card'>
       <p>{props.singleBug.bug}</p>
 
       {props.singleBug.bug_info &&
