@@ -1,4 +1,5 @@
 import { BugType } from "./bug"
+import { EventType } from "./event"
 import { ProjectType } from "./project"
 import { TodoType } from "./todo"
 import { UserType } from "./user"
@@ -9,6 +10,10 @@ export interface ProjectPropsType extends Props {
 
 export interface SetProjectPropsType extends ProjectPropsType {
   setProject: React.Dispatch<React.SetStateAction<ProjectType>>
+}
+
+export interface EventPropsType extends ProjectPropsType {
+  singleEvent: EventType
 }
 
 export interface BugPropsType extends SetProjectPropsType {

@@ -1,10 +1,18 @@
 import '../styles/Feed.css'
+import { EventPropsType, SetProjectPropsType } from '../types/props'
+import EventCard from './EventCard'
 import Panel from './ui/Panel'
 
-const Feed = () => {
+const Feed = (props: SetProjectPropsType) => {
   return (
     <Panel className="feed">
-      <h2>Feed</h2>
+      {props.project.events.map(singleEvent => (
+        <EventCard 
+          key={singleEvent.id}
+          singleEvent={singleEvent}
+          project={props.project}
+        />
+      ))}
     </Panel>
   )
 }
