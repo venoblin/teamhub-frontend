@@ -35,7 +35,7 @@ const BugCard = (props: BugPropsType) => {
         </div>
       }
 
-      <button onClick={deleteHandler}>DELETE</button>
+      <button className='danger' onClick={deleteHandler}>Delete</button>
     </Card>
   )
 }

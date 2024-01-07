@@ -19,7 +19,7 @@ const TodoCard = (props: TodoPropsType) => {
     <Card className='bug-todo-card'>
       <p>{props.singleTodo.todo}</p>
       
-      <button onClick={deleteHandler}>DELETE</button>
+      <button className='danger' onClick={deleteHandler}>Delete</button>
     </Card>
   )
 }
