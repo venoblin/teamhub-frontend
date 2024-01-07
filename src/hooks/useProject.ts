@@ -8,7 +8,8 @@ const useProject = (): [ProjectType, React.Dispatch<React.SetStateAction<Project
     owner_id: null,
     id: null,
     bugs: [],
-    todos: []
+    todos: [],
+    events: []
   }
   
   const [project, setProject] = useState<ProjectType>(nullProject)

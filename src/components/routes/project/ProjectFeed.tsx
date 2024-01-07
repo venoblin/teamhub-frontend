@@ -5,6 +5,7 @@ const ProjectFeed = (props: ProjectPropsType) => {
   return (
     <div className='project-feed'>
       <h1>Feed</h1>
+      {/* {props.project.events} */}
     </div>
   )
 }
