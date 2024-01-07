@@ -27,7 +27,7 @@ const BugCard = (props: BugPropsType) => {
 
       {props.singleBug.bug_info &&
         <div className='bug-info'>
-          <button onClick={clickHandler}>View bug info</button>
+          <button onClick={clickHandler}>View Info</button>
 
           {isShown && 
             <p>{props.singleBug.bug_info}</p>
