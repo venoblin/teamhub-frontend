@@ -5,5 +5,7 @@ export interface BugPayloadType {
 }
 
 export interface BugType extends BugPayloadType {
-  id: number
+  id: number,
+  completed: boolean,
+  completed_at: string | null
 }
