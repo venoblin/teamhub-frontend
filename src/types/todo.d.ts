@@ -5,5 +5,5 @@ export interface TodoPayloadType {
 
 export interface TodoType extends TodoPayloadType {
   id: number,
-  done: boolean
+  completed: boolean
 }
