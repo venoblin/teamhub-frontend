@@ -13,6 +13,10 @@ const BugCard = (props: BugPropsType) => {
     toggleShown()
   }
 
+  const completeHandler =async () => {
+    
+  }
+
   const deleteHandler = async () => {
     await userContext?.deleteBug(
       props.project,
@@ -35,6 +39,7 @@ const BugCard = (props: BugPropsType) => {
         </div>
       }
 
+      <button className='success' onClick={completeHandler}>Complete</button>
       <button className='danger' onClick={deleteHandler}>Delete</button>
     </Card>
   )
