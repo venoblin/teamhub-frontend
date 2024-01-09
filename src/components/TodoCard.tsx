@@ -20,7 +20,7 @@ const TodoCard = (props: TodoPropsType) => {
   }
 
   return (
-    <Card className='bug-todo-card'>
+    <Card className='bug-todo-card todo-card'>
       <p>{props.singleTodo.todo}</p>
       
       <div className='btns'>
