@@ -23,8 +23,10 @@ const TodoCard = (props: TodoPropsType) => {
     <Card className='bug-todo-card'>
       <p>{props.singleTodo.todo}</p>
       
-      <button className='success' onClick={completeHandler}>Complete</button>
-      <button className='danger' onClick={deleteHandler}>Delete</button>
+      <div className='btns'>
+        <button className='success' onClick={completeHandler}>Complete</button>
+        <button className='danger' onClick={deleteHandler}>Delete</button>
+      </div>
     </Card>
   )
 }
