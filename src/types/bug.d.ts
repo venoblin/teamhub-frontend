@@ -6,6 +6,5 @@ export interface BugPayloadType {
 
 export interface BugType extends BugPayloadType {
   id: number,
-  completed: boolean,
-  completed_at: string | null
+  fixed: boolean
 }
