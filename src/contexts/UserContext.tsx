@@ -6,8 +6,8 @@ import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/project'
-import { TodoPayloadType } from '../types/todo'
-import { BugPayloadType } from '../types/bug'
+import { TodoPatchType, TodoPayloadType, TodoType } from '../types/todo'
+import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateProjects } from '../utils/userHandler'
 
 export const UserContext = createContext<UserContextType | null>(null)
@@ -131,6 +131,14 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserProjects(updatedProjects)
   }
 
+  const patchBug = async (project: ProjectType, bug: BugType, update: BugPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
+
+  }
+
+  const patchTodo = async (project: ProjectType, todo: TodoType, update: TodoPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
+
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -151,8 +159,10 @@ export const UserProvider = (props: PropsWithChildren) => {
         patchProject,
         postTodo,
         deleteTodo,
+        patchTodo,
         postBug,
         deleteBug,
+        patchBug,
         authenticated, 
         toggleAuthenticated,
         handleLogout

@@ -1,6 +1,6 @@
-import { BugPayloadType } from "./bug"
+import { BugPatchType, BugPayloadType, BugType } from "./bug"
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from "./project"
-import { TodoPayloadType, TodoType } from "./todo"
+import { TodoPatchType, TodoPayloadType, TodoType } from "./todo"
 
 export interface UserType {
   id: number | null,
@@ -21,8 +21,10 @@ export interface UserContextType {
   patchProject: (project: ProjectType, update: ProjectPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   postTodo: (payload: TodoPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   deleteTodo: (project: ProjectType, todoId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
+  patchTodo: (project: ProjectType, bug: TodoType, update: TodoPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   postBug: (payload: BugPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   deleteBug: (project: ProjectType, bugId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
+  patchBug: (project: ProjectType, bug: BugType, update: BugPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void
