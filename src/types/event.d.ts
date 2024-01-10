@@ -1,6 +1,9 @@
-export interface EventType {
-  id: number,
+export interface EventPayloadType {
   event: string,
-  time: string,
   project_id: number
+}
+
+export interface EventType extends EventPayloadType {
+  id: number,
+  time: string
 }

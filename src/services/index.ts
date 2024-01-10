@@ -74,3 +74,7 @@ export const GetUser = async (id: Number) => {
     throw err
   }
 }
+
+export const PostEvent = async () => {
+
+}
