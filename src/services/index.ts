@@ -1,7 +1,7 @@
-import { BugPayloadType } from '../types/bug'
+import { BugPatchType, BugPayloadType } from '../types/bug'
 import { EventPayloadType } from '../types/event'
 import { ProjectPatchType, ProjectPayloadType } from '../types/project'
-import { TodoPayloadType } from '../types/todo'
+import { TodoPatchType, TodoPayloadType } from '../types/todo'
 import Client from './api'
 
 export const PostProject = async (payload: ProjectPayloadType) => {
@@ -31,6 +31,15 @@ export const PatchProject = async (id: number | null, payload: ProjectPatchType)
   }
 }
 
+export const PatchTodo = async (id: number | null,payload: TodoPatchType) => {
+  try {
+    const res = await Client.patch(`/todos/${id}`, payload)
+    return res
+  } catch (err) {
+    throw err
+  }
+}
+
 export const PostTodo = async (payload: TodoPayloadType) => {
   try {
     const res = await Client.post('/todos', payload)
@@ -43,6 +52,15 @@ export const PostTodo = async (payload: TodoPayloadType) => {
 export const DeleteTodo = async (id: number | null) => {
   try {
     const res = await Client.delete(`/todos/${id}`)
+    return res
+  } catch (err) {
+    throw err
+  }
+}
+
+export const PatchBug = async (id: number | null,payload: BugPatchType) => {
+  try {
+    const res = await Client.patch(`/bugs/${id}`, payload)
     return res
   } catch (err) {
     throw err
