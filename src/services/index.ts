@@ -1,4 +1,5 @@
 import { BugPayloadType } from '../types/bug'
+import { EventPayloadType } from '../types/event'
 import { ProjectPatchType, ProjectPayloadType } from '../types/project'
 import { TodoPayloadType } from '../types/todo'
 import Client from './api'
@@ -75,6 +76,11 @@ export const GetUser = async (id: Number) => {
   }
 }
 
-export const PostEvent = async () => {
-
+export const PostEvent = async (payload: EventPayloadType) => {
+  try {
+    const res = await Client.post('/events', payload)
+    return res.data
+  } catch (err) {
+    throw err
+  }
 }
