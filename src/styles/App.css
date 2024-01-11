@@ -92,13 +92,10 @@ main {
 }
 .bug-todo-card .btns {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
-.bug-todo-card .btns button {
-  margin-bottom: 0.75rem;
-}
-.bug-todo-card .btns button:last-of-type {
-  margin-bottom: 0;
+.bug-todo-card .btns div {
+  display: flex;
 }
 
 .project-todos form button,

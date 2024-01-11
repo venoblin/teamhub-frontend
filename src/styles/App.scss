@@ -113,14 +113,10 @@ main {
 
   .btns {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 
-    button {
-      margin-bottom: 0.75rem;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
+    div {
+      display: flex;
     }
   }
 }
