@@ -144,7 +144,11 @@ export const UserProvider = (props: PropsWithChildren) => {
   const patchTodo = async (project: ProjectType, todo: TodoType, update: TodoPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
     await PatchTodo(todo.id, update)
 
-    const newTodo = {...todo, ...update}
+    const newTodos = project.todos.map(t => t.id === todo.id ? {...t, ...update} : t)
+    const newProject = {...project, todos: newTodos}
+    const updatedProjects = updateProjects(userProjects, project, newProject)
+    setProject(newProject)
+    setUserProjects(updatedProjects)
   }
 
   useEffect(() => {
