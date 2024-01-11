@@ -14,7 +14,12 @@ const BugCard = (props: BugPropsType) => {
   }
 
   const completeHandler =async () => {
-    
+    await userContext?.patchBug(
+      props.project,
+      props.singleBug,
+      {completed: true},
+      props.setProject
+    )
   }
 
   const deleteHandler = async () => {
@@ -39,7 +44,9 @@ const BugCard = (props: BugPropsType) => {
       }
 
       <div className='btns'>
-        <button className='success' onClick={completeHandler}>Complete</button>
+        {!props.singleBug.completed && 
+          <button className='success' onClick={completeHandler}>Complete</button>
+        }
         <button className='danger' onClick={deleteHandler}>Delete</button>
       </div>
     </Card>

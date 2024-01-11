@@ -8,7 +8,12 @@ const TodoCard = (props: TodoPropsType) => {
   const userContext = useContext(UserContext)
 
   const completeHandler = async () => {
-
+    await userContext?.patchTodo(
+      props.project,
+      props.singleTodo,
+      {completed: true},
+      props.setProject
+    )
   }
   
   const deleteHandler = async () => {
@@ -24,7 +29,9 @@ const TodoCard = (props: TodoPropsType) => {
       <p>{props.singleTodo.todo}</p>
       
       <div className='btns'>
-        <button className='success' onClick={completeHandler}>Complete</button>
+        {!props.singleTodo.completed && 
+          <button className='success' onClick={completeHandler}>Complete</button>
+        }
         <button className='danger' onClick={deleteHandler}>Delete</button>
       </div>
     </Card>
