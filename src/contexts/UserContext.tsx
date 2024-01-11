@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchProject, PostBug, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchProject, PatchTodo, PostBug, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -132,11 +132,11 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const patchBug = async (project: ProjectType, bug: BugType, update: BugPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
-
+    await PatchBug(bug.id, update)
   }
 
   const patchTodo = async (project: ProjectType, todo: TodoType, update: TodoPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
-
+    await PatchTodo(todo.id, update)
   }
 
   useEffect(() => {
