@@ -97,6 +97,9 @@ main {
 .bug-todo-card .btns div {
   display: flex;
 }
+.bug-todo-card .btns div button {
+  margin-right: 0.5rem;
+}
 
 .project-todos form button,
 .project-bugs form button {
