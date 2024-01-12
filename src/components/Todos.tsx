@@ -7,6 +7,7 @@ const Todos = (props: SetProjectPropsType) => {
 
   return (
     <Panel className='todos'>
+      <h2>Todos</h2>
       <div>
         {props.project?.todos.length ? (
           props.project?.todos.map(singleTodo => (

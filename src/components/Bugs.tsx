@@ -7,15 +7,18 @@ const Bugs = (props: SetProjectPropsType) => {
   
   return (
     <Panel className='bugs'>
+      <h2>Bugs</h2>
       <div>
         {props.project?.bugs.length ? (
           props.project?.bugs.map(singleBug => (
-            <BugCard 
-              key={String(singleBug.id)} 
-              singleBug={singleBug} 
-              project={props.project}
-              setProject={props.setProject}
+            (!singleBug.completed && 
+              <BugCard 
+                key={String(singleBug.id)} 
+                singleBug={singleBug} 
+                project={props.project}
+                setProject={props.setProject}
               />
+            )
           ))
         ) : (
           <p>No bugs!</p>

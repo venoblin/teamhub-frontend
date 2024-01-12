@@ -32,8 +32,6 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   
   return (
     <div className='project-todos'>
-      <h2>Todos</h2>
-
       <button className='success' onClick={toggleMode}>
         {addMode ? 'X' : 'Add'}
       </button>
