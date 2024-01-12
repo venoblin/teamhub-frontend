@@ -7,6 +7,7 @@ import { useState } from 'react'
 const Bugs = (props: SetProjectPropsType) => {
   const bugs = props.project.bugs.filter(b => !b.completed)
   const completedBugs = props.project.bugs.filter(b => b.completed)
+
   
   return (
     <Panel className='bugs'>
@@ -28,10 +29,18 @@ const Bugs = (props: SetProjectPropsType) => {
         )}
       </div>
 
-      {completedBugs.length && (
-        <div>
-          <h2>Completed Bugs</h2>
-        </div>
+      <h2>Completed Bugs</h2>
+      {completedBugs.length ? (
+        completedBugs.map(singleBug => (
+          <BugCard 
+            key={String(singleBug.id)} 
+            singleBug={singleBug} 
+            project={props.project}
+            setProject={props.setProject}
+          />
+        ))
+      ) : (
+        <p>No completed bugs!</p>
       )}
     </Panel>
   )
