@@ -5,8 +5,8 @@ import BugCard from './BugCard'
 import { useState } from 'react'
 
 const Bugs = (props: SetProjectPropsType) => {
-  const [bugs, setBugs] = useState(props.project.bugs.filter(b => !b.completed))
-  const [completedBugs, setCompletedBugs] = useState(props.project.bugs.filter(b => b.completed))
+  const bugs = props.project.bugs.filter(b => !b.completed)
+  const completedBugs = props.project.bugs.filter(b => b.completed)
   
   return (
     <Panel className='bugs'>
