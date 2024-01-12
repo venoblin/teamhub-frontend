@@ -90,14 +90,7 @@ main {
 .bug-todo-card {
   margin-top: 1rem;
 }
-.bug-todo-card .btns {
-  display: flex;
-  justify-content: space-between;
-}
-.bug-todo-card .btns div {
-  display: flex;
-}
-.bug-todo-card .btns div button {
+.bug-todo-card .btns button {
   margin-right: 0.5rem;
 }
 

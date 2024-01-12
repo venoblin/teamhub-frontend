@@ -112,15 +112,9 @@ main {
   margin-top: 1rem;
 
   .btns {
-    display: flex;
-    justify-content: space-between;
-
-    div {
-      display: flex;
-      
-      button {
-        margin-right: 0.5rem;
-      }
+    
+    button {
+      margin-right: 0.5rem;
     }
   }
 }

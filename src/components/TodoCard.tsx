@@ -28,15 +28,13 @@ const TodoCard = (props: TodoPropsType) => {
     <Card className='bug-todo-card todo-card'>
       <p>{props.singleTodo.todo}</p>
       
-      <div className='btns'>
-        {!props.singleTodo.completed && 
-          <div>
-            <button>Edit</button>
-            <button className='success' onClick={completeHandler}>Complete</button>
-            <button className='danger' onClick={deleteHandler}>Delete</button>
-          </div>
-        }
-      </div>
+      {!props.singleTodo.completed && 
+        <div className='btns'>
+          <button>Edit</button>
+          <button className='success' onClick={completeHandler}>Complete</button>
+          <button className='danger' onClick={deleteHandler}>Delete</button>
+        </div>
+      }
     </Card>
   )
 }

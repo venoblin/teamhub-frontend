@@ -43,15 +43,13 @@ const BugCard = (props: BugPropsType) => {
         </div>
       }
 
-      <div className='btns'>
-        {!props.singleBug.completed &&
-          <div>
-            <button>Edit</button>
-            <button className='success' onClick={completeHandler}>Complete</button>
-            <button className='danger' onClick={deleteHandler}>Delete</button>
-          </div> 
-        }
-      </div>
+      {!props.singleBug.completed &&
+        <div className='btns'>
+          <button>Edit</button>
+          <button className='success' onClick={completeHandler}>Complete</button>
+          <button className='danger' onClick={deleteHandler}>Delete</button>
+        </div> 
+      }
     </Card>
   )
 }
