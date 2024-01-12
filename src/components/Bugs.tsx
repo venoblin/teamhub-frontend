@@ -30,18 +30,20 @@ const Bugs = (props: SetProjectPropsType) => {
       </div>
 
       <h2>Completed Bugs</h2>
-      {completedBugs.length ? (
-        completedBugs.map(singleBug => (
-          <BugCard 
-            key={String(singleBug.id)} 
-            singleBug={singleBug} 
-            project={props.project}
-            setProject={props.setProject}
-          />
-        ))
-      ) : (
-        <p>No completed bugs!</p>
-      )}
+      <div>
+        {completedBugs.length ? (
+          completedBugs.map(singleBug => (
+            <BugCard 
+              key={String(singleBug.id)} 
+              singleBug={singleBug} 
+              project={props.project}
+              setProject={props.setProject}
+            />
+          ))
+        ) : (
+          <p>No completed bugs!</p>
+        )}
+      </div>
     </Panel>
   )
 }
