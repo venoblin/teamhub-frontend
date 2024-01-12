@@ -48,9 +48,9 @@ const BugCard = (props: BugPropsType) => {
           <div>
             <button>Edit</button>
             <button className='success' onClick={completeHandler}>Complete</button>
+            <button className='danger' onClick={deleteHandler}>Delete</button>
           </div> 
         }
-        <button className='danger' onClick={deleteHandler}>Delete</button>
       </div>
     </Card>
   )
