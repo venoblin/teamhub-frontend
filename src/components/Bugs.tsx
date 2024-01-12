@@ -2,15 +2,18 @@ import '../styles/Bugs.css'
 import { SetProjectPropsType } from '../types/props'
 import Panel from './ui/Panel'
 import BugCard from './BugCard'
+import { useState } from 'react'
 
 const Bugs = (props: SetProjectPropsType) => {
+  const bugs = props.project.bugs.filter(b => !b.completed)
+  const completedBugs = props.project.bugs.filter(b => b.completed)
   
   return (
     <Panel className='bugs'>
       <h2>Bugs</h2>
       <div>
-        {props.project?.bugs.length ? (
-          props.project?.bugs.map(singleBug => (
+        {bugs.length ? (
+          bugs.map(singleBug => (
             (!singleBug.completed && 
               <BugCard 
                 key={String(singleBug.id)} 
@@ -24,6 +27,12 @@ const Bugs = (props: SetProjectPropsType) => {
           <p>No bugs!</p>
         )}
       </div>
+
+      {completedBugs.length && (
+        <div>
+          <h2>Completed Bugs</h2>
+        </div>
+      )}
     </Panel>
   )
 }
