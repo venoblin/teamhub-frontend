@@ -7,6 +7,7 @@ import { changeListen } from '../../../utils/inputHandler'
 import { UserContext } from '../../../contexts/UserContext'
 import { SetProjectPropsType } from '../../../types/props'
 import useToggle from '../../../hooks/useToggle'
+import Users from '../../Users'
 
 const ProjectSettings = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
@@ -42,7 +43,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   return (
     <div className='project-settings'>
       <h1>Settings</h1>
-
+      
       <form onSubmit={(evt) => submit(evt, renameProject)}>
         <label htmlFor='name'>Rename Project</label>
         <input
@@ -78,6 +79,8 @@ const ProjectSettings = (props: SetProjectPropsType) => {
           }
         </div>
       </form> 
+
+      <Users />
       
       <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
     </div>
