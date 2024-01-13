@@ -10,9 +10,16 @@ form input {
   padding: 1rem;
   outline: none;
   transition: border 0.3s ease;
+  margin-bottom: 1rem;
+}
+form input:last-of-type {
+  margin-bottom: 0;
 }
 form input:focus {
   border-color: #2f81f7;
+}
+form button {
+  margin-top: 0.5rem;
 }
 form .btns {
   display: inline;
@@ -96,6 +103,10 @@ main {
   margin-right: 0.5rem;
 }
 
+.project-todos .add-btn,
+.project-bugs .add-btn {
+  margin-top: 2rem;
+}
 .project-todos form button,
 .project-bugs form button {
   margin-top: 0.5rem;

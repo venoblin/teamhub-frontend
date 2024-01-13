@@ -34,7 +34,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
   return (
     <div className='project-bugs'>
 
-      <button className='success' onClick={toggleMode}>
+      <button className='success add-btn' onClick={toggleMode}>
         {addMode ? 'X' : 'Add'}
       </button>
 

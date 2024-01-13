@@ -12,10 +12,19 @@ form {
     padding: 1rem;
     outline: none;
     transition: border 0.3s ease;
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
     
     &:focus {
       border-color: $blueColor;
     }
+  }
+
+  button {
+    margin-top: 0.5rem;
   }
 
   .btns {
@@ -122,6 +131,9 @@ main {
 
 .project-todos,
 .project-bugs {
+  .add-btn {
+    margin-top: 2rem;
+  }
   
   form {
     button {
