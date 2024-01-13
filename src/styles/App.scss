@@ -113,10 +113,6 @@ button {
   }
 }
 
-main {
-  padding: 0 2rem 2rem 2rem;
-}
-
 .bug-todo-card,
 .event-card {
   margin-top: 1rem;
@@ -140,4 +136,9 @@ main {
       margin-top: 0.5rem;
     }
   }
+}
+
+.project-container,
+.home {
+  padding: 0 4rem 4rem 4rem;
 }

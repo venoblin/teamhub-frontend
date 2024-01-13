@@ -90,10 +90,6 @@ button:hover::after {
   background: rgba(233, 234, 240, 0.3);
 }
 
-main {
-  padding: 0 2rem 2rem 2rem;
-}
-
 .bug-todo-card,
 .event-card {
   margin-top: 1rem;
@@ -110,4 +106,9 @@ main {
 .project-todos form button,
 .project-bugs form button {
   margin-top: 0.5rem;
+}
+
+.project-container,
+.home {
+  padding: 0 4rem 4rem 4rem;
 }/*# sourceMappingURL=App.css.map */
