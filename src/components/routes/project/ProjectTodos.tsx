@@ -28,12 +28,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   }
 
   const toggleMode = () => {
-    if (addBtnClass === 'success') {
-      setAddBtnClass('danger')
-    } else {
-      setAddBtnClass('success')
-    }
-    console.log(addBtnClass)
+    addBtnClass === 'success' ? setAddBtnClass('danger') : setAddBtnClass('success')
     resetFormState()
     toggleAddMode()
   }

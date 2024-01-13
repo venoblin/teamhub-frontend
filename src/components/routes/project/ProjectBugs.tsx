@@ -5,13 +5,15 @@ import { SetProjectPropsType } from '../../../types/props'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import Bugs from '../../Bugs'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 
 const ProjectBugs = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['bug', 'bug_info'])
+  // switches between success and danger to change btn color
+  const [addBtnClass, setAddBtnClass] = useState('success')
 
   const createBug = async () => {
     if (props.project.id) {
@@ -27,14 +29,14 @@ const ProjectBugs = (props: SetProjectPropsType) => {
   }
 
   const toggleMode = () => {
+    addBtnClass === 'success' ? setAddBtnClass('danger') : setAddBtnClass('success')
     resetFormState()
     toggleAddMode()
   }
   
   return (
     <div className='project-bugs'>
-
-      <button className='success add-btn' onClick={toggleMode}>
+      <button className={`${addBtnClass} add-btn`} onClick={toggleMode}>
         {addMode ? 'X' : 'Add'}
       </button>
 
