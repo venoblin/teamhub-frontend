@@ -1,5 +1,5 @@
 import '../../../styles/ProjectTodos.css'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 import useToggle from '../../../hooks/useToggle'
 import useFormState from '../../../hooks/useFormState'
@@ -12,6 +12,8 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
+  // switches between success and danger to change btn color
+  const [addBtnClass, setAddBtnClass] = useState('success')
 
   const createTodo = async () => {
     if (props.project.id) {
@@ -26,13 +28,19 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   }
 
   const toggleMode = () => {
+    if (addBtnClass === 'success') {
+      setAddBtnClass('danger')
+    } else {
+      setAddBtnClass('success')
+    }
+    console.log(addBtnClass)
     resetFormState()
     toggleAddMode()
   }
   
   return (
     <div className='project-todos'>
-      <button className='success add-btn' onClick={toggleMode}>
+      <button className={`${addBtnClass} add-btn`} onClick={toggleMode}>
         {addMode ? 'X' : 'Add'}
       </button>
 
