@@ -31,3 +31,7 @@ export interface UiPropsType extends React.PropsWithChildren {
 export interface EventsPropsType extends Props {
   events: EventType[]
 }
+
+export interface FeedPropsType extends EventsPropsType {
+  isNotPanel?: boolean
+}

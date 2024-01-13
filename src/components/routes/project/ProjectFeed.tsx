@@ -5,8 +5,7 @@ import Feed from '../../Feed'
 const ProjectFeed = (props: SetProjectPropsType) => {
   return (
     <div className='project-feed'>
-      <h2>Project Feed</h2>
-      <Feed events={props.project.events} />
+      <Feed isNotPanel={true} events={props.project.events} />
     </div>
   )
 }
