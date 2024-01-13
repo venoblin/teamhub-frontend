@@ -10,9 +10,9 @@ const Bugs = (props: SetProjectPropsType) => {
 
   
   return (
-    <Panel className='bugs'>
+    <div className='bugs'>
+      <Panel>
       <h2>Bugs</h2>
-      <div>
         {bugs.length ? (
           bugs.map(singleBug => (
             (!singleBug.completed && 
@@ -27,10 +27,10 @@ const Bugs = (props: SetProjectPropsType) => {
         ) : (
           <p>No bugs!</p>
         )}
-      </div>
+      </Panel>
 
+      <Panel>
       <h2>Completed Bugs</h2>
-      <div>
         {completedBugs.length ? (
           completedBugs.map(singleBug => (
             <BugCard 
@@ -43,8 +43,8 @@ const Bugs = (props: SetProjectPropsType) => {
         ) : (
           <p>No completed bugs!</p>
         )}
-      </div>
-    </Panel>
+      </Panel>
+    </div>
   )
 }
 

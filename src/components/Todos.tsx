@@ -8,9 +8,9 @@ const Todos = (props: SetProjectPropsType) => {
   const completedTodos = props.project.todos.filter(t => t.completed)
 
   return (
-    <Panel className='todos'>
+    <div className='todos'>
+      <Panel>
       <h2>Todos</h2>
-      <div>
         {todos.length ? (
           todos.map(singleTodo => (
             <TodoCard 
@@ -23,10 +23,10 @@ const Todos = (props: SetProjectPropsType) => {
         ) : (
           <p>No todos!</p>
         )}
-      </div>
+      </Panel>
 
+      <Panel>
       <h2>Completed Todos</h2>
-      <div>
         {completedTodos.length ? (
           completedTodos.map(singleTodo => (
             <TodoCard 
@@ -39,8 +39,8 @@ const Todos = (props: SetProjectPropsType) => {
         ) : (
           <p>No completed todos!</p>
         )}
-      </div>
-    </Panel>
+      </Panel>
+    </div>
   )
 }
 
