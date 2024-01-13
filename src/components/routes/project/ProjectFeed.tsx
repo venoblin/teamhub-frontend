@@ -6,7 +6,7 @@ const ProjectFeed = (props: SetProjectPropsType) => {
   return (
     <div className='project-feed'>
       <h2>Project Feed</h2>
-      <Feed project={props.project} setProject={props.setProject} />
+      <Feed events={props.project.events} />
     </div>
   )
 }

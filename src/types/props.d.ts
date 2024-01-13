@@ -12,7 +12,7 @@ export interface SetProjectPropsType extends ProjectPropsType {
   setProject: React.Dispatch<React.SetStateAction<ProjectType>>
 }
 
-export interface EventPropsType extends ProjectPropsType {
+export interface EventPropsType extends Props {
   singleEvent: EventType
 }
 
@@ -26,4 +26,8 @@ export interface TodoPropsType extends SetProjectPropsType {
 
 export interface UiPropsType extends React.PropsWithChildren {
   className?: string
+}
+
+export interface EventsPropsType extends Props {
+  events: EventType[]
 }

@@ -1,17 +1,16 @@
 import '../styles/Feed.css'
-import { EventPropsType, SetProjectPropsType } from '../types/props'
+import { EventsPropsType } from '../types/props'
 import EventCard from './EventCard'
 import Panel from './ui/Panel'
 
-const Feed = (props: SetProjectPropsType) => {
+const Feed = (props: EventsPropsType) => {
   return (
     <Panel className="feed">
-      {props.project?.events.length && (
-        props.project?.events.map(singleEvent => (
+      {props.events.length && (
+        props.events.map(singleEvent => (
           <EventCard 
             key={singleEvent.id}
             singleEvent={singleEvent}
-            project={props.project}
           />
         ))
       )}
