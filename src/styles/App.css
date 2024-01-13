@@ -107,6 +107,10 @@ button:hover::after {
 .project-bugs form button {
   margin-top: 0.5rem;
 }
+.project-todos .panel,
+.project-bugs .panel {
+  margin-top: 1rem;
+}
 
 .project-container,
 .home {
