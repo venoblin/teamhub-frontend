@@ -1,1 +1,5 @@
-/*# sourceMappingURL=Panel.css.map */
+.panel {
+  background-color: #2d3a4a;
+  padding: 1rem;
+  border-radius: 10px;
+}/*# sourceMappingURL=Panel.css.map */
