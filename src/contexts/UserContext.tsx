@@ -133,8 +133,10 @@ export const UserProvider = (props: PropsWithChildren) => {
 
   const patchBug = async (project: ProjectType, bug: BugType, update: BugPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
     await PatchBug(bug.id, update)
+
+    let newEvent = null
     if (update.completed) {
-      await PostEvent({
+      newEvent = await PostEvent({
         event: `Completed "${bug.bug}" bug`,
         project_id: project.id
       })
@@ -149,8 +151,10 @@ export const UserProvider = (props: PropsWithChildren) => {
 
   const patchTodo = async (project: ProjectType, todo: TodoType, update: TodoPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => {
     await PatchTodo(todo.id, update)
+
+    let newEvent = null
     if (update.completed) {
-      await PostEvent({
+      newEvent = await PostEvent({
         event: `Completed "${todo.todo}" todo`,
         project_id: project.id
       })

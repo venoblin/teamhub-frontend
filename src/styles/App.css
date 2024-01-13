@@ -87,10 +87,12 @@ main {
   padding: 0 2rem 2rem 2rem;
 }
 
-.bug-todo-card {
+.bug-todo-card,
+.event-card {
   margin-top: 1rem;
 }
-.bug-todo-card .btns button {
+.bug-todo-card .btns button,
+.event-card .btns button {
   margin-right: 0.5rem;
 }
 

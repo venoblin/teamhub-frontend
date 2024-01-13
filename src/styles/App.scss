@@ -108,7 +108,8 @@ main {
   padding: 0 2rem 2rem 2rem;
 }
 
-.bug-todo-card {
+.bug-todo-card,
+.event-card {
   margin-top: 1rem;
 
   .btns {
@@ -119,7 +120,7 @@ main {
   }
 }
 
-.project-todos ,
+.project-todos,
 .project-bugs {
   
   form {
