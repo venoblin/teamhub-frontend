@@ -142,8 +142,9 @@ export const UserProvider = (props: PropsWithChildren) => {
       })
     }
 
+    const newEvents = newEvent !== null ? [...project.events, newEvent] : [...project.events]
     const newBugs = project.bugs.map(b => b.id === bug.id ? {...b, ...update} : b)
-    const newProject = {...project, bugs: newBugs}
+    const newProject = {...project, bugs: newBugs, events: newEvents}
     const updatedProjects = updateProjects(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
@@ -159,9 +160,10 @@ export const UserProvider = (props: PropsWithChildren) => {
         project_id: project.id
       })
     }
-
+    
+    const newEvents = newEvent !== null ? [...project.events, newEvent] : [...project.events]
     const newTodos = project.todos.map(t => t.id === todo.id ? {...t, ...update} : t)
-    const newProject = {...project, todos: newTodos}
+    const newProject = {...project, todos: newTodos, events: newEvents}
     const updatedProjects = updateProjects(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
