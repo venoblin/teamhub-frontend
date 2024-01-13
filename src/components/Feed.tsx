@@ -4,10 +4,12 @@ import EventCard from './EventCard'
 import Panel from './ui/Panel'
 
 const Feed = (props: EventsPropsType) => {
+  const events = [...props.events]
+
   return (
     <Panel className="feed">
-      {props.events.length && (
-        props.events.map(singleEvent => (
+      {events.length && (
+        events.reverse().map(singleEvent => (
           <EventCard 
             key={singleEvent.id}
             singleEvent={singleEvent}
