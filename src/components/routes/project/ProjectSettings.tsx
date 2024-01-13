@@ -72,7 +72,10 @@ const ProjectSettings = (props: SetProjectPropsType) => {
 
         <div className='btns'>
           <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
-          <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
+
+          {isUrlPresent &&
+            <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
+          }
         </div>
       </form> 
       
