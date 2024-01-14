@@ -50,7 +50,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
             value={formState.todo}
             onChange={(evt) => changeListen(evt, formState, setFormState)}
           />
-          <button>Add Todo</button>
+          <button className='success'>Add Todo</button>
         </form>
       }
 

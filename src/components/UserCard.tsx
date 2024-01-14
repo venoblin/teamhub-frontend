@@ -5,9 +5,11 @@ import Card from './ui/Card'
 const UserCard = (props: UserPropsType) => {
   return (
     <Card>
-      <h3>{props.user.username}</h3>
-      <h3>{props.user.email}</h3>
-      <h3>{props.user.name}</h3>
+      <p>Username: {props.user.username}</p>
+      <p>Email: {props.user.email}</p>
+      <p>Name: {props.user.name}</p>
+
+      <button className='success'>Invite to Contribute</button>
     </Card>
   )
 }

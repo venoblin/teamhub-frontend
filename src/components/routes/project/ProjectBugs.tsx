@@ -60,7 +60,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
             value={formState.bug_info}
             onChange={(evt) => changeListen(evt, formState, setFormState)}
           />
-          <button>Add Bug</button>
+          <button className='success'>Add Bug</button>
         </form>
       }
 
