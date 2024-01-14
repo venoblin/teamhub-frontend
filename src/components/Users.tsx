@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import '../styles/Users.css'
 import Panel from './ui/Panel'
-import { GetAllUsers } from '../services'
 import useFormState from '../hooks/useFormState'
 import { changeListen } from '../utils/inputHandler'
+import { submit } from '../utils/formHandler'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
@@ -16,7 +16,7 @@ const Users = () => {
     <Panel>
       <h2>Users</h2>
 
-      <form onSubmit={submitHandler}>
+      <form onSubmit={(evt) => submit(evt, submitHandler)}>
         <label htmlFor='identifier'>Search User</label>
         <input 
           type='text'
