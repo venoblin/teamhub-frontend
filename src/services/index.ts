@@ -94,6 +94,24 @@ export const GetUser = async (id: Number) => {
   }
 }
 
+export const GetAllUsers = async () => {
+  try {
+    const res = await Client.get('/users')
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}
+
+export const GetUserByIdentifier =async (ident: String) => {
+  try {
+    const res = await Client.get(`/users/${ident}`)
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}
+
 export const PostEvent = async (payload: EventPayloadType) => {
   try {
     const res = await Client.post('/events', payload)
