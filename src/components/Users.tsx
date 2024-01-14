@@ -6,15 +6,11 @@ import { changeListen } from '../utils/inputHandler'
 import { submit } from '../utils/formHandler'
 import { GetUserByIdentifier } from '../services'
 import { UserType } from '../types/user'
+import useUser from '../hooks/useUser'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
-  const [user, setUser] = useFormState({
-    id: null,
-    username: '',
-    name: '',
-    email: ''
-  })
+  const [user, setUser] = useUser()
 
   const submitHandler = async () => {
     const user = await GetUserByIdentifier(formState.identifier)
@@ -40,6 +36,8 @@ const Users = () => {
 
         <button>Search</button>
       </form>
+
+
     </Panel>
   )
 }
