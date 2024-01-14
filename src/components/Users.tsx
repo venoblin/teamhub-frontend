@@ -5,6 +5,7 @@ import { changeListen } from '../utils/inputHandler'
 import { submit } from '../utils/formHandler'
 import { GetUserByIdentifier } from '../services'
 import useUser from '../hooks/useUser'
+import UserCard from './UserCard'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
@@ -35,7 +36,9 @@ const Users = () => {
         <button>Search</button>
       </form>
 
-
+      {user.id && (
+        <UserCard user={user} />
+      )}
     </Panel>
   )
 }
