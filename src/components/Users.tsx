@@ -4,12 +4,22 @@ import Panel from './ui/Panel'
 import useFormState from '../hooks/useFormState'
 import { changeListen } from '../utils/inputHandler'
 import { submit } from '../utils/formHandler'
+import { GetUserByIdentifier } from '../services'
+import { UserType } from '../types/user'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
+  const [user, setUser] = useFormState({
+    id: null,
+    username: '',
+    name: '',
+    email: ''
+  })
 
   const submitHandler = async () => {
-    console.log(formState)
+    const user = await GetUserByIdentifier(formState.identifier)
+    setUser({...user})
+    resetFormState()
   }
 
   return (
