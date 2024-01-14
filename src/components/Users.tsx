@@ -17,11 +17,11 @@ const Users = () => {
       <h2>Users</h2>
 
       <form onSubmit={submitHandler}>
-        <label htmlFor='ident'>Search User</label>
+        <label htmlFor='identifier'>Search User</label>
         <input 
           type='text'
-          id='ident'
-          name='ident'
+          id='identifier'
+          name='identifier'
           placeholder='Email or Username'
           required
           value={formState.identifier}
