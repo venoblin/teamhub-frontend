@@ -2,22 +2,34 @@ import { useEffect, useState } from 'react'
 import '../styles/Users.css'
 import Panel from './ui/Panel'
 import { GetAllUsers } from '../services'
+import useFormState from '../hooks/useFormState'
+import { changeListen } from '../utils/inputHandler'
 
 const Users = () => {
-  const [users, setUsers] = useState<any[]>([])
+  const [formState, setFormState, resetFormState] = useFormState(['identifier'])
 
-  const getAllUsers = async () => {
-    const users = await GetAllUsers
-    // setUsers(users)
+  const submitHandler = async () => {
+    console.log(formState)
   }
-
-  useEffect(() => {
-    getAllUsers()
-  }) 
 
   return (
     <Panel>
       <h2>Users</h2>
+
+      <form onSubmit={submitHandler}>
+        <label htmlFor='ident'>Search User</label>
+        <input 
+          type='text'
+          id='ident'
+          name='ident'
+          placeholder='Email or Username'
+          required
+          value={formState.identifier}
+          onChange={(evt) => changeListen(evt, formState, setFormState)}
+        />
+
+        <button>Search</button>
+      </form>
     </Panel>
   )
 }

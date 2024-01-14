@@ -31,7 +31,8 @@ const Register = () => {
 
       <form onSubmit={(evt) => submit(evt, registerUser)}>
         <label htmlFor='email'>Email</label>
-        <input type='email'
+        <input 
+          type='email'
           id='email'
           name='email'
           required
