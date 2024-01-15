@@ -10,6 +10,7 @@ import Home from './components/routes/Home'
 import NewProject from './components/routes/NewProject'
 import Project from './components/routes/Project'
 import NotFound from './components/routes/NotFound'
+import Notifications from './components/routes/Notifications'
 
 const App = () => {
   const userContext = useContext(UserContext)
@@ -24,6 +25,7 @@ const App = () => {
         {userContext?.authenticated ? (
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/notifications' element={<Notifications />} />
             <Route path='/projects/new' element={<NewProject />} />
             <Route path='/:username/:projectName/*' element={<Project />} />
             <Route path='*' element={<NotFound />} />
