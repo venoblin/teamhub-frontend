@@ -1,9 +1,13 @@
 import '../styles/NotificationCard.css'
+import { NotificationPropsType } from '../types/props'
 import Card from './ui/Card'
 
-const NotificationCard = () => {
+const NotificationCard = (props: NotificationPropsType) => {
   return (
-    <Card></Card>
+    <Card className='notification-card'>
+      <p>{props.singleNotification.notification}</p>
+      <p>{props.singleNotification.time}</p>
+    </Card>
   )
 }
 

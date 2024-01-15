@@ -1,5 +1,6 @@
 import { BugType } from "./bug"
 import { EventType } from "./event"
+import { NotificationType } from "./notification"
 import { ProjectType } from "./project"
 import { TodoType } from "./todo"
 import { UserType } from "./user"
@@ -18,6 +19,10 @@ export interface SetProjectPropsType extends ProjectPropsType {
 
 export interface EventPropsType extends Props {
   singleEvent: EventType
+}
+
+export interface NotificationPropsType extends Props {
+  singleNotification: NotificationType
 }
 
 export interface BugPropsType extends SetProjectPropsType {
