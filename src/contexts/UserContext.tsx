@@ -199,6 +199,10 @@ export const UserProvider = (props: PropsWithChildren) => {
         postBug,
         deleteBug,
         patchBug,
+        userContributions,
+        setUserContributions,
+        userNotifications,
+        setUserNotifications,
         authenticated, 
         toggleAuthenticated,
         handleLogout

@@ -1,6 +1,8 @@
 import { BugPatchType, BugPayloadType, BugType } from "./bug"
+import { ContributionType, ContributorType } from "./contributor"
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from "./project"
 import { TodoPatchType, TodoPayloadType, TodoType } from "./todo"
+import { NotificationType } from "./notification"
 
 export interface UserType {
   id: number | null,
@@ -25,6 +27,10 @@ export interface UserContextType {
   postBug: (payload: BugPayloadType, project: ProjectType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   deleteBug: (project: ProjectType, bugId: number | null, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
   patchBug: (project: ProjectType, bug: BugType, update: BugPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => void,
+  userContributions: ContributionType[] | ContributorType[],
+  setUserContributions: (contributions: ContributionType[] | ContributorType[]) => void,
+  userNotifications: NotificationType[],
+  setUserNotifications: (notification: NotificationType[]) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void
