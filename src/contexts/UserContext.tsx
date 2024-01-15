@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -11,7 +11,7 @@ import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateProjects } from '../utils/userHandler'
 import useUserContributor from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
-import { NotificationPayloadType } from '../types/notification'
+import { NotificationPatchType, NotificationPayloadType } from '../types/notification'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -181,6 +181,11 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserNotifications([...userNotifications, newNotification])
   }
 
+  const patchNotification = async (id: number, payload: NotificationPatchType) => {
+    const updatedNotification = await PatchNotification(id, payload)
+
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -210,6 +215,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         userNotifications,
         setUserNotifications,
         postNotification,
+        patchNotification,
         authenticated, 
         toggleAuthenticated,
         handleLogout
