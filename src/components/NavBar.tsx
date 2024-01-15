@@ -16,7 +16,10 @@ const NavBar = () => {
 
       <div className='links'>
         {userContext?.authenticated ? (
-          <Link to='/' onClick={logoutHandler}>Log Out</Link>
+          <div>
+            <Link to='/notifications'>Notifications</Link>
+            <Link to='/' onClick={logoutHandler}>Log Out</Link>
+          </div>
         ) : (
           <Link to='/login'>Log In</Link>
         )}
