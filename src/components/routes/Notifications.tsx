@@ -8,6 +8,11 @@ const Notifications = () => {
   return (
     <div className='notifications'>
       <h2>Notifications</h2>
+      {userContext?.userNotifications.length ? (
+        <p>Notifications go here</p>
+      ) : (
+        <p>No notifications!</p>
+      )}
     </div>
   )
 }
