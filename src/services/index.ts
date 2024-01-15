@@ -1,5 +1,6 @@
 import { BugPatchType, BugPayloadType } from '../types/bug'
 import { EventPayloadType } from '../types/event'
+import { NotificationPayloadType } from '../types/notification'
 import { ProjectPatchType, ProjectPayloadType } from '../types/project'
 import { TodoPatchType, TodoPayloadType } from '../types/todo'
 import Client from './api'
@@ -115,6 +116,15 @@ export const GetUserByIdentifier =async (ident: String) => {
 export const PostEvent = async (payload: EventPayloadType) => {
   try {
     const res = await Client.post('/events', payload)
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}
+
+export const PostNotification = async (payload: NotificationPayloadType) => {
+  try {
+    const res = await Client.post('/notification', payload)
     return res.data
   } catch (err) {
     throw err

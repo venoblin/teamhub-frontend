@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"NotificationCard.css"}
+{"version":3,"sources":["NotificationCard.scss","vars/variables.scss","NotificationCard.css"],"names":[],"mappings":"AAGE;EACE,cCCa;ACHjB","file":"NotificationCard.css"}
