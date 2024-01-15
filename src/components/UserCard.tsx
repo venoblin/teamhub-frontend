@@ -9,7 +9,7 @@ const UserCard = (props: UserPropsType) => {
       <p>Email: {props.user.email}</p>
       <p>Name: {props.user.name}</p>
 
-      <button className='success'>Invite to Contribute</button>
+      <button className='success'>Invite</button>
     </Card>
   )
 }
