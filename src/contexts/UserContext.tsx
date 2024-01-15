@@ -1,4 +1,4 @@
-import { PropsWithChildren, createContext, useEffect } from 'react'
+import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
 import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchProject, PatchTodo, PostBug, PostEvent, PostProject, PostTodo } from '../services'
@@ -9,12 +9,16 @@ import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/proj
 import { TodoPatchType, TodoPayloadType, TodoType } from '../types/todo'
 import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateProjects } from '../utils/userHandler'
+import useUserContributor from '../hooks/useUserContributions'
+import useUserNotification from '../hooks/useUserNotifications'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser, resetUser] = useUser()
   const [userProjects, setUserProjects] = useUserProjects()
+  const [userContributions, setUserContributions] = useUserContributor()
+  const [userNotifications, setUserNotifications] = useUserNotification()
   const [authenticated, toggleAuthenticated] = useToggle(false)
 
   const handleLogout = () => {
@@ -34,6 +38,8 @@ export const UserProvider = (props: PropsWithChildren) => {
         email: userRes.email
       })
       setUserProjects([...userRes.projects])
+      setUserContributions([...userRes.contributions])
+      setUserNotifications([...userRes.notifications])
       toggleAuthenticated(true)
     }
   }
