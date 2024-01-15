@@ -182,8 +182,16 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const patchNotification = async (id: number, payload: NotificationPatchType) => {
-    const updatedNotification = await PatchNotification(id, payload)
+    const update = await PatchNotification(id, payload)
 
+    const updatedNotifications = [...userNotifications]
+    updatedNotifications.forEach((n, i) => {
+      if (n.id === id) {
+        updatedNotifications[i] = update
+      }
+    })
+
+    setUserNotifications([...updatedNotifications])
   }
 
   useEffect(() => {
