@@ -10,6 +10,5 @@ export interface TodoType extends TodoPayloadType {
 
 export interface TodoPatchType {
   todo?: string,
-  project_id?: number
   completed?: boolean
 }

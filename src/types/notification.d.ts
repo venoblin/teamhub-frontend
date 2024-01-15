@@ -9,3 +9,9 @@ export interface NotificationType extends NotificationPayloadType {
   seen: boolean,
   time: string
 }
+
+export interface NotificationPatchType {
+  notification?: string,
+  type?: string,
+  seen?: boolean
+}

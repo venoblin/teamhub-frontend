@@ -2,7 +2,7 @@ import { BugPatchType, BugPayloadType, BugType } from "./bug"
 import { ContributionType, ContributorType } from "./contributor"
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from "./project"
 import { TodoPatchType, TodoPayloadType, TodoType } from "./todo"
-import { NotificationType } from "./notification"
+import { NotificationPayloadType, NotificationType } from "./notification"
 
 export interface UserType {
   id: number | null,
@@ -31,6 +31,7 @@ export interface UserContextType {
   setUserContributions: (contributions: ContributionType[] | ContributorType[]) => void,
   userNotifications: NotificationType[],
   setUserNotifications: (notification: NotificationType[]) => void,
+  postNotification: (payload: NotificationPayloadType) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

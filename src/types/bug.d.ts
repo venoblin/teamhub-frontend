@@ -12,6 +12,5 @@ export interface BugType extends BugPayloadType {
 export interface BugPatchType {
   bug?: string,
   bug_info?: string,
-  project_id?: number,
   completed?: boolean
 }

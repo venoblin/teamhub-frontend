@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchProject, PatchTodo, PostBug, PostEvent, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -11,6 +11,7 @@ import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateProjects } from '../utils/userHandler'
 import useUserContributor from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
+import { NotificationPayloadType } from '../types/notification'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -175,6 +176,11 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserProjects(updatedProjects)
   }
 
+  const postNotification = async (payload: NotificationPayloadType) => {
+    const newNotification = await PostNotification(payload)
+    setUserNotifications([...userNotifications, newNotification])
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -203,6 +209,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         setUserContributions,
         userNotifications,
         setUserNotifications,
+        postNotification,
         authenticated, 
         toggleAuthenticated,
         handleLogout

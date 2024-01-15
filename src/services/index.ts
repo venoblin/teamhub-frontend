@@ -1,6 +1,6 @@
 import { BugPatchType, BugPayloadType } from '../types/bug'
 import { EventPayloadType } from '../types/event'
-import { NotificationPayloadType } from '../types/notification'
+import { NotificationPatchType, NotificationPayloadType } from '../types/notification'
 import { ProjectPatchType, ProjectPayloadType } from '../types/project'
 import { TodoPatchType, TodoPayloadType } from '../types/todo'
 import Client from './api'
@@ -124,7 +124,16 @@ export const PostEvent = async (payload: EventPayloadType) => {
 
 export const PostNotification = async (payload: NotificationPayloadType) => {
   try {
-    const res = await Client.post('/notification', payload)
+    const res = await Client.post('/notifications', payload)
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}
+
+export const PatchNotification = async (id: number, payload: NotificationPatchType) => {
+  try {
+    const res = await Client.patch(`/notifications/${id}`, payload)
     return res.data
   } catch (err) {
     throw err
