@@ -4,7 +4,9 @@ import { NotificationPropsType } from '../types/props'
 import Card from './ui/Card'
 
 const NotificationCard = (props: NotificationPropsType) => {
-  const [classes, setClasses] = useState('notification-card')
+  const classes = 
+    props.singleNotification.seen ? 
+    'notification-card seen' : 'notification-card'
 
   return (
     <Card className={classes}>
