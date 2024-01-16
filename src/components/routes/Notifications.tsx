@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import '../../styles/Notifications.css'
 import { UserContext } from '../../contexts/UserContext'
 import NotificationCard from '../NotificationCard'
@@ -6,9 +6,16 @@ import NotificationCard from '../NotificationCard'
 const Notifications = () => {
   const userContext = useContext(UserContext)
 
+  const markAsReadHandler = () => {
+    userContext?.userNotifications.forEach(async (n) => {
+      await userContext.patchNotification(n.id, {seen: true})
+    })
+  }
+
   return (
     <div className='notifications'>
       <h2>Notifications</h2>
+      <button onClick={markAsReadHandler}>Mark all as read</button>
       {userContext?.userNotifications.length ? (
         userContext.userNotifications.map(singleNotification => (
           <NotificationCard 
