@@ -6,7 +6,7 @@ import NotificationCard from '../NotificationCard'
 const Notifications = () => {
   const userContext = useContext(UserContext)
 
-  const markAsReadHandler = () => {
+  const markAsReadHandler = async () => {
     userContext?.userNotifications.forEach(async (n) => {
       await userContext.patchNotification(n.id, {seen: true})
     })
