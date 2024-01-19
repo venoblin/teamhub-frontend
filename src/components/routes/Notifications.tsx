@@ -7,9 +7,12 @@ const Notifications = () => {
   const userContext = useContext(UserContext)
 
   const markAsReadHandler = async () => {
-    userContext?.userNotifications.forEach(async (n) => {
-      await userContext.patchNotification(n.id, {seen: true})
-    })
+    if (userContext) {
+      for (let n of userContext?.userNotifications) {
+        await userContext?.patchNotification(n.id, {seen: !n.seen})
+      }
+    }
+    
   }
 
   return (
