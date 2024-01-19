@@ -12,7 +12,6 @@ const Notifications = () => {
         await userContext?.patchNotification(n.id, {seen: !n.seen})
       }
     }
-    
   }
 
   return (
