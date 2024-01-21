@@ -9,7 +9,7 @@ const Notifications = () => {
   const markAsReadHandler = async () => {
     if (userContext) {
       for (let n of userContext?.userNotifications) {
-        await userContext?.patchNotification(n, {seen: false})
+        await userContext?.patchNotification(n, {seen: true})
       }
     }
   }

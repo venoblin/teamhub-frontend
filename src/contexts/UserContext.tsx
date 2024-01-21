@@ -185,6 +185,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     const update = await PatchNotification(notification.id, payload)
 
     const updatedNotifications = updateObjInArr(userNotifications, notification, update)
+
     setUserNotifications([...updatedNotifications])
   }
 
