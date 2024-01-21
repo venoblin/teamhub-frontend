@@ -32,7 +32,7 @@ export interface UserContextType {
   userNotifications: NotificationType[],
   setUserNotifications: (notification: NotificationType[]) => void,
   postNotification: (payload: NotificationPayloadType) => void,
-  patchNotification: (id: number, payload: NotificationPatchType) => void,
+  patchNotification: (notification: NotificationType, payload: NotificationPatchType) => void,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

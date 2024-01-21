@@ -11,7 +11,7 @@ import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateObjInArr } from '../utils'
 import useUserContributor from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
-import { NotificationPatchType, NotificationPayloadType } from '../types/notification'
+import { NotificationPatchType, NotificationPayloadType, NotificationType } from '../types/notification'
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -181,16 +181,10 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserNotifications([...userNotifications, newNotification])
   }
 
-  const patchNotification = async (id: number, payload: NotificationPatchType) => {
-    const update = await PatchNotification(id, payload)
+  const patchNotification = async (notification: NotificationType, payload: NotificationPatchType) => {
+    const update = await PatchNotification(notification.id, payload)
 
-    const updatedNotifications = [...userNotifications]
-    updatedNotifications.forEach((n, i) => {
-      if (n.id === id) {
-        updatedNotifications[i] = update
-      }
-    })
-
+    const updatedNotifications = updateObjInArr(userNotifications, notification, update)
     setUserNotifications([...updatedNotifications])
   }
 
