@@ -8,7 +8,7 @@ import useUserProjects from '../hooks/useUserProjects'
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPatchType, TodoPayloadType, TodoType } from '../types/todo'
 import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
-import { updateProjects } from '../utils/userHandler'
+import { updateObjInArr } from '../utils/objHandler'
 import useUserContributor from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
 import { NotificationPatchType, NotificationPayloadType } from '../types/notification'
@@ -91,7 +91,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     await PatchProject(project.id, update)
     
     const newProject = {...project, ...update}
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
     
     setProject(newProject)
     setUserProjects(updatedProjects)  
@@ -102,7 +102,7 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newProject = {...project, todos: [...project.todos, todo]}
 
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
 
     setProject(newProject)
     setUserProjects(updatedProjects)
@@ -113,7 +113,7 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newTodos = project.todos.filter(t => t.id !== todoId)
     const newProject = {...project, todos: newTodos}
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
@@ -123,7 +123,7 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newProject = {...project, bugs: [...project.bugs, bug]}
 
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
@@ -133,7 +133,7 @@ export const UserProvider = (props: PropsWithChildren) => {
 
     const newBugs = project.bugs.filter(b => b.id !== bugId)
     const newProject = {...project, bugs: newBugs}
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
@@ -152,7 +152,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     const newEvents = newEvent !== null ? [...project.events, newEvent] : [...project.events]
     const newBugs = project.bugs.map(b => b.id === bug.id ? {...b, ...update} : b)
     const newProject = {...project, bugs: newBugs, events: newEvents}
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
@@ -171,7 +171,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     const newEvents = newEvent !== null ? [...project.events, newEvent] : [...project.events]
     const newTodos = project.todos.map(t => t.id === todo.id ? {...t, ...update} : t)
     const newProject = {...project, todos: newTodos, events: newEvents}
-    const updatedProjects = updateProjects(userProjects, project, newProject)
+    const updatedProjects = updateObjInArr(userProjects, project, newProject)
     setProject(newProject)
     setUserProjects(updatedProjects)
   }
