@@ -1,6 +1,5 @@
-import { ProjectType } from "../types/project";
 
-export const updateObjInArr = (arr: ProjectType[], objToUpdate: ProjectType, updatedObj: ProjectType) => {
+export const updateObjInArr = <T extends {id: number | null}>(arr: T[], objToUpdate: T, updatedObj: T): T[] => {
   // replaces / updates specified object inside arr
   const newArr = [...arr]
 
