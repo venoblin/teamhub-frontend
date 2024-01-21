@@ -5,6 +5,7 @@ import NotificationCard from '../NotificationCard'
 
 const Notifications = () => {
   const userContext = useContext(UserContext)
+  let notificationsIdx = 0
 
   const markAsReadHandler = async () => {
     if (userContext) {
