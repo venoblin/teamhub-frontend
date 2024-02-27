@@ -7,7 +7,7 @@ const Notifications = () => {
   const userContext = useContext(UserContext)
 
   return (
-    <div className='notifications'>
+    <div className="notifications">
       <h2>Notifications</h2>
       {userContext?.userNotifications.length ? (
         userContext.userNotifications.map(singleNotification => (

@@ -1,3 +1,6 @@
-.seen {
+.notification-card .seen {
   color: #969696;
+}
+.notification-card .inputs button:first-of-type {
+  margin-right: 1rem;
 }/*# sourceMappingURL=NotificationCard.css.map */
