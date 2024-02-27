@@ -10,14 +10,17 @@ const NotificationCard = (props: NotificationPropsType) => {
     seen ? 
     'notification-card seen' : 'notification-card'
 
+  
+
   return (
     <Card className={classes}>
       <p>{props.singleNotification.notification}</p>
       <p>{props.singleNotification.time}</p>
 
       <div className='inputs'>
-
-        <button>Mark as read</button>
+        {!seen && 
+          <button>Mark as read</button>
+        }
         <button className="danger">Delete</button>
       </div>
     </Card>
