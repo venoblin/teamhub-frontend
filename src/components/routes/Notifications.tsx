@@ -6,18 +6,9 @@ import NotificationCard from '../NotificationCard'
 const Notifications = () => {
   const userContext = useContext(UserContext)
 
-  const markAsReadHandler = async () => {
-    if (userContext) {
-      for (let n of userContext?.userNotifications) {
-        await userContext?.patchNotification(n, {seen: true})
-      }
-    }
-  }
-
   return (
     <div className='notifications'>
       <h2>Notifications</h2>
-      <button onClick={markAsReadHandler}>Mark all as read</button>
       {userContext?.userNotifications.length ? (
         userContext.userNotifications.map(singleNotification => (
           <NotificationCard 
