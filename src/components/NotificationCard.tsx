@@ -1,10 +1,13 @@
 import '../styles/NotificationCard.css'
 import { NotificationPropsType } from '../types/props'
+import useToggle from '../hooks/useToggle'
 import Card from './ui/Card'
 
 const NotificationCard = (props: NotificationPropsType) => {
+  const [seen, toggleSeen] = useToggle(props.singleNotification.seen)
+
   const classes = 
-    props.singleNotification.seen ? 
+    seen ? 
     'notification-card seen' : 'notification-card'
 
   return (
@@ -13,6 +16,7 @@ const NotificationCard = (props: NotificationPropsType) => {
       <p>{props.singleNotification.time}</p>
 
       <div className='inputs'>
+
         <button>Mark as read</button>
         <button className="danger">Delete</button>
       </div>
