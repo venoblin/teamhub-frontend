@@ -8,16 +8,14 @@ import Card from './ui/Card'
 const NotificationCard = (props: NotificationPropsType) => {
   const userContext = useContext(UserContext)
   const [seen, toggleSeen] = useToggle(props.singleNotification.seen)
-  let className = 'notification-card'
 
   const markAsReadHandler = async () => {
     await userContext?.patchNotification(props.singleNotification, {seen: !seen})
-    className += ' seen'
     toggleSeen()
   }
 
   return (
-    <Card className={className}>
+    <Card className={!seen ? 'notification-card' : 'notification-card seen'}>
       <p>{props.singleNotification.notification}</p>
       <p>{props.singleNotification.time}</p>
 
