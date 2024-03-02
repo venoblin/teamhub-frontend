@@ -1,26 +1,31 @@
 import '../styles/NotificationCard.css'
+import { useContext, useRef } from 'react'
+import { UserContext } from '../contexts/UserContext'
 import { NotificationPropsType } from '../types/props'
 import useToggle from '../hooks/useToggle'
 import Card from './ui/Card'
 
 const NotificationCard = (props: NotificationPropsType) => {
+  const userContext = useContext(UserContext)
   const [seen, toggleSeen] = useToggle(props.singleNotification.seen)
+  let className = 'notification-card'
 
-  const classes = 
-    seen ? 
-    'notification-card seen' : 'notification-card'
-
-  
+  const markAsReadHandler = async () => {
+    await userContext?.patchNotification(props.singleNotification, {seen: !seen})
+    className += ' seen'
+    toggleSeen()
+  }
 
   return (
-    <Card className={classes}>
+    <Card className={className}>
       <p>{props.singleNotification.notification}</p>
       <p>{props.singleNotification.time}</p>
 
       <div className='inputs'>
-        {!seen && 
-          <button>Mark as read</button>
-        }
+        {/* {!seen && 
+          <button onClick={markAsReadHandler}>Mark as read</button>
+        } */}
+        <button onClick={markAsReadHandler}>Mark as read</button>
         <button className="danger">Delete</button>
       </div>
     </Card>
