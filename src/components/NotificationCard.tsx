@@ -14,6 +14,10 @@ const NotificationCard = (props: NotificationPropsType) => {
     toggleSeen()
   }
 
+  const deleteHandler = async () => {
+    await userContext?.deleteNotification(props.singleNotification)
+  }
+
   return (
     <Card className={!seen ? 'notification-card' : 'notification-card seen'}>
       <p>{props.singleNotification.notification}</p>
@@ -23,7 +27,7 @@ const NotificationCard = (props: NotificationPropsType) => {
         {!seen && 
           <button onClick={markAsReadHandler}>Mark as read</button>
         }
-        <button className="danger">Delete</button>
+        <button onClick={deleteHandler} className="danger">Delete</button>
       </div>
     </Card>
   )
