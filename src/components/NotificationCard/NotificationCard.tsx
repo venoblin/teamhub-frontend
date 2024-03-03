@@ -1,9 +1,9 @@
 import '../styles/NotificationCard.css'
 import { useContext, useRef } from 'react'
-import { UserContext } from '../contexts/UserContext'
-import { NotificationPropsType } from '../types/props'
-import useToggle from '../hooks/useToggle'
-import Card from './ui/Card'
+import { UserContext } from '../../contexts/UserContext'
+import { NotificationPropsType } from '../../types/props'
+import useToggle from '../../hooks/useToggle'
+import Card from '../ui/Card'
 
 const NotificationCard = (props: NotificationPropsType) => {
   const userContext = useContext(UserContext)

@@ -4,7 +4,7 @@ import useFormState from '../../../hooks/useFormState'
 import { SetProjectPropsType } from '../../../types/props'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
-import Bugs from '../../Bugs'
+import Bugs from '../../Bugs/Bugs'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 

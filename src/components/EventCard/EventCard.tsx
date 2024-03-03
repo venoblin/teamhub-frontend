@@ -1,6 +1,6 @@
 import '../styles/EventCard.css'
-import { EventPropsType } from '../types/props'
-import Card from './ui/Card'
+import { EventPropsType } from '../../types/props'
+import Card from '../ui/Card'
 
 const EventCard = (props: EventPropsType) => {
   return (

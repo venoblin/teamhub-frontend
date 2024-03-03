@@ -1,6 +1,6 @@
 import '../styles/ProjectCard.css'
-import { ProjectPropsType } from '../types/props'
-import Card from './ui/Card'
+import { ProjectPropsType } from '../../types/props'
+import Card from '../ui/Card'
 
 const ProjectCard = (props: ProjectPropsType) => {
 

@@ -6,7 +6,7 @@ import useFormState from '../../../hooks/useFormState'
 import { SetProjectPropsType } from '../../../types/props'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
-import Todos from '../../Todos'
+import Todos from '../../Todos/Todos'
 
 const ProjectTodos = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)

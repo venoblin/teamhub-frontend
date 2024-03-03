@@ -1,7 +1,7 @@
 import '../styles/Feed.css'
-import { EventsPropsType, FeedPropsType } from '../types/props'
-import EventCard from './EventCard'
-import Panel from './ui/Panel'
+import { EventsPropsType, FeedPropsType } from '../../types/props'
+import EventCard from '../EventCard/EventCard'
+import Panel from '../ui/Panel'
 
 const Feed = (props: FeedPropsType) => {
   const events = [...props.events]

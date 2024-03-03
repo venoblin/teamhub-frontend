@@ -1,9 +1,9 @@
 import '../styles/RecentProjects.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../contexts/UserContext'
-import Panel from './ui/Panel'
-import ProjectLink from './ProjectLink'
+import { UserContext } from '../../contexts/UserContext'
+import Panel from '../ui/Panel'
+import ProjectLink from '../ProjectLink/ProjectLink'
 
 const RecentProjects = () => {
   const userContext = useContext(UserContext)

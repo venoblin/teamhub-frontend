@@ -1,11 +1,11 @@
 import '../styles/Users.css'
-import Panel from './ui/Panel'
-import useFormState from '../hooks/useFormState'
-import { changeListen } from '../utils/inputHandler'
-import { submit } from '../utils/formHandler'
-import { GetUserByIdentifier } from '../services'
-import useUser from '../hooks/useUser'
-import UserCard from './UserCard'
+import Panel from '../ui/Panel'
+import useFormState from '../../hooks/useFormState'
+import { changeListen } from '../../utils/inputHandler'
+import { submit } from '../../utils/formHandler'
+import { GetUserByIdentifier } from '../../services'
+import useUser from '../../hooks/useUser'
+import UserCard from '../UserCard/UserCard'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
