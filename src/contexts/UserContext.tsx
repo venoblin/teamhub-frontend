@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession } from '../services/auth'
-import { DeleteBug, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -189,6 +189,18 @@ export const UserProvider = (props: PropsWithChildren) => {
     setUserNotifications([...updatedNotifications])
   }
 
+  const deleteNotification = async (notification: NotificationType) => {
+    await DeleteNotification(notification.id)
+
+    const updatedNotifications = [...userNotifications]
+    updatedNotifications.forEach((n, i) => {
+      if (n.id === notification.id) {
+        updatedNotifications.splice(i, 1);
+      }
+    })
+    setUserNotifications(updatedNotifications)
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -219,6 +231,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         setUserNotifications,
         postNotification,
         patchNotification,
+        deleteNotification,
         authenticated, 
         toggleAuthenticated,
         handleLogout
