@@ -139,3 +139,12 @@ export const PatchNotification = async (id: number, payload: NotificationPatchTy
     throw err
   }
 }
+
+export const DeleteNotification = async (id: number) => {
+  try {
+    const res = await Client.patch(`/notifications/${id}`)
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}
