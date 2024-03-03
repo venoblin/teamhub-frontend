@@ -1,4 +1,4 @@
-import 'RecentProjects.css'
+import './RecentProjects.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'

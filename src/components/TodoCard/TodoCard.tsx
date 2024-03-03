@@ -1,4 +1,4 @@
-import 'TodoCard.css'
+import './TodoCard.css'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { TodoPropsType } from '../../types/props'

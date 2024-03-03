@@ -1,4 +1,4 @@
-import 'NotificationCard.css'
+import './NotificationCard.css'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { NotificationPropsType } from '../../types/props'

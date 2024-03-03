@@ -1,4 +1,4 @@
-import 'ProjectSettings.css'
+import './ProjectSettings.css'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import useFormState from '../../../../hooks/useFormState'

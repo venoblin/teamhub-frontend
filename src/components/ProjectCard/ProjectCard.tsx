@@ -1,4 +1,4 @@
-import 'ProjectCard.css'
+import './ProjectCard.css'
 import { ProjectPropsType } from '../../types/props'
 import Card from '../ui/Card'
 

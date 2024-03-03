@@ -1,4 +1,4 @@
-import 'EventCard.css'
+import './EventCard.css'
 import { EventPropsType } from '../../types/props'
 import Card from '../ui/Card'
 

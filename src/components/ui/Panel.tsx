@@ -1,4 +1,4 @@
-import 'Panel.css'
+import './Panel.css'
 import { UiPropsType } from '../../types/props'
 import Wrapper from './Wrapper'
 

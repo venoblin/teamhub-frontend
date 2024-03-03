@@ -1,4 +1,4 @@
-import 'Project.css'
+import './Project.css'
 import { Route, Routes, useParams } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import useProject from '../../../hooks/useProject'

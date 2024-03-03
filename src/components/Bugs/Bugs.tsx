@@ -1,4 +1,4 @@
-import 'Bugs.css'
+import './Bugs.css'
 import { SetProjectPropsType } from '../../types/props'
 import Panel from '../ui/Panel'
 import BugCard from '../BugCard/BugCard'

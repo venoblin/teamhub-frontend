@@ -1,4 +1,4 @@
-import 'Register.css'
+import './Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../../../services/auth'
 import { changeListen } from '../../../utils/inputHandler'

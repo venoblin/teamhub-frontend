@@ -1,4 +1,4 @@
-import 'ProjectFeed.css'
+import './ProjectFeed.css'
 import { SetProjectPropsType } from '../../../../types/props'
 import Feed from '../../../Feed/Feed'
 
