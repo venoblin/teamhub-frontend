@@ -1,4 +1,4 @@
-.notification-card .seen {
+.notification-card.seen {
   color: #969696;
 }
 .notification-card .inputs button:first-of-type {

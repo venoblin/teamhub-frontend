@@ -15,7 +15,7 @@ const NotificationCard = (props: NotificationPropsType) => {
   }
 
   return (
-    <Card className={!seen ? 'notification-card' : 'notification-card seen'}>
+    <Card className={seen ? 'notification-card seen' : 'notification-card seen'}>
       <p>{props.singleNotification.notification}</p>
       <p>{props.singleNotification.time}</p>
 
