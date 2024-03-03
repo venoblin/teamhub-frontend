@@ -10,20 +10,19 @@ const NotificationCard = (props: NotificationPropsType) => {
   const [seen, toggleSeen] = useToggle(props.singleNotification.seen)
 
   const markAsReadHandler = async () => {
-    await userContext?.patchNotification(props.singleNotification, {seen: !seen})
+    await userContext?.patchNotification(props.singleNotification, {seen: true})
     toggleSeen()
   }
 
   return (
-    <Card className={seen ? 'notification-card seen' : 'notification-card seen'}>
+    <Card className={!seen ? 'notification-card' : 'notification-card seen'}>
       <p>{props.singleNotification.notification}</p>
       <p>{props.singleNotification.time}</p>
 
       <div className='inputs'>
-        {/* {!seen && 
+        {!seen && 
           <button onClick={markAsReadHandler}>Mark as read</button>
-        } */}
-        <button onClick={markAsReadHandler}>Mark as read</button>
+        }
         <button className="danger">Delete</button>
       </div>
     </Card>
