@@ -1,4 +1,4 @@
-import '../../../styles/ProjectTodos.css'
+import 'ProjectTodos.css'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
 import useToggle from '../../../../hooks/useToggle'

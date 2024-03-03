@@ -1,5 +1,5 @@
-import '../../../styles/ProjectFeed.css'
-import { ProjectPropsType, SetProjectPropsType } from '../../../../types/props'
+import 'ProjectFeed.css'
+import { SetProjectPropsType } from '../../../../types/props'
 import Feed from '../../../Feed/Feed'
 
 const ProjectFeed = (props: SetProjectPropsType) => {

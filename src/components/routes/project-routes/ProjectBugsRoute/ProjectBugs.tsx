@@ -1,4 +1,4 @@
-import '../../../styles/ProjectBugs.css'
+import 'ProjectBugs.css'
 import useToggle from '../../../../hooks/useToggle'
 import useFormState from '../../../../hooks/useFormState'
 import { SetProjectPropsType } from '../../../../types/props'
