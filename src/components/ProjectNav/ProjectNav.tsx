@@ -1,4 +1,4 @@
-import '../styles/ProjectNav.css'
+import 'ProjectNav.css'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'

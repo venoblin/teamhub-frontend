@@ -1,4 +1,4 @@
-import '../../styles/Wrapper.css'
+import 'Wrapper.css'
 import { UiPropsType } from '../../types/props'
 
 const Wrapper = (props: UiPropsType) => {

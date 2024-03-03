@@ -1,5 +1,5 @@
-import '../styles/NotificationCard.css'
-import { useContext, useRef } from 'react'
+import 'NotificationCard.css'
+import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { NotificationPropsType } from '../../types/props'
 import useToggle from '../../hooks/useToggle'

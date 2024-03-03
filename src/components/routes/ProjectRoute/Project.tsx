@@ -1,13 +1,13 @@
-import '../../styles/Project.css'
+import 'Project.css'
 import { Route, Routes, useParams } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
-import useProject from '../../hooks/useProject'
-import { UserContext } from '../../contexts/UserContext'
-import ProjectNav from '../ProjectNav/ProjectNav'
-import ProjectFeed from './project/ProjectFeed'
-import ProjectSettings from './project/ProjectSettings'
-import ProjectTodos from './project/ProjectTodos'
-import ProjectBugs from './project/ProjectBugs'
+import useProject from '../../../hooks/useProject'
+import { UserContext } from '../../../contexts/UserContext'
+import ProjectNav from '../../ProjectNav/ProjectNav'
+import ProjectFeed from '../project-routes/ProjectFeedRoute/ProjectFeed'
+import ProjectSettings from '../project-routes/ProjectSettingsRoute/ProjectSettings'
+import ProjectTodos from '../project-routes/ProjectTodosRoute/ProjectTodos'
+import ProjectBugs from '../project-routes/ProjectBugsRoute/ProjectBugs'
 
 const Project = () => {
   const userContext = useContext(UserContext)

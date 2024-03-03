@@ -1,9 +1,9 @@
-import '../../styles/Register.css'
+import 'Register.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../../services/auth'
-import { changeListen } from '../../utils/inputHandler'
-import { submit } from '../../utils/formHandler'
-import useFormState from '../../hooks/useFormState'
+import { RegisterUser } from '../../../services/auth'
+import { changeListen } from '../../../utils/inputHandler'
+import { submit } from '../../../utils/formHandler'
+import useFormState from '../../../hooks/useFormState'
 
 const Register = () => {
   const [formState, setFormState, resetFormState] = useFormState([

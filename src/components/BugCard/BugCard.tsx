@@ -1,4 +1,4 @@
-import '../styles/BugCard.css'
+import 'BugCard.css'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { BugPropsType } from '../../types/props'

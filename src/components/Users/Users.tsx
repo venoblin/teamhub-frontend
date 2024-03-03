@@ -1,4 +1,4 @@
-import '../styles/Users.css'
+import 'Users.css'
 import Panel from '../ui/Panel'
 import useFormState from '../../hooks/useFormState'
 import { changeListen } from '../../utils/inputHandler'

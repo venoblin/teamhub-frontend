@@ -1,4 +1,4 @@
-import '../../styles/Card.css'
+import 'Card.css'
 import { UiPropsType } from '../../types/props'
 import Wrapper from './Wrapper'
 

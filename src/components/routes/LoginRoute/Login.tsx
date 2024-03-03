@@ -1,11 +1,11 @@
-import '../../styles/Login.css'
+import 'Login.css'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { LoginUser } from '../../services/auth'
-import { UserContext } from '../../contexts/UserContext'
-import { changeListen } from '../../utils/inputHandler'
-import { submit } from '../../utils/formHandler'
-import useFormState from '../../hooks/useFormState'
+import { LoginUser } from '../../../services/auth'
+import { UserContext } from '../../../contexts/UserContext'
+import { changeListen } from '../../../utils/inputHandler'
+import { submit } from '../../../utils/formHandler'
+import useFormState from '../../../hooks/useFormState'
 
 const Login = () => {
   const userContext = useContext(UserContext)

@@ -1,7 +1,7 @@
-import { useContext, useEffect } from 'react'
-import '../../styles/Notifications.css'
-import { UserContext } from '../../contexts/UserContext'
-import NotificationCard from '../NotificationCard/NotificationCard'
+import 'Notifications.css'
+import { useContext } from 'react'
+import { UserContext } from '../../../contexts/UserContext'
+import NotificationCard from '../../NotificationCard/NotificationCard'
 
 const Notifications = () => {
   const userContext = useContext(UserContext)

@@ -1,10 +1,10 @@
-import '../../styles/NewProject.css'
+import 'NewProject.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { changeListen } from '../../utils/inputHandler'
-import { submit } from '../../utils/formHandler'
-import useFormState from '../../hooks/useFormState'
-import { UserContext } from '../../contexts/UserContext'
+import { changeListen } from '../../../utils/inputHandler'
+import { submit } from '../../../utils/formHandler'
+import useFormState from '../../../hooks/useFormState'
+import { UserContext } from '../../../contexts/UserContext'
 
 const NewProject = () => {
   const userContext = useContext(UserContext)

@@ -1,4 +1,4 @@
-import '../../styles/NotFound.css'
+import 'NotFound.css'
 
 const NotFound = () => {
 

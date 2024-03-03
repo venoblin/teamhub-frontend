@@ -1,4 +1,4 @@
-import '../styles/UserCard.css'
+import 'UserCard.css'
 import { UserPropsType } from '../../types/props'
 import Card from '../ui/Card'
 

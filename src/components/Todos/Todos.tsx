@@ -1,4 +1,4 @@
-import '../styles/Todos.css'
+import 'Todos.css'
 import { SetProjectPropsType } from '../../types/props'
 import TodoCard from '../TodoCard/TodoCard'
 import Panel from '../ui/Panel'

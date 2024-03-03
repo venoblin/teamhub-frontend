@@ -1,7 +1,7 @@
-import '../../styles/Home.css'
+import 'Home.css'
 import { useContext } from 'react'
-import { UserContext } from '../../contexts/UserContext'
-import RecentProjects from '../RecentProjects/RecentProjects'
+import { UserContext } from '../../../contexts/UserContext'
+import RecentProjects from '../../RecentProjects/RecentProjects'
 
 const Home = () => {
   const userContext = useContext(UserContext)

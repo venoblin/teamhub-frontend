@@ -1,5 +1,5 @@
-import '../styles/Feed.css'
-import { EventsPropsType, FeedPropsType } from '../../types/props'
+import 'Feed.css'
+import { FeedPropsType } from '../../types/props'
 import EventCard from '../EventCard/EventCard'
 import Panel from '../ui/Panel'
 
