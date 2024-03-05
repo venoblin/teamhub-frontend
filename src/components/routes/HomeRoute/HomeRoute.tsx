@@ -1,4 +1,4 @@
-import './Home.css'
+import './HomeRoute.css'
 import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 import RecentProjects from '../../RecentProjects/RecentProjects'
