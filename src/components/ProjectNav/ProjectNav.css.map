@@ -1,1 +1,1 @@
-{"version":3,"sources":["ProjectNav.scss","vars/variables.scss","ProjectNav.css"],"names":[],"mappings":"AAEA;EACE,aAAA;EACA,8BAAA;EACA,yBCHc;EDId,kBAAA;EACA,0BAAA;AEDF;AFGE;EACE,aAAA;EACA,mBAAA;AEDJ;AFGI;EACE,oBAAA;AEDN;AFGM;EACE,eAAA;AEDR","file":"ProjectNav.css"}
+{"version":3,"sources":["ProjectNav.scss","../../styles/vars/variables.scss","ProjectNav.css"],"names":[],"mappings":"AAEA;EACE,aAAA;EACA,8BAAA;EACA,yBCHc;EDId,kBAAA;EACA,0BAAA;AEDF;AFGE;EACE,aAAA;EACA,mBAAA;AEDJ;AFGI;EACE,oBAAA;AEDN;AFGM;EACE,eAAA;AEDR","file":"ProjectNav.css"}

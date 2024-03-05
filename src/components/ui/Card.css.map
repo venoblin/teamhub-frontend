@@ -1,1 +1,1 @@
-{"version":3,"sources":["Card.scss","vars/variables.scss","Card.css"],"names":[],"mappings":"AAEA;EACE,mBAAA;EACA,yBCHY;EDIZ,yBAAA;EACA,kBAAA;EACA,gBAAA;AEDF","file":"Card.css"}
+{"version":3,"sources":["Card.scss","../../styles/vars/variables.scss","Card.css"],"names":[],"mappings":"AAEA;EACE,mBAAA;EACA,yBCHY;EDIZ,yBAAA;EACA,kBAAA;EACA,gBAAA;AEDF","file":"Card.css"}
