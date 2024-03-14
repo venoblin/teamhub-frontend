@@ -17,7 +17,6 @@ const Users = () => {
       setUser({...user})
     } catch (err) {
       console.log(err)
-      return <div>Error</div>
     }
 
     resetFormState()
