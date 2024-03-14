@@ -1,8 +1,19 @@
-import Panel from '../ui/Panel'
 import './ErrorPopup.css'
+import Panel from '../ui/Panel'
+import { ErrorPopupProps } from '../../types/error'
 
-const ErrorPopup = () => {
+const ErrorPopup = (props: ErrorPopupProps) => {
+
+  const closeHandler = () => {
+    props.onClose()
+  }
+
   return (
-    <Panel>Error</Panel>
+    <Panel>
+      <h2>{props.message}</h2>
+      <button onClick={closeHandler}>Ok</button>
+    </Panel>
   )
 }
+
+export default ErrorPopup
