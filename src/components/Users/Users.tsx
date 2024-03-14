@@ -12,8 +12,14 @@ const Users = () => {
   const [user, setUser] = useUser()
 
   const submitHandler = async () => {
-    const user = await GetUserByIdentifier(formState.identifier)
-    setUser({...user})
+    try {
+      const user = await GetUserByIdentifier(formState.identifier)
+      setUser({...user})
+    } catch (err) {
+      console.log(err)
+      return <div>Error</div>
+    }
+
     resetFormState()
   }
 
