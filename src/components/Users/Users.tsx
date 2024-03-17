@@ -15,8 +15,8 @@ const Users = () => {
     try {
       const user = await GetUserByIdentifier(formState.identifier)
       setUser({...user})
-    } catch (err) {
-      console.log(err)
+    } catch (err: any) {
+      console.log(err.response.message)
     }
 
     resetFormState()
