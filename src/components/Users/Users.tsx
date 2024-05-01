@@ -8,18 +8,20 @@ import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
 import useToggle from '../../hooks/useToggle'
 import ErrorPopup from '../ErrorPopup/ErrorPopup'
+import { useState } from 'react'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
   const [user, setUser] = useUser()
   const [isError, toggleIsError] = useToggle()
+  const [errorMsg, setErrorMsg] = useState('')
 
   const submitHandler = async () => {
     try {
       const user = await GetUserByIdentifier(formState.identifier)
       setUser({...user})
     } catch (err: any) {
-      console.log(err.response.data.message)
+      setErrorMsg(err.response.data.message)
       toggleIsError()
     }
 
@@ -50,7 +52,7 @@ const Users = () => {
       )}
 
       {isError && (
-        <ErrorPopup message="ERROR" onClose={toggleIsError} />
+        <ErrorPopup message={errorMsg} onClose={toggleIsError} />
       )}
     </Panel>
   )
