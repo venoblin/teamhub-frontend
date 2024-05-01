@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"ErrorPopup.css"}
+{"version":3,"sources":["ErrorPopup.scss","ErrorPopup.css","../../styles/vars/variables.scss"],"names":[],"mappings":"AAEA;EACE,aAAA;EACA,gBAAA;EACA,8BAAA;ACDF;;ADIA;EACE,eAAA;EACA,MAAA;EACA,OAAA;EACA,WAAA;EACA,YAAA;EACA,WAAA;ACDF;ADGE;EACE,mBEjBW;ADgBf","file":"ErrorPopup.css"}

@@ -9,9 +9,11 @@ const ErrorPopup = (props: ErrorPopupProps) => {
   }
 
   return (
-    <Panel>
-      <h2>{props.message}</h2>
-      <button onClick={closeHandler}>Ok</button>
+    <Panel className='error-pop-up'>
+      <Panel className='error'>
+        <h2>{props.message}</h2>
+        <button onClick={closeHandler}>Ok</button>
+      </Panel>
     </Panel>
   )
 }
