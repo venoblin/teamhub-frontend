@@ -113,7 +113,6 @@ button:hover::after {
 }
 
 .project-container,
-.home,
-.notifications {
+.route {
   padding: 1rem 4rem 4rem 4rem;
 }/*# sourceMappingURL=App.css.map */

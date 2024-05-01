@@ -7,7 +7,7 @@ const Home = () => {
   const userContext = useContext(UserContext)
   
   return (
-    <div className="home">
+    <div className="home route">
       {userContext?.authenticated ? (
         <div>
           <RecentProjects />

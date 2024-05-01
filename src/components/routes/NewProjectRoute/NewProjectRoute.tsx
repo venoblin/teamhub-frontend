@@ -21,7 +21,7 @@ const NewProject = () => {
   }
   
   return (
-    <div className='new-poject'>
+    <div className='new-poject route'>
       <h1>New Project</h1>
 
       <form onSubmit={(evt) => submit(evt, createProject)}>

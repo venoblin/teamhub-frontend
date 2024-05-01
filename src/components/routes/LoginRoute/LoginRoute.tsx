@@ -25,7 +25,7 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
+    <div className='login route'>
       <h1>Login</h1>
 
       <form onSubmit={(evt) => submit(evt, loginUser)}>

@@ -3,7 +3,7 @@ import './NotFoundRoute.css'
 const NotFound = () => {
 
   return (
-    <div className='not-found'>
+    <div className='not-found route'>
       <h1>404 Not Found!</h1>
     </div>
   )
