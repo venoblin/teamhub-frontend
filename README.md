@@ -12,7 +12,8 @@
   <p align="center">
     Web-application built to help you organize your projects
     <br />
-    <a href="https://github.com/venoblin/project-manager-backend"><strong>Back-End</strong></a>
+    <a href="https://projectmanagerweb.netlify.app/">
+    <strong>View Demo</strong></a> | <a href="https://github.com/venoblin/project-manager-backend"><strong>Back-End</strong></a>
     <br />
   </p>
 </div>
