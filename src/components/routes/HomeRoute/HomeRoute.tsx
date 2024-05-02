@@ -2,6 +2,7 @@ import './HomeRoute.css'
 import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 import RecentProjects from '../../RecentProjects/RecentProjects'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const userContext = useContext(UserContext)
@@ -14,7 +15,9 @@ const Home = () => {
         </div>
       ) : (
         <div>
-          <h2>Please login</h2>
+          <h1>Organize your project</h1>
+          <p>Take your workflow to the next level!</p>
+          <Link to='/register'>Register</Link>
         </div>
       )}
       
