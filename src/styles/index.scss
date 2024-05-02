@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 @import 'vars/variables.scss';
 
-* {
-  font-size: 1.1em;
-}
-
 body {
   height: 100vh;
   margin: 0;
@@ -26,20 +22,4 @@ h1,
 h2,
 h3 {
   margin: 1rem 0;
-}
-
-h1 {
-  font-size: 1.75em;
-}
-
-h2 {
-  font-size: 1.5em;
-}
-
-h3 {
-  font-size: 1.25em;
-}
-
-p, a {
-  font-size: 0.75em;
 }

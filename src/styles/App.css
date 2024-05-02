@@ -3,12 +3,16 @@ form {
   flex-direction: column;
   max-width: 700px;
 }
+form label {
+  margin-bottom: 0.5rem;
+}
 form input {
   background-color: #2E2E2E;
   color: #FFFFFF;
   border: 2px solid #2E2E2E;
   padding: 1rem;
   outline: none;
+  border-radius: 10rem;
   transition: border 0.3s ease;
   margin-bottom: 1rem;
 }
@@ -19,7 +23,7 @@ form input:focus {
   border-color: #16D637;
 }
 form button {
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
 }
 form .btns {
   display: inline;
@@ -50,7 +54,6 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 0.75em;
   border-radius: 5px;
   padding: 5px 20px;
   color: #161616;
