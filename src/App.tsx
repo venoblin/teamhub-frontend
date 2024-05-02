@@ -20,7 +20,7 @@ const App = () => {
       <header>
         <NavBar />
       </header>
-
+      
       <main>
         {userContext?.authenticated ? (
           <Routes>

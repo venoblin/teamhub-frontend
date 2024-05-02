@@ -15,9 +15,9 @@ const Home = () => {
         </div>
       ) : (
         <div>
-          <h1>Organize your project</h1>
-          <p>Take your workflow to the next level!</p>
-          <Link to='/register'>Register</Link>
+          <h1>Project Manager</h1>
+          <p>Take your project to the next level!</p>
+            <Link to='/register'>Register</Link>
         </div>
       )}
       
