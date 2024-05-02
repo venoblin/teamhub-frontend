@@ -4,7 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $bgColorDarker;
+  background-color: $bgColor;
+  border-bottom: 1px solid $wrapperColor;
   padding: 1rem;
 
   a {

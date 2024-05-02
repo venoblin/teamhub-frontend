@@ -1,11 +1,6 @@
 @import '../../styles/vars/variables.scss';
 
 .panel {
-  background-color: $bgColorLight;
+  background-color: $wrapperColor;
   padding: 1rem 1rem 4rem 1rem;
-  border-radius: 10px;
-
-  button {
-    background-color: $bgColorDark;
-  }
 }

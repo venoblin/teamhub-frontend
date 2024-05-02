@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f141a;
+  background-color: #161616;
+  border-bottom: 1px solid #2E2E2E;
   padding: 1rem;
 }
 .main-nav a {

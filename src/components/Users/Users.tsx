@@ -29,9 +29,7 @@ const Users = () => {
   }
 
   return (
-    <Panel>
-      <h2>Users</h2>
-
+    <div className='users'>
       <form onSubmit={(evt) => submit(evt, submitHandler)}>
         <label htmlFor='identifier'>Search User</label>
         <input 
@@ -54,7 +52,7 @@ const Users = () => {
       {isError && (
         <ErrorPopup message={errorMsg} onClose={toggleIsError} />
       )}
-    </Panel>
+    </div>
   )
 }
 
