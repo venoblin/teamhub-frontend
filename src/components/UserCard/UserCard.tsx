@@ -1,6 +1,6 @@
 import './UserCard.css'
 import { UserPropsType } from '../../types/props'
-import Card from '../ui/Card'
+import Card from '../ui/Card/Card'
 
 const UserCard = (props: UserPropsType) => {
   return (

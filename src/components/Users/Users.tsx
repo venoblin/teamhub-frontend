@@ -1,5 +1,4 @@
 import './Users.css'
-import Panel from '../ui/Panel'
 import useFormState from '../../hooks/useFormState'
 import { changeListen } from '../../utils/inputHandler'
 import { submit } from '../../utils/formHandler'

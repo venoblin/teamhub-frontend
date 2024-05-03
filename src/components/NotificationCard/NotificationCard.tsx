@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { NotificationPropsType } from '../../types/props'
 import useToggle from '../../hooks/useToggle'
-import Card from '../ui/Card'
+import Card from '../ui/Card/Card'
 
 const NotificationCard = (props: NotificationPropsType) => {
   const userContext = useContext(UserContext)

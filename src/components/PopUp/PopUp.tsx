@@ -1,5 +1,5 @@
 import './PopUp.css'
-import Panel from '../ui/Panel'
+import Panel from '../ui/Panel/Panel'
 import { PopUpProps } from '../../types/popup'
 
 const ErrorPopup = (props: PopUpProps) => {

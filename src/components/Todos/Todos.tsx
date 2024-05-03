@@ -1,7 +1,7 @@
 import './Todos.css'
 import { SetProjectPropsType } from '../../types/props'
 import TodoCard from '../TodoCard/TodoCard'
-import Panel from '../ui/Panel'
+import Panel from '../ui/Panel/Panel'
 
 const Todos = (props: SetProjectPropsType) => {
   const todos = props.project.todos.filter(t => !t.completed)

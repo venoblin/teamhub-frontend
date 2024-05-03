@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { BugPropsType } from '../../types/props'
 import useToggle from '../../hooks/useToggle'
-import Card from '../ui/Card'
+import Card from '../ui/Card/Card'
 
 const BugCard = (props: BugPropsType) => {
   const userContext = useContext(UserContext)

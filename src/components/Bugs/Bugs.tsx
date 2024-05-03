@@ -1,6 +1,6 @@
 import './Bugs.css'
 import { SetProjectPropsType } from '../../types/props'
-import Panel from '../ui/Panel'
+import Panel from '../ui/Panel/Panel'
 import BugCard from '../BugCard/BugCard'
 
 const Bugs = (props: SetProjectPropsType) => {

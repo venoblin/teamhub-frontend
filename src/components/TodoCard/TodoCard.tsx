@@ -2,7 +2,7 @@ import './TodoCard.css'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { TodoPropsType } from '../../types/props'
-import Card from '../ui/Card'
+import Card from '../ui/Card/Card'
 
 const TodoCard = (props: TodoPropsType) => {
   const userContext = useContext(UserContext)
