@@ -1,13 +1,20 @@
 .project-nav {
   display: flex;
-  justify-content: space-between;
-  background-color: #161616;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #2E2E2E;
   padding: 1rem 2rem;
   border-radius: 0 0 5px 5px;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
 }
 .project-nav .links {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 .project-nav .links * {
   margin-right: 0.5rem;

@@ -2,17 +2,13 @@
 
 .main-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: $bgColor;
   border-bottom: 1px solid $wrapperColor;
   padding: 1rem;
 
   a {
-    margin-left: 0.75rem;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
+    margin-left: 1.5rem;
   }
 }

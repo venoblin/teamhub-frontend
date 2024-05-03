@@ -1,14 +1,11 @@
 .main-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: #161616;
   border-bottom: 1px solid #2E2E2E;
   padding: 1rem;
 }
 .main-nav a {
-  margin-left: 0.75rem;
-}
-.main-nav a:first-of-type {
-  margin-left: 0;
+  margin-left: 1.5rem;
 }/*# sourceMappingURL=NavBar.css.map */

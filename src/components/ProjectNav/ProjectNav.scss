@@ -2,14 +2,21 @@
 
 .project-nav {
   display: flex;
-  justify-content: space-between;
-  background-color: $bgColor;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $wrapperColor;
   padding: 1rem 2rem;
   border-radius: 0 0 5px 5px;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
   
   .links {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 
     * {
       margin-right: 0.5rem;
