@@ -1,7 +1,7 @@
 import './Bugs.css'
 import { SetProjectPropsType } from '../../types/props'
-import Panel from '../ui/Panel/Panel'
 import BugCard from '../BugCard/BugCard'
+import KanbanBoard from '../ui/KanbanBoard/KanbanBoard'
 
 const Bugs = (props: SetProjectPropsType) => {
   const bugs = props.project.bugs.filter(b => !b.completed)
@@ -9,8 +9,8 @@ const Bugs = (props: SetProjectPropsType) => {
 
   
   return (
-    <div className='bugs'>
-      <Panel>
+    <KanbanBoard className='bugs'>
+      <div>
       <h2>Bugs</h2>
         {bugs.length ? (
           bugs.map(singleBug => (
@@ -26,9 +26,9 @@ const Bugs = (props: SetProjectPropsType) => {
         ) : (
           <p>No bugs!</p>
         )}
-      </Panel>
+      </div>
 
-      <Panel>
+      <div>
       <h2>Completed Bugs</h2>
         {completedBugs.length ? (
           completedBugs.map(singleBug => (
@@ -42,8 +42,8 @@ const Bugs = (props: SetProjectPropsType) => {
         ) : (
           <p>No completed bugs!</p>
         )}
-      </Panel>
-    </div>
+      </div>
+    </KanbanBoard>
   )
 }
 

@@ -1,15 +1,15 @@
 import './Todos.css'
 import { SetProjectPropsType } from '../../types/props'
 import TodoCard from '../TodoCard/TodoCard'
-import Panel from '../ui/Panel/Panel'
+import KanbanBoard from '../ui/KanbanBoard/KanbanBoard'
 
 const Todos = (props: SetProjectPropsType) => {
   const todos = props.project.todos.filter(t => !t.completed)
   const completedTodos = props.project.todos.filter(t => t.completed)
 
   return (
-    <div className='todos'>
-      <Panel>
+    <KanbanBoard className='todos'>
+      <div>
       <h2>Todos</h2>
         {todos.length ? (
           todos.map(singleTodo => (
@@ -23,9 +23,9 @@ const Todos = (props: SetProjectPropsType) => {
         ) : (
           <p>No todos!</p>
         )}
-      </Panel>
+      </div>
 
-      <Panel>
+      <div>
       <h2>Completed Todos</h2>
         {completedTodos.length ? (
           completedTodos.map(singleTodo => (
@@ -39,8 +39,8 @@ const Todos = (props: SetProjectPropsType) => {
         ) : (
           <p>No completed todos!</p>
         )}
-      </Panel>
-    </div>
+      </div>
+    </KanbanBoard>
   )
 }
 
