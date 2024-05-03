@@ -1,4 +1,4 @@
-.panel.error-pop-up {
+.panel.pop-up {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -12,9 +12,9 @@
   border-radius: 0;
   background: rgba(0, 0, 0, 0.9);
 }
-.panel.error-pop-up .error {
+.panel.pop-up .inner-panel {
   margin: 0;
-  background: #2d3a4a;
+  background: #2E2E2E;
   max-width: 600px;
   padding: 1rem;
-}/*# sourceMappingURL=ErrorPopup.css.map */
+}/*# sourceMappingURL=PopUp.css.map */

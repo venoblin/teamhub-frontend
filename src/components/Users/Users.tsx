@@ -7,7 +7,7 @@ import { GetUserByIdentifier } from '../../services'
 import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
 import useToggle from '../../hooks/useToggle'
-import ErrorPopup from '../ErrorPopup/ErrorPopup'
+import PopUp from '../PopUp/PopUp'
 import { useState } from 'react'
 
 const Users = () => {
@@ -50,7 +50,7 @@ const Users = () => {
       )}
 
       {isError && (
-        <ErrorPopup message={errorMsg} onClose={toggleIsError} />
+        <PopUp message={errorMsg} onClose={toggleIsError} />
       )}
     </div>
   )

@@ -1,4 +1,4 @@
-export interface ErrorPopupProps {
+export interface PopUpProps {
   message: string,
   onClose: () => void
 }
