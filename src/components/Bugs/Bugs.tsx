@@ -7,7 +7,6 @@ const Bugs = (props: SetProjectPropsType) => {
   const bugs = props.project.bugs.filter(b => !b.completed)
   const completedBugs = props.project.bugs.filter(b => b.completed)
 
-  
   return (
     <KanbanBoard className='bugs'>
       <div>

@@ -1,1 +1,9 @@
-/*# sourceMappingURL=KanbanBoard.css.map */
+.kanban-board {
+  display: flex;
+}
+.kanban-board > div {
+  margin-right: 2rem;
+}
+.kanban-board > div:last-of-type {
+  margin-right: 0;
+}/*# sourceMappingURL=KanbanBoard.css.map */

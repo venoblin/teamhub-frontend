@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"KanbanBoard.css"}
+{"version":3,"sources":["KanbanBoard.scss","KanbanBoard.css"],"names":[],"mappings":"AAAA;EACE,aAAA;ACCF;ADCE;EACE,kBAAA;ACCJ;ADCI;EACE,eAAA;ACCN","file":"KanbanBoard.css"}
