@@ -1,3 +1,4 @@
-.project-container {
+.project .project-container,
+.project h1 {
   padding-left: 17rem;
 }/*# sourceMappingURL=ProjectRoute.css.map */

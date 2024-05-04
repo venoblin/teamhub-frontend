@@ -23,7 +23,6 @@ const ProjectBugs = (props: SetProjectPropsType) => {
         project_id: props.project.id
       }
       await userContext?.postBug(payload, props.project, props.setProject)
-      resetFormState()
       toggleAddMode()
     }
   }

@@ -22,8 +22,7 @@ const ProjectTodos = (props: SetProjectPropsType) => {
         project_id: props.project.id
       }
       await userContext?.postTodo(payload, props.project, props.setProject)
-      resetFormState()
-      toggleAddMode()
+      toggleMode()
     }
   }
 
