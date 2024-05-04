@@ -32,22 +32,24 @@ const BugCard = (props: BugPropsType) => {
   
   return (
     <Card className='bug-todo-card bug-card'>
-      <p>{props.singleBug.bug}</p>
+      <div>
+        <p>{props.singleBug.bug}</p>
+        {isShown && 
+          <p>{props.singleBug.bug_info}</p>
+        }
+      </div>
 
       {props.singleBug.bug_info &&
-        <div className='bug-info'>
-          {isShown && 
-            <p>{props.singleBug.bug_info}</p>
-          }
-          <button className='view-info-btn' onClick={clickHandler}>View Info</button>
-        </div>
-      }
-
-      {!props.singleBug.completed &&
         <div className='btns'>
-          <button>Edit</button>
-          <button className='success' onClick={completeHandler}>Complete</button>
-          <button className='danger' onClick={deleteHandler}>Delete</button>
+          <button className='view-info-btn' onClick={clickHandler}>View Info</button>
+
+          {!props.singleBug.completed &&
+            <div>
+              <button>Edit</button>
+              <button className='success' onClick={completeHandler}>Complete</button>
+              <button className='danger' onClick={deleteHandler}>Delete</button>
+            </div>
+          }
         </div> 
       }
     </Card>
