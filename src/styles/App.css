@@ -80,23 +80,27 @@ button:hover::after {
 }
 
 .bug-todo-card,
-.event-card {
+.event-card,
+.user-card {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .bug-todo-card .btns .view-info-btn,
-.event-card .btns .view-info-btn {
+.event-card .btns .view-info-btn,
+.user-card .btns .view-info-btn {
   width: 100%;
 }
 .bug-todo-card .btns .edit-btns,
-.event-card .btns .edit-btns {
+.event-card .btns .edit-btns,
+.user-card .btns .edit-btns {
   margin-top: 0.5rem;
   display: flex;
 }
 .bug-todo-card .btns button,
-.event-card .btns button {
+.event-card .btns button,
+.user-card .btns button {
   margin-right: 0.5rem;
 }
 
