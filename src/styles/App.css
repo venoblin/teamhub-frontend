@@ -90,8 +90,8 @@ button:hover::after {
 .event-card .btns .view-info-btn {
   width: 100%;
 }
-.bug-todo-card .btns > div,
-.event-card .btns > div {
+.bug-todo-card .btns .edit-btns,
+.event-card .btns .edit-btns {
   margin-top: 0.5rem;
   display: flex;
 }
