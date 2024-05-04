@@ -6,7 +6,6 @@
   justify-content: center;
   background-color: $wrapperColor;
   padding: 1rem 2rem;
-  border-radius: 0 0 5px 5px;
   width: 150px;
   height: 100%;
   position: fixed;
@@ -19,11 +18,7 @@
     flex-direction: column;
 
     * {
-      margin-right: 0.5rem;
-  
-      &:last-child {
-        margin-right: 0;
-      }
+      margin-bottom: 1rem;
     }
   }
 }
