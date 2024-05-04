@@ -82,6 +82,9 @@ button:hover::after {
 .bug-todo-card,
 .event-card {
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .bug-todo-card .btns button,
 .event-card .btns button {
