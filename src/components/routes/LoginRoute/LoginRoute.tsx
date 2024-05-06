@@ -3,12 +3,14 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LoginUser } from '../../../services/auth'
 import { UserContext } from '../../../contexts/UserContext'
+import { PopUpContext } from '../../../contexts/PopUpContext'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import useFormState from '../../../hooks/useFormState'
 
 const Login = () => {
   const userContext = useContext(UserContext)
+  const popUpContext = useContext(PopUpContext)
   const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
   const navigate = useNavigate()
 
@@ -19,7 +21,7 @@ const Login = () => {
       userContext?.getAndSetUser(payload.id)
       navigate('/')
     } catch (err) {
-      console.error('There was an error!')
+      popUpContext?.showPopUp('Invalid email or password!')
     }
     resetFormState()
   }
