@@ -5,7 +5,7 @@ import Panel from '../components/ui/Panel/Panel';
 
 export const LoaderContext = createContext<LoaderContextType | null>(null)
 
-export const LoaderContextProvider = (props: PropsWithChildren) => {
+export const LoaderProvider = (props: PropsWithChildren) => {
   const [isLoading, toggleIsLoading] = useToggle()
 
   const toggleLoading = () => {

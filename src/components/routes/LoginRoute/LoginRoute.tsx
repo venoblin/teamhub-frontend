@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { LoginUser } from '../../../services/auth'
 import { UserContext } from '../../../contexts/UserContext'
 import { PopUpContext } from '../../../contexts/PopUpContext'
+import { LoaderContext } from '../../../contexts/LoaderContext'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import useFormState from '../../../hooks/useFormState'
@@ -11,13 +12,13 @@ import useFormState from '../../../hooks/useFormState'
 const Login = () => {
   const userContext = useContext(UserContext)
   const popUpContext = useContext(PopUpContext)
+  const loaderContext = useContext(LoaderContext)
   const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
   const navigate = useNavigate()
 
   const loginUser = async () => {
     try {
       const payload = await LoginUser(formState)
-      
       userContext?.getAndSetUser(payload.id)
       navigate('/')
     } catch (err) {

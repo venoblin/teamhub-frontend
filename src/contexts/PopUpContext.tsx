@@ -23,7 +23,11 @@ export const PopUpProvider = (props: PropsWithChildren) => {
       {msg.length && 
         <Panel className='pop-up'>
           <Panel className='inner-panel'>
-            <p>{msg}</p>
+            {msg.length ? (
+              <p>{msg}</p>
+            ) : (
+              <p></p>
+            )}
             <button onClick={dismissHandler}>Ok</button>
           </Panel>
         </Panel>
