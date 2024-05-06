@@ -122,7 +122,8 @@ button:hover::after {
   padding: 1rem 4rem 4rem 4rem;
 }
 
-.panel.pop-up .panel.loader {
+.panel.pop-up,
+.panel.loader {
   position: fixed;
   display: flex;
   justify-content: center;

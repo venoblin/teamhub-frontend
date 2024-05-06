@@ -20,14 +20,10 @@ export const PopUpProvider = (props: PropsWithChildren) => {
     <PopUpContext.Provider value={{showPopUp}}>
       {props.children}
 
-      {msg.length && 
+      {msg.length > 0 && 
         <Panel className='pop-up'>
           <Panel className='inner-panel'>
-            {msg.length ? (
-              <p>{msg}</p>
-            ) : (
-              <p></p>
-            )}
+            <p>{msg}</p>
             <button onClick={dismissHandler}>Ok</button>
           </Panel>
         </Panel>
