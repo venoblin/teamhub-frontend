@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { UserProvider } from './contexts/UserContext'
+import { PopUpProvider } from './contexts/PopUpContext'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <App />
-      </UserProvider>
+      <PopUpProvider>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </PopUpProvider>
     </BrowserRouter>
   </React.StrictMode>
 )

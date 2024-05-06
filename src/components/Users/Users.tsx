@@ -6,22 +6,18 @@ import { GetUserByIdentifier } from '../../services'
 import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
 import useToggle from '../../hooks/useToggle'
-import PopUp from '../PopUp/PopUp'
 import { useState } from 'react'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
   const [user, setUser] = useUser()
-  const [isError, toggleIsError] = useToggle()
-  const [errorMsg, setErrorMsg] = useState('')
 
   const submitHandler = async () => {
     try {
       const user = await GetUserByIdentifier(formState.identifier)
       setUser({...user})
     } catch (err: any) {
-      setErrorMsg(err.response.data.message)
-      toggleIsError()
+      console.log(err)
     }
 
     resetFormState()
@@ -46,10 +42,6 @@ const Users = () => {
 
       {user.id && (
         <UserCard user={user} />
-      )}
-
-      {isError && (
-        <PopUp message={errorMsg} onClose={toggleIsError} />
       )}
     </div>
   )
