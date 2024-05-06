@@ -17,10 +17,7 @@ export const PopUpProvider = (props: PropsWithChildren) => {
   }
 
   return (
-    <PopUpContext.Provider value={{
-        showPopUp
-      }}
-    >
+    <PopUpContext.Provider value={{showPopUp}}>
       {props.children}
 
       {msg.length && 
