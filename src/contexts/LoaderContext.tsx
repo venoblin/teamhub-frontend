@@ -1,19 +1,28 @@
-import { createContext, PropsWithChildren } from 'react';
-import { LoaderContextType } from '../types/loader';
-import useToggle from '../hooks/useToggle';
-import Panel from '../components/ui/Panel/Panel';
+import '../styles/Loader.css'
+import { createContext, PropsWithChildren, useState } from 'react'
+import { LoaderContextType } from '../types/loader'
+import useToggle from '../hooks/useToggle'
+import Panel from '../components/ui/Panel/Panel'
 
 export const LoaderContext = createContext<LoaderContextType | null>(null)
 
 export const LoaderProvider = (props: PropsWithChildren) => {
-  const [isLoading, toggleIsLoading] = useToggle()
+  const [isLoading, toggleIsLoading] = useToggle(false)
 
-  const toggleLoading = () => {
+  const load = async (promise: Promise<any>) => {
     toggleIsLoading()
+    
+    const res = await promise
+
+    toggleIsLoading()
+
+    console.log()
+    
+    return res
   }
   
   return (
-    <LoaderContext.Provider value={{toggleLoading}}>
+    <LoaderContext.Provider value={{load}}>
       {props.children}
 
       {isLoading && 

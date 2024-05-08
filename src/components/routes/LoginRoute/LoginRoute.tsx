@@ -16,15 +16,17 @@ const Login = () => {
   const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
   const navigate = useNavigate()
 
+
   const loginUser = async () => {
     try {
-      const payload = await LoginUser(formState)
-      userContext?.getAndSetUser(payload.id)
-      navigate('/')
+      const payload = await loaderContext?.load(LoginUser(formState))
+      console.log(payload)
+      // userContext?.getAndSetUser(payload.id)
+      // navigate('/')
     } catch (err) {
       popUpContext?.showPopUp('Invalid email or password!')
     }
-    resetFormState()
+    // resetFormState()
   }
 
   return (

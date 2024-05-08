@@ -1,3 +1,3 @@
 export interface LoaderContextType {
-  toggleLoading: () => void
+  load: (promise: Promise<any>) => any
 }

@@ -7,11 +7,15 @@ const useToggle = (initialState: Boolean = false): any[] => {
     if (bool && bool !== toggleState) {
       setToggleState(bool)
     } else { 
-      setToggleState(!toggleState)
+      setToggleState(currState => !currState)
     }
   }
 
-  return [toggleState, toggle]
+  const resetToggle = () => {
+    setToggleState(initialState)
+  }
+
+  return [toggleState, toggle, resetToggle]
 }
 
 export default useToggle
