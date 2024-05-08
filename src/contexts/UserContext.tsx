@@ -1,6 +1,6 @@
 import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { UserType, UserContextType } from '../types/user'
-import { CheckSession } from '../services/auth'
+import { CheckSession, LoginUser } from '../services/auth'
 import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
@@ -11,6 +11,7 @@ import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateObjInArr } from '../utils'
 import useUserContributor from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
+import { LoginType } from "../types/auth"
 import { NotificationPatchType, NotificationPayloadType, NotificationType } from '../types/notification'
 
 export const UserContext = createContext<UserContextType | null>(null)
@@ -43,6 +44,11 @@ export const UserProvider = (props: PropsWithChildren) => {
       setUserNotifications([...userRes.notifications])
       toggleAuthenticated(true)
     }
+  }
+
+  const loginUser = async (payload: LoginType) => {
+    const res = await LoginUser(payload)
+    getAndSetUser(res.id)
   }
 
   const checkToken = async () => {
@@ -212,6 +218,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     <UserContext.Provider value={{
         user, 
         setUser,
+        loginUser,
         getAndSetUser,
         userProjects,
         setUserProjects,

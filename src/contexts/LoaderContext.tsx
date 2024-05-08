@@ -9,7 +9,7 @@ export const LoaderContext = createContext<LoaderContextType | null>(null)
 export const LoaderProvider = (props: PropsWithChildren) => {
   const [isLoading, toggleIsLoading] = useToggle(false)
 
-  const load = async (promise: () => any) => {
+  const load = async (promise: void | undefined) => {
     toggleIsLoading()    
     const res = await promise
     toggleIsLoading()
