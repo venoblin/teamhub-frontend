@@ -20,9 +20,8 @@ const Login = () => {
   const loginUser = async () => {
     try {
       const payload = await loaderContext?.load(LoginUser(formState))
-      console.log(payload)
-      // userContext?.getAndSetUser(payload.id)
-      // navigate('/')
+      await loaderContext?.load(userContext?.getAndSetUser(payload.id))
+      navigate('/')
     } catch (err) {
       popUpContext?.showPopUp('Invalid email or password!')
     }

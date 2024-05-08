@@ -1,3 +1,3 @@
 export interface LoaderContextType {
-  load: (promise: Promise<any>) => any
+  load: (promise: () => any) => any
 }
