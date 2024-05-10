@@ -10,18 +10,13 @@ export const LoaderProvider = (props: PropsWithChildren) => {
   const [isLoading, toggleIsLoading] = useToggle(false)
 
   const load = (promise: Promise<any> | undefined) => {
-    let data = null
-    
-    toggleIsLoading()    
-    promise?.then((res) => {
+    toggleIsLoading()
+    return promise?.then(() => {
       toggleIsLoading()
-      
-      data = res
-    }).catch((err) => {
+    }).catch(() => {
       toggleIsLoading()
+      return new Error()
     })
-
-    return data
   }
   
   return (
