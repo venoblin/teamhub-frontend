@@ -15,7 +15,7 @@ export const LoaderProvider = (props: PropsWithChildren) => {
       toggleIsLoading()
     }).catch(() => {
       toggleIsLoading()
-      return new Error()
+      throw new Error()
     })
   }
   
