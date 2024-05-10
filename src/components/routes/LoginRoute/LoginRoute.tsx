@@ -1,7 +1,6 @@
 import './LoginRoute.css'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { LoginUser } from '../../../services/auth'
 import { UserContext } from '../../../contexts/UserContext'
 import { PopUpContext } from '../../../contexts/PopUpContext'
 import { LoaderContext } from '../../../contexts/LoaderContext'
@@ -15,7 +14,6 @@ const Login = () => {
   const loaderContext = useContext(LoaderContext)
   const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
   const navigate = useNavigate()
-
 
   const loginUser = async () => {
     try {
