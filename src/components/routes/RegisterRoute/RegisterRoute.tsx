@@ -1,11 +1,16 @@
 import './RegisterRoute.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../../../services/auth'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
+import { LoaderContext } from '../../../contexts/LoaderContext'
+import { PopUpContext } from '../../../contexts/PopUpContext'
 import useFormState from '../../../hooks/useFormState'
 
 const Register = () => {
+  const loaderContext = useContext(LoaderContext)  
+  const popUpContext = useContext(PopUpContext)
   const [formState, setFormState, resetFormState] = useFormState([
     'email', 
     'password', 
@@ -17,10 +22,10 @@ const Register = () => {
 
   const registerUser = async () => {
     try {
-      await RegisterUser(formState)
+      await loaderContext?.load(RegisterUser(formState))
       navigate('/login')
-    } catch (err) {
-      console.error('There was an error!')
+    } catch (err: any) {
+      popUpContext?.showPopUp('Email or username already in use!')
     }
     resetFormState()
   }
