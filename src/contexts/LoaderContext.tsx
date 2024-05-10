@@ -9,12 +9,19 @@ export const LoaderContext = createContext<LoaderContextType | null>(null)
 export const LoaderProvider = (props: PropsWithChildren) => {
   const [isLoading, toggleIsLoading] = useToggle(false)
 
-  const load = async (promise: void | undefined) => {
+  const load = (promise: Promise<any> | undefined) => {
+    let data = null
+    
     toggleIsLoading()    
-    const res = await promise
-    toggleIsLoading()
+    promise?.then((res) => {
+      toggleIsLoading()
+      
+      data = res
+    }).catch((err) => {
+      toggleIsLoading()
+    })
 
-    return res
+    return data
   }
   
   return (
