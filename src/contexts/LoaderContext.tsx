@@ -1,8 +1,8 @@
-import '../styles/Loader.css'
 import { createContext, PropsWithChildren } from 'react'
 import { LoaderContextType } from '../types/loader'
 import useToggle from '../hooks/useToggle'
-import Panel from '../components/ui/Panel/Panel'
+import PopUp from '../components/ui/PopUp/PopUp'
+import Loader from '../components/Loader/Loader'
 
 export const LoaderContext = createContext<LoaderContextType | null>(null)
 
@@ -24,9 +24,9 @@ export const LoaderProvider = (props: PropsWithChildren) => {
       {props.children}
 
       {isLoading && 
-        <Panel className='loader'>
-          <span></span>
-        </Panel>
+        <PopUp>
+          <Loader />
+        </PopUp>
       }
     </LoaderContext.Provider>
   )
