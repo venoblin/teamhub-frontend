@@ -1,6 +1,18 @@
 @import '../../../styles/vars/variables.scss';
 
 .pop-up {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  margin-top: 0;
+  border-radius: 0;
+  background: rgba($color: #000000, $alpha: 0.9);
   
   .inner-panel {
     margin: 0;

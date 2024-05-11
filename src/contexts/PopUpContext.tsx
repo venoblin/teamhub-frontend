@@ -8,11 +8,14 @@ export const PopUpContext = createContext<PopUpContextType | null>(null)
 
 export const PopUpProvider = (props: PropsWithChildren) => {
   const [isShowing, toggleIsShowing] = useToggle()
-
-  let componentToShow = null
-
+  const [componentToShow, setComponentToShow] = useState<JSX.Element>(<p></p>)
+  
   const showPopUp = (component: JSX.Element) => {
-    componentToShow = component
+    setComponentToShow(component)
+    toggleIsShowing()
+  }
+
+  const dismissPopUp = () => {
     toggleIsShowing()
   }
 
@@ -26,7 +29,7 @@ export const PopUpProvider = (props: PropsWithChildren) => {
             {componentToShow != null && 
               componentToShow
             }
-            <button onClick={toggleIsShowing}>Ok</button>
+            <button onClick={dismissPopUp}>Ok</button>
           </Panel>
         </PopUp>
       }
