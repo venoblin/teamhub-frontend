@@ -1,4 +1,3 @@
-import '../styles/PopUp.css'
 import { createContext, PropsWithChildren, useState } from 'react'
 import { PopUpContextType } from '../types/popup'
 import useToggle from '../hooks/useToggle'
@@ -12,7 +11,7 @@ export const PopUpProvider = (props: PropsWithChildren) => {
 
   let componentToShow = null
 
-  const showPopUp = (component: Element) => {
+  const showPopUp = (component: JSX.Element) => {
     componentToShow = component
     toggleIsShowing()
   }

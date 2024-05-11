@@ -1,5 +1,5 @@
 import '../styles/Loader.css'
-import { createContext, PropsWithChildren, useState } from 'react'
+import { createContext, PropsWithChildren } from 'react'
 import { LoaderContextType } from '../types/loader'
 import useToggle from '../hooks/useToggle'
 import Panel from '../components/ui/Panel/Panel'

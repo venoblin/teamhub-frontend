@@ -8,6 +8,7 @@ import { LoaderContext } from '../../../contexts/LoaderContext'
 import { PopUpContext } from '../../../contexts/PopUpContext'
 import { UserContext } from '../../../contexts/UserContext'
 import useFormState from '../../../hooks/useFormState'
+import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 
 const Register = () => {
   const loaderContext = useContext(LoaderContext)  
@@ -27,7 +28,7 @@ const Register = () => {
       await loaderContext?.load(userContext?.registerUser(formState))
       navigate('/')
     } catch (err) {
-      popUpContext?.showPopUp('Email or username already in use!')
+      popUpContext?.showPopUp(<PopUpMessage msg='Email or username already in use!' />)
     }
     resetFormState()
   }

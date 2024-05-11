@@ -50,5 +50,5 @@ export interface PopUpProps extends React.PropsWithChildren {
 }
 
 export interface PropsWithMessage {
-  message: string
+  msg: string
 }

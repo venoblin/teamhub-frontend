@@ -21,7 +21,7 @@ const Login = () => {
       await loaderContext?.load(userContext?.loginUser(formState))
       navigate('/')
     } catch (err) {
-      popUpContext?.showPopUp('Invalid email or password!')
+      popUpContext?.showPopUp(<PopUpMessage msg='Invalid email or password!' />)
     }
     resetFormState()
   }
