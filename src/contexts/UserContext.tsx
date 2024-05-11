@@ -30,10 +30,8 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const getAndSetUser = async (id: number) => {
-    if (typeof id === 'number') {
+    try {
       const userRes = await GetUser(id)
-
-      console.log(userRes)
 
       setUser({
         id: userRes.id,
@@ -45,6 +43,8 @@ export const UserProvider = (props: PropsWithChildren) => {
       setUserContributions([...userRes.contributions])
       setUserNotifications([...userRes.notifications])
       toggleAuthenticated(true)
+    } catch {
+      throw new Error('Error getting user information!')
     }
   }
 
@@ -57,7 +57,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     try {
       await RegisterUser(payload)
       await loginUser({email: payload.email, password: payload.password})
-    } catch (err) {
+    } catch {
       throw new Error('Error registering user!')
     }
   }
