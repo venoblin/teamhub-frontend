@@ -80,15 +80,19 @@ const ProjectSettings = (props: SetProjectPropsType) => {
         </div>
       </form> 
 
-      {/* <h2>Collaborators</h2>
-      {props.project.contributors.length ? (
-        props.project.contributors.map((c) => (
-          <p>(c.user.username)</p>
-        ))
-      ) : (
-        <p>No collaborators!</p>
-      )}
-       */}
+      <div className='collaboraters'>
+        <h2>Collaborators</h2>
+        {props.project.contributors.length ? (
+          props.project.contributors.map((c) => (
+            <p>(c.user.username)</p>
+          ))
+        ) : (
+          <p>No collaborators!</p>
+        )}
+
+        <button>Add Collaborator</button>
+      </div>
+      
       <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
     </div>
   )
