@@ -9,7 +9,8 @@ const useProject = (): [ProjectType, React.Dispatch<React.SetStateAction<Project
     id: null,
     bugs: [],
     todos: [],
-    events: []
+    events: [],
+    contributors: []
   }
   
   const [project, setProject] = useState<ProjectType>(nullProject)

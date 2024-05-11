@@ -1,4 +1,4 @@
-import { PropsWithChildren, createContext, useEffect, useState } from 'react'
+import { PropsWithChildren, createContext, useEffect } from 'react'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession, LoginUser, RegisterUser } from '../services/auth'
 import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'

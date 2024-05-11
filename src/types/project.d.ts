@@ -1,4 +1,5 @@
 import { BugType } from "./bug"
+import { ContributorType } from "./contributor"
 import { EventType } from "./event"
 import { TodoType } from "./todo"
 
@@ -12,7 +13,8 @@ export interface ProjectType extends ProjectPayloadType {
   id: number | null,
   bugs: BugType[],
   todos: TodoType[],
-  events: EventType[]
+  events: EventType[],
+  contributors: ContributorType[]
 }
 
 export interface ProjectPatchType {
