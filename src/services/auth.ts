@@ -1,4 +1,4 @@
-import { LoginType } from "../types/auth"
+import { LoginType, RegisterType } from "../types/auth"
 import Client from "./api"
 
 export const LoginUser = async (data: LoginType) => {
@@ -11,7 +11,7 @@ export const LoginUser = async (data: LoginType) => {
   }
 }
 
-export const RegisterUser = async (data: LoginType) => {
+export const RegisterUser = async (data: RegisterType) => {
   try {
     const res = await Client.post('/register', data)
     return res.data

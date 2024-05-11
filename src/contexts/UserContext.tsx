@@ -1,6 +1,6 @@
 import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { UserType, UserContextType } from '../types/user'
-import { CheckSession, LoginUser } from '../services/auth'
+import { CheckSession, LoginUser, RegisterUser } from '../services/auth'
 import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
@@ -11,7 +11,7 @@ import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateObjInArr } from '../utils'
 import useUserContributor from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
-import { LoginType } from "../types/auth"
+import { LoginType, RegisterType } from "../types/auth"
 import { NotificationPatchType, NotificationPayloadType, NotificationType } from '../types/notification'
 
 export const UserContext = createContext<UserContextType | null>(null)
@@ -33,6 +33,8 @@ export const UserProvider = (props: PropsWithChildren) => {
     if (typeof id === 'number') {
       const userRes = await GetUser(id)
 
+      console.log(userRes)
+
       setUser({
         id: userRes.id,
         username: userRes.username,
@@ -49,6 +51,15 @@ export const UserProvider = (props: PropsWithChildren) => {
   const loginUser = async (payload: LoginType) => {
     const res = await LoginUser(payload)
     getAndSetUser(res.id)
+  }
+
+  const registerUser = async (payload: RegisterType) => {
+    try {
+      await RegisterUser(payload)
+      await loginUser({email: payload.email, password: payload.password})
+    } catch (err) {
+      throw new Error('Error registering user!')
+    }
   }
 
   const checkToken = async () => {
@@ -219,6 +230,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         user, 
         setUser,
         loginUser,
+        registerUser,
         getAndSetUser,
         userProjects,
         setUserProjects,

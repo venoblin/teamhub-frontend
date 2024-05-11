@@ -3,7 +3,7 @@ import { ContributionType, ContributorType } from "./contributor"
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from "./project"
 import { TodoPatchType, TodoPayloadType, TodoType } from "./todo"
 import { NotificationPatchType, NotificationPayloadType, NotificationType } from "./notification"
-import { LoginType } from "./auth"
+import { LoginType, RegisterType } from "./auth"
 
 export interface UserType {
   id: number | null,
@@ -16,6 +16,7 @@ export interface UserContextType {
   user: UserType,
   setUser: (user: UserType) => void,
   loginUser: (payload: LoginType) => Promise<void>,
+  registerUser: (payload: RegisterType) => Promise<void>,
   getAndSetUser: (id: number) => Promise<void>,
   userProjects: ProjectType[],
   setUserProjects: (projects: ProjectType[]) => void,

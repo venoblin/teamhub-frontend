@@ -6,11 +6,13 @@ import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import { LoaderContext } from '../../../contexts/LoaderContext'
 import { PopUpContext } from '../../../contexts/PopUpContext'
+import { UserContext } from '../../../contexts/UserContext'
 import useFormState from '../../../hooks/useFormState'
 
 const Register = () => {
   const loaderContext = useContext(LoaderContext)  
   const popUpContext = useContext(PopUpContext)
+  const userContext = useContext(UserContext)
   const [formState, setFormState, resetFormState] = useFormState([
     'email', 
     'password', 
@@ -22,9 +24,9 @@ const Register = () => {
 
   const registerUser = async () => {
     try {
-      await loaderContext?.load(RegisterUser(formState))
-      navigate('/login')
-    } catch (err: any) {
+      await loaderContext?.load(userContext?.registerUser(formState))
+      navigate('/')
+    } catch (err) {
       popUpContext?.showPopUp('Email or username already in use!')
     }
     resetFormState()
