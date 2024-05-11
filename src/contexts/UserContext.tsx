@@ -49,8 +49,12 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const loginUser = async (payload: LoginType) => {
-    const res = await LoginUser(payload)
-    getAndSetUser(res.id)
+    try {
+      const res = await LoginUser(payload)
+      getAndSetUser(res.id)
+    } catch {
+      throw new Error('Error login in user!')
+    }
   }
 
   const registerUser = async (payload: RegisterType) => {
