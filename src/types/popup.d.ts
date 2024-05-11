@@ -1,4 +1,5 @@
+import { PropsWithChildren } from "react";
 
 export interface PopUpContextType {
-  showPopUp: (msg: string) => void
+  showPopUp: (component: Element) => void
 }

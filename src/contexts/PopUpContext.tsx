@@ -1,32 +1,35 @@
+import '../styles/PopUp.css'
 import { createContext, PropsWithChildren, useState } from 'react'
 import { PopUpContextType } from '../types/popup'
-import '../styles/PopUp.css'
+import useToggle from '../hooks/useToggle'
+import PopUp from '../components/ui/PopUp/PopUp'
 import Panel from '../components/ui/Panel/Panel'
 
 export const PopUpContext = createContext<PopUpContextType | null>(null)
 
 export const PopUpProvider = (props: PropsWithChildren) => {
-  const [msg, setMsg] = useState('')
+  const [isShowing, toggleIsShowing] = useToggle()
 
-  const dismissHandler = () => {
-    setMsg('')
-  }
+  let componentToShow = null
 
-  const showPopUp = (msg: string) => {
-    setMsg(msg)
+  const showPopUp = (component: Element) => {
+    componentToShow = component
+    toggleIsShowing()
   }
 
   return (
     <PopUpContext.Provider value={{showPopUp}}>
       {props.children}
 
-      {msg.length > 0 && 
-        <Panel className='pop-up'>
-          <Panel className='inner-panel'>
-            <p>{msg}</p>
-            <button onClick={dismissHandler}>Ok</button>
+      {isShowing && 
+        <PopUp>
+          <Panel>
+            {componentToShow != null && 
+              componentToShow
+            }
+            <button onClick={toggleIsShowing}>Ok</button>
           </Panel>
-        </Panel>
+        </PopUp>
       }
     </PopUpContext.Provider>
   )

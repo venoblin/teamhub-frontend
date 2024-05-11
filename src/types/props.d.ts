@@ -44,3 +44,11 @@ export interface EventsPropsType extends Props {
 export interface FeedPropsType extends EventsPropsType {
   isNotPanel?: boolean
 }
+
+export interface PopUpProps extends React.PropsWithChildren {
+  component: Element
+}
+
+export interface PropsWithMessage {
+  message: string
+}
