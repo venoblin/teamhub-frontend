@@ -4,8 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { UserProvider } from './contexts/UserContext'
-import { PopUpProvider } from './contexts/PopUpContext'
-import { LoaderProvider } from './contexts/LoaderContext'
+import { UtilitiesProvider } from './contexts/UtilitiesContext'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,13 +13,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <PopUpProvider>
-        <LoaderProvider>
+        <UtilitiesProvider>
           <UserProvider>
             <App />
           </UserProvider>
-        </LoaderProvider>
-      </PopUpProvider>
+        </UtilitiesProvider>
     </BrowserRouter>
   </React.StrictMode>
 )

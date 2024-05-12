@@ -5,18 +5,25 @@ import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import useFormState from '../../../hooks/useFormState'
 import { UserContext } from '../../../contexts/UserContext'
+import { UtilitiesContext } from '../../../contexts/UtilitiesContext'
+import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 
 const NewProject = () => {
   const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url'])
   const navigate = useNavigate()
 
   const createProject = async () => {
-    await userContext?.postProject({
-      name: formState.name,
-      git_url: formState.git_url,
-    })
-    navigate(`/${userContext?.user.username}/${formState.name}`)
+    try {
+      await utilitiesContext?.load(userContext?.postProject({
+        name: formState.name,
+        git_url: formState.git_url,
+      }))
+      navigate(`/${userContext?.user.username}/${formState.name}`)
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error posting project!' />)
+    }
     resetFormState()
   }
   

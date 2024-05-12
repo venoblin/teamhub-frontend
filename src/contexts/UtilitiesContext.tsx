@@ -1,15 +1,27 @@
 import { createContext, PropsWithChildren, useState } from 'react'
-import { PopUpContextType } from '../types/popup'
 import useToggle from '../hooks/useToggle'
 import PopUp from '../components/ui/PopUp/PopUp'
+import Loader from '../components/Loader/Loader'
 import Panel from '../components/ui/Panel/Panel'
+import { UtilitiesContextType } from '../types/utilities'
 
-export const PopUpContext = createContext<PopUpContextType | null>(null)
+export const UtilitiesContext = createContext<UtilitiesContextType | null>(null)
 
-export const PopUpProvider = (props: PropsWithChildren) => {
+export const UtilitiesProvider = (props: PropsWithChildren) => {
+  const [isLoading, toggleIsLoading] = useToggle()
   const [isShowing, toggleIsShowing] = useToggle()
   const [componentToShow, setComponentToShow] = useState<JSX.Element>(<p></p>)
-  
+
+  const load = (promise: Promise<any> | undefined) => {
+    toggleIsLoading()
+    return promise?.then(() => {
+      toggleIsLoading()
+    }).catch(() => {
+      toggleIsLoading()
+      throw new Error()
+    })
+  }
+
   const showPopUp = (component: JSX.Element) => {
     setComponentToShow(component)
     toggleIsShowing()
@@ -18,10 +30,16 @@ export const PopUpProvider = (props: PropsWithChildren) => {
   const dismissPopUp = () => {
     toggleIsShowing()
   }
-
+  
   return (
-    <PopUpContext.Provider value={{showPopUp}}>
+    <UtilitiesContext.Provider value={{load, showPopUp}}>
       {props.children}
+
+      {isLoading && 
+        <PopUp>
+          <Loader />
+        </PopUp>
+      }
 
       {isShowing && 
         <PopUp>
@@ -33,6 +51,6 @@ export const PopUpProvider = (props: PropsWithChildren) => {
           </Panel>
         </PopUp>
       }
-    </PopUpContext.Provider>
+    </UtilitiesContext.Provider>
   )
 }

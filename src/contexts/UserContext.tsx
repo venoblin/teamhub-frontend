@@ -1,6 +1,5 @@
 import { PropsWithChildren, createContext, useEffect, useContext } from 'react'
-import { LoaderContext } from './LoaderContext'
-import { PopUpContext } from './PopUpContext'
+import { UtilitiesContext } from './UtilitiesContext'
 import PopUpMessage from '../components/PopUpMessage/PopUpMessage'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession, LoginUser, RegisterUser } from '../services/auth'
@@ -20,8 +19,7 @@ import { NotificationPatchType, NotificationPayloadType, NotificationType } from
 export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
-  const loaderContext = useContext(LoaderContext)
-  const popUpContext = useContext(PopUpContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [user, setUser, resetUser] = useUser()
   const [userProjects, setUserProjects] = useUserProjects()
   const [userContributions, setUserContributions] = useUserContributor()
@@ -259,9 +257,9 @@ export const UserProvider = (props: PropsWithChildren) => {
 
   const checkToken = async () => {
     try {
-      await loaderContext?.load(checkAndGet())
+      await utilitiesContext?.load(checkAndGet())
     } catch {
-      throw new Error('Error checking session!')
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error verifying authentication!' />)
     }  
   }
 

@@ -1,27 +1,25 @@
 import './LoginRoute.css'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { UtilitiesContext } from '../../../contexts/UtilitiesContext'
 import { UserContext } from '../../../contexts/UserContext'
-import { PopUpContext } from '../../../contexts/PopUpContext'
-import { LoaderContext } from '../../../contexts/LoaderContext'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import useFormState from '../../../hooks/useFormState'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 
 const Login = () => {
+  const utilitiesContext = useContext(UtilitiesContext)
   const userContext = useContext(UserContext)
-  const popUpContext = useContext(PopUpContext)
-  const loaderContext = useContext(LoaderContext)
   const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
   const navigate = useNavigate()
 
   const loginUser = async () => {
     try {
-      await loaderContext?.load(userContext?.loginUser(formState))
+      await utilitiesContext?.load(userContext?.loginUser(formState))
       navigate('/')
     } catch (err) {
-      popUpContext?.showPopUp(<PopUpMessage msg='Invalid email or password!' />)
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Invalid email or password!' />)
     }
     resetFormState()
   }

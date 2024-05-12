@@ -1,18 +1,15 @@
 import './RegisterRoute.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../../../services/auth'
 import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
-import { LoaderContext } from '../../../contexts/LoaderContext'
-import { PopUpContext } from '../../../contexts/PopUpContext'
 import { UserContext } from '../../../contexts/UserContext'
 import useFormState from '../../../hooks/useFormState'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
+import { UtilitiesContext } from '../../../contexts/UtilitiesContext'
 
 const Register = () => {
-  const loaderContext = useContext(LoaderContext)  
-  const popUpContext = useContext(PopUpContext)
+  const utilitiesContext = useContext(UtilitiesContext)  
   const userContext = useContext(UserContext)
   const [formState, setFormState, resetFormState] = useFormState([
     'email', 
@@ -25,10 +22,10 @@ const Register = () => {
 
   const registerUser = async () => {
     try {
-      await loaderContext?.load(userContext?.registerUser(formState))
+      await utilitiesContext?.load(userContext?.registerUser(formState))
       navigate('/')
     } catch (err) {
-      popUpContext?.showPopUp(<PopUpMessage msg='Email or username already in use!' />)
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Email or username already in use!' />)
     }
     resetFormState()
   }

@@ -1,5 +1,7 @@
 export type LoaderPromiseType = Promise<any> | undefined
 
-export interface LoaderContextType {
+export interface UtilitiesContextType {
+  showPopUp: (component: JSX.Element) => void,
   load: (promise: LoaderPromiseType) => any
+
 }
