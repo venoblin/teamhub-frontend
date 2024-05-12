@@ -32,7 +32,7 @@ const ProjectBugs = (props: SetProjectPropsType) => {
           props.setProject
         )
       } 
-      toggleAddMode()
+      toggleMode()
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error posting bug!' />)
     }
