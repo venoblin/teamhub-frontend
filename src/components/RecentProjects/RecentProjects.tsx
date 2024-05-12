@@ -19,7 +19,7 @@ const RecentProjects = () => {
       <button className="success" onClick={newHandler}>New</button>
 
       <div className='projects'>
-        {userContext?.userProjects ? (
+        {userContext?.userProjects.length ? (
           userContext.userProjects.map(project => (
             <ProjectLink key={project.id} project={project} />
           ))
