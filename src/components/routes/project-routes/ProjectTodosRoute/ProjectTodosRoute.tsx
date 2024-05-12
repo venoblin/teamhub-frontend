@@ -7,22 +7,33 @@ import { SetProjectPropsType } from '../../../../types/props'
 import { changeListen } from '../../../../utils/inputHandler'
 import { submit } from '../../../../utils/formHandler'
 import Todos from '../../../Todos/Todos'
+import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
+import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 
 const ProjectTodos = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
   // switches between success and danger to change btn color
   const [addBtnClass, setAddBtnClass] = useState('success')
 
   const createTodo = async () => {
-    if (props.project.id) {
-      const payload = {
-        todo: formState.todo,
-        project_id: props.project.id
+    try {
+      if (props.project.id) {
+        const payload = {
+          todo: formState.todo,
+          project_id: props.project.id
+        }
+        await utilitiesContext?.load(userContext?.postTodo(
+          payload, 
+          props.project, 
+          props.setProject
+        ))
       }
-      await userContext?.postTodo(payload, props.project, props.setProject)
       toggleMode()
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in posting todo!' />)
     }
   }
 

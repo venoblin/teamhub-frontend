@@ -7,23 +7,34 @@ import { submit } from '../../../../utils/formHandler'
 import Bugs from '../../../Bugs/Bugs'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
+import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
+import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 
 const ProjectBugs = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['bug', 'bug_info'])
   // switches between success and danger to change btn color
   const [addBtnClass, setAddBtnClass] = useState('success')
 
   const createBug = async () => {
-    if (props.project.id) {
-      const payload = {
-        bug: formState.bug,
-        bug_info: formState.bug_info,
-        project_id: props.project.id
-      }
-      await userContext?.postBug(payload, props.project, props.setProject)
+    try {
+      if (props.project.id) {
+        const payload = {
+          bug: formState.bug,
+          bug_info: formState.bug_info,
+          project_id: props.project.id
+        }
+        await utilitiesContext?.load(userContext?.postBug(
+          payload, 
+          props.project, 
+          props.setProject
+        ))
+      } 
       toggleAddMode()
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error posting bug!' />)
     }
   }
 
