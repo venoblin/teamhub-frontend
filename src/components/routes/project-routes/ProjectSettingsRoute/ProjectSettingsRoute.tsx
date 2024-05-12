@@ -1,15 +1,18 @@
 import './ProjectSettingsRoute.css'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
+import useToggle from '../../../../hooks/useToggle'
 import useFormState from '../../../../hooks/useFormState'
 import { submit } from '../../../../utils/formHandler'
 import { changeListen } from '../../../../utils/inputHandler'
 import { UserContext } from '../../../../contexts/UserContext'
+import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
-import useToggle from '../../../../hooks/useToggle'
+import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 
 const ProjectSettings = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState] = useFormState({
     name: props.project.name, 
     git_url: props.project.git_url
@@ -18,24 +21,37 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   const navigate = useNavigate()
 
   const deleteProject = async () => {
-    if (props.project.id) {
-      await userContext?.deleteProject(props.project)
-      navigate('/')
+    try {
+      if (props.project.id) {
+        await userContext?.deleteProject(props.project)
+        navigate('/')
+      }
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting project!' />)
     }
+    
   }
 
   const renameProject = async () => {
-    await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
+    try {
+      await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in renaming project!' />)
+    }
   }
 
   const updateGitLink = async (deleteMode: Boolean = false) => {
-    if (!deleteMode) {
-      await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
-      if (!isUrlPresent) toggleUrlPresent()
-    } else {
-      await userContext?.patchProject(props.project, {git_url: ''}, props.setProject)
-      setFormState({...formState, git_url: ''})
-      if (isUrlPresent) toggleUrlPresent()
+    try {
+      if (!deleteMode) {
+        await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
+        if (!isUrlPresent) toggleUrlPresent()
+      } else {
+        await userContext?.patchProject(props.project, {git_url: ''}, props.setProject)
+        setFormState({...formState, git_url: ''})
+        if (isUrlPresent) toggleUrlPresent()
+      }
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in updating Git link!' />)
     }
   }
   
