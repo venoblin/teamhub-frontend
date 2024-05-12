@@ -1,4 +1,7 @@
-import { PropsWithChildren, createContext, useEffect } from 'react'
+import { PropsWithChildren, createContext, useEffect, useContext } from 'react'
+import { LoaderContext } from './LoaderContext'
+import { PopUpContext } from './PopUpContext'
+import PopUpMessage from '../components/PopUpMessage/PopUpMessage'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession, LoginUser, RegisterUser } from '../services/auth'
 import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
@@ -17,6 +20,8 @@ import { NotificationPatchType, NotificationPayloadType, NotificationType } from
 export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserProvider = (props: PropsWithChildren) => {
+  const loaderContext = useContext(LoaderContext)
+  const popUpContext = useContext(PopUpContext)
   const [user, setUser, resetUser] = useUser()
   const [userProjects, setUserProjects] = useUserProjects()
   const [userContributions, setUserContributions] = useUserContributor()
@@ -63,15 +68,6 @@ export const UserProvider = (props: PropsWithChildren) => {
     } catch {
       throw new Error('Error registering user!')
     }
-  }
-
-  const checkToken = async () => {
-    try {
-      const userPayload: UserType = await CheckSession()
-      if (userPayload.id) await getAndSetUser(userPayload.id)
-    } catch {
-      throw new Error('Error checking session!')
-    }  
   }
 
   const findProject = (name: string) => {
@@ -250,6 +246,23 @@ export const UserProvider = (props: PropsWithChildren) => {
     } catch {
       throw new Error('Error in deleting notification!')
     }
+  }
+
+  const checkAndGet = async () => {
+    try {
+      const userPayload: UserType = await CheckSession()
+      if (userPayload.id) await getAndSetUser(userPayload.id)
+    } catch {
+      throw new Error('Error checking session!')
+    }
+  }
+
+  const checkToken = async () => {
+    try {
+      await loaderContext?.load(checkAndGet())
+    } catch {
+      throw new Error('Error checking session!')
+    }  
   }
 
   useEffect(() => {

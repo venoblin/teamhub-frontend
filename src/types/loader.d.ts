@@ -1,3 +1,5 @@
+export type LoaderPromiseType = Promise<any> | undefined
+
 export interface LoaderContextType {
-  load: (promise: Promise<any> | undefined) => any
+  load: (promise: LoaderPromiseType) => any
 }
