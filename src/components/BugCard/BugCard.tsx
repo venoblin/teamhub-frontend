@@ -1,12 +1,15 @@
 import './BugCard.css'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
+import { UtilitiesContext } from '../../contexts/UtilitiesContext'
 import { BugPropsType } from '../../types/props'
 import useToggle from '../../hooks/useToggle'
 import Card from '../ui/Card/Card'
+import PopUpMessage from '../PopUpMessage/PopUpMessage'
 
 const BugCard = (props: BugPropsType) => {
   const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [isShown, toggleShown] = useToggle()
 
   const clickHandler = () => {
@@ -14,20 +17,28 @@ const BugCard = (props: BugPropsType) => {
   }
 
   const completeHandler =async () => {
-    await userContext?.patchBug(
-      props.project,
-      props.singleBug,
-      {completed: true},
-      props.setProject
-    )
+    try {
+      await userContext?.patchBug(
+        props.project,
+        props.singleBug,
+        {completed: true},
+        props.setProject
+      )
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in completing bug!' />)
+    }
   }
 
   const deleteHandler = async () => {
-    await userContext?.deleteBug(
-      props.project,
-      props.singleBug.id,
-      props.setProject
+    try {
+      await userContext?.deleteBug(
+        props.project,
+        props.singleBug.id,
+        props.setProject
       )
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting bug!' />)
+    }
   }
   
   return (
