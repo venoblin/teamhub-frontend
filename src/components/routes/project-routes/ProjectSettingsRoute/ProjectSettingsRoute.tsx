@@ -7,7 +7,6 @@ import { changeListen } from '../../../../utils/inputHandler'
 import { UserContext } from '../../../../contexts/UserContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import useToggle from '../../../../hooks/useToggle'
-import Users from '../../../Users/Users'
 
 const ProjectSettings = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
