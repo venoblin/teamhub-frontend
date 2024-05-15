@@ -18,12 +18,12 @@ const BugCard = (props: BugPropsType) => {
 
   const completeHandler =async () => {
     try {
-      await userContext?.patchBug(
+      await utilitiesContext?.load(userContext?.patchBug(
         props.project,
         props.singleBug,
         {completed: true},
         props.setProject
-      )
+      ))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in completing bug!' />)
     }
@@ -31,11 +31,11 @@ const BugCard = (props: BugPropsType) => {
 
   const deleteHandler = async () => {
     try {
-      await userContext?.deleteBug(
+      await utilitiesContext?.load(userContext?.deleteBug(
         props.project,
         props.singleBug.id,
         props.setProject
-      )
+      ))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting bug!' />)
     }
