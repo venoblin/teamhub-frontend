@@ -25,11 +25,11 @@ const ProjectTodos = (props: SetProjectPropsType) => {
           todo: formState.todo,
           project_id: props.project.id
         }
-        await userContext?.postTodo(
+        await utilitiesContext?.load(userContext?.postTodo(
           payload, 
           props.project, 
           props.setProject
-        )
+        ))
       }
       toggleMode()
     } catch {
