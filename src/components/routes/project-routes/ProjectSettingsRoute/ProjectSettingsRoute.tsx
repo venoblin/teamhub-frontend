@@ -23,7 +23,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   const deleteProject = async () => {
     try {
       if (props.project.id) {
-        await userContext?.deleteProject(props.project)
+        await utilitiesContext?.load(userContext?.deleteProject(props.project))
         navigate('/')
       }
     } catch {
@@ -34,7 +34,7 @@ const ProjectSettings = (props: SetProjectPropsType) => {
 
   const renameProject = async () => {
     try {
-      await userContext?.patchProject(props.project, {name: formState.name}, props.setProject)
+      await utilitiesContext?.load(userContext?.patchProject(props.project, {name: formState.name}, props.setProject))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in renaming project!' />)
     }
@@ -43,10 +43,10 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   const updateGitLink = async (deleteMode: Boolean = false) => {
     try {
       if (!deleteMode) {
-        await userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject)
+        await utilitiesContext?.load(userContext?.patchProject(props.project, {git_url: formState.git_url}, props.setProject))
         if (!isUrlPresent) toggleUrlPresent()
       } else {
-        await userContext?.patchProject(props.project, {git_url: ''}, props.setProject)
+        await utilitiesContext?.load(userContext?.patchProject(props.project, {git_url: ''}, props.setProject))
         setFormState({...formState, git_url: ''})
         if (isUrlPresent) toggleUrlPresent()
       }
