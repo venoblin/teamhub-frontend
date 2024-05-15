@@ -26,11 +26,11 @@ const ProjectBugs = (props: SetProjectPropsType) => {
           bug_info: formState.bug_info,
           project_id: props.project.id
         }
-        await userContext?.postBug(
+        await utilitiesContext?.load(await userContext?.postBug(
           payload, 
           props.project, 
           props.setProject
-        )
+        ))
       } 
       toggleMode()
     } catch {
