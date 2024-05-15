@@ -12,12 +12,12 @@ const TodoCard = (props: TodoPropsType) => {
 
   const completeHandler = async () => {
     try {
-      await userContext?.patchTodo(
+      await utilitiesContext?.load(userContext?.patchTodo(
         props.project,
         props.singleTodo,
         {completed: true},
         props.setProject
-      )
+      ))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in completing todo!' />)
     }
@@ -25,11 +25,11 @@ const TodoCard = (props: TodoPropsType) => {
   
   const deleteHandler = async () => {
     try {
-      await userContext?.deleteTodo(
+      await utilitiesContext?.load(userContext?.deleteTodo(
         props.project, 
         props.singleTodo.id,
         props.setProject
-      )
+      ))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting todo!' />)
     } 
