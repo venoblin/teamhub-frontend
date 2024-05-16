@@ -1,8 +1,15 @@
 import './ProjectCollaboratorsRoute.css'
+import { SetProjectPropsType } from '../../../../types/props'
+import { UserContext } from '../../../../contexts/UserContext'
+import { useContext } from 'react'
 
-const ProjectCollaboratorsRoute = () => {
+const ProjectCollaboratorsRoute = (props: SetProjectPropsType) => {
+  const userContext = useContext(UserContext)
+  
   return (
-    <div>Collaborator route</div>
+    <div>
+      <h1>Collaborators</h1>
+    </div>
   )
 }
 

@@ -19,6 +19,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   })
   const [isUrlPresent, toggleUrlPresent] = useToggle(props.project.git_url.length ? true : false )
   const navigate = useNavigate()
+  const projectLink = `/${userContext?.user.username}/${props.project?.name}`
 
   const deleteProject = async () => {
     try {
@@ -56,7 +57,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   }
 
   const collaboratorsHandler = () => {
-    
+    navigate(`${projectLink}/collaborators`)
   }
   
   return (
@@ -109,7 +110,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
           <p>No collaborators!</p>
         )}
 
-        <button>Add Collaborator</button>
+        <button onClick={collaboratorsHandler}>Add Collaborator</button>
       </div>
       
       <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>

@@ -8,6 +8,7 @@ import ProjectFeedRoute from '../project-routes/ProjectFeedRoute/ProjectFeedRout
 import ProjectSettingsRoute from '../project-routes/ProjectSettingsRoute/ProjectSettingsRoute'
 import ProjectTodosRoute from '../project-routes/ProjectTodosRoute/ProjectTodosRoute'
 import ProjectBugsRoute from '../project-routes/ProjectBugsRoute/ProjectBugsRoute'
+import ProjectCollaboratorsRoute from '../project-routes/ProjectCollaboratorsRoute/ProjectCollaboratorsRoute'
 
 const ProjectRoute = () => {
   const userContext = useContext(UserContext)
@@ -34,6 +35,7 @@ const ProjectRoute = () => {
           <Route path='/settings' element={<ProjectSettingsRoute project={project} setProject={setProject} />} />
           <Route path='/todos' element={<ProjectTodosRoute project={project} setProject={setProject} />} />
           <Route path='/bugs' element={<ProjectBugsRoute project={project} setProject={setProject} />} />
+          <Route path='/collaborators' element={<ProjectCollaboratorsRoute project={project} setProject={setProject} />} />
         </Routes>
       </div>
     </div>
