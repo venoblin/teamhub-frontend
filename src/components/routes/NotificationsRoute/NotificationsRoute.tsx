@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
 import NotificationCard from '../../NotificationCard/NotificationCard'
 
-const Notifications = () => {
+const NotificationsRoute = () => {
   const userContext = useContext(UserContext)
 
   return (
@@ -23,4 +23,4 @@ const Notifications = () => {
   )
 }
 
-export default Notifications
+export default NotificationsRoute

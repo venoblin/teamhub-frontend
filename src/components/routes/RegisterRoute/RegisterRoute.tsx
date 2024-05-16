@@ -8,7 +8,7 @@ import useFormState from '../../../hooks/useFormState'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 import { UtilitiesContext } from '../../../contexts/UtilitiesContext'
 
-const Register = () => {
+const RegisterRoute = () => {
   const utilitiesContext = useContext(UtilitiesContext)  
   const userContext = useContext(UserContext)
   const [formState, setFormState, resetFormState] = useFormState([
@@ -91,4 +91,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterRoute

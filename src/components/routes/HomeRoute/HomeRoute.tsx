@@ -4,7 +4,7 @@ import { UserContext } from '../../../contexts/UserContext'
 import RecentProjects from '../../RecentProjects/RecentProjects'
 import { Link } from 'react-router-dom'
 
-const Home = () => {
+const HomeRoute = () => {
   const userContext = useContext(UserContext)
   
   return (
@@ -25,4 +25,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeRoute

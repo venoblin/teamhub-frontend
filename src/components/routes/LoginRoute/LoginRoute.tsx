@@ -8,7 +8,7 @@ import { submit } from '../../../utils/formHandler'
 import useFormState from '../../../hooks/useFormState'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 
-const Login = () => {
+const LoginRoute = () => {
   const utilitiesContext = useContext(UtilitiesContext)
   const userContext = useContext(UserContext)
   const [formState, setFormState, resetFormState] = useFormState(['email', 'password'])
@@ -57,4 +57,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginRoute

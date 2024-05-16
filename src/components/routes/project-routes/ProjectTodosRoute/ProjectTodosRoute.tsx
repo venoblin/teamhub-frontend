@@ -10,7 +10,7 @@ import Todos from '../../../Todos/Todos'
 import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 
-const ProjectTodos = (props: SetProjectPropsType) => {
+const ProjectTodosRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [addMode, toggleAddMode] = useToggle(false)
@@ -69,4 +69,4 @@ const ProjectTodos = (props: SetProjectPropsType) => {
   )
 }
 
-export default ProjectTodos
+export default ProjectTodosRoute

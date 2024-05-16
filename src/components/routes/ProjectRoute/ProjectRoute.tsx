@@ -4,12 +4,12 @@ import { useContext, useEffect } from 'react'
 import useProject from '../../../hooks/useProject'
 import { UserContext } from '../../../contexts/UserContext'
 import ProjectNav from '../../ProjectNav/ProjectNav'
-import ProjectFeed from '../project-routes/ProjectFeedRoute/ProjectFeedRoute'
-import ProjectSettings from '../project-routes/ProjectSettingsRoute/ProjectSettingsRoute'
-import ProjectTodos from '../project-routes/ProjectTodosRoute/ProjectTodosRoute'
-import ProjectBugs from '../project-routes/ProjectBugsRoute/ProjectBugsRoute'
+import ProjectFeedRoute from '../project-routes/ProjectFeedRoute/ProjectFeedRoute'
+import ProjectSettingsRoute from '../project-routes/ProjectSettingsRoute/ProjectSettingsRoute'
+import ProjectTodosRoute from '../project-routes/ProjectTodosRoute/ProjectTodosRoute'
+import ProjectBugsRoute from '../project-routes/ProjectBugsRoute/ProjectBugsRoute'
 
-const Project = () => {
+const ProjectRoute = () => {
   const userContext = useContext(UserContext)
   const [project, setProject] = useProject()
   const { projectName } = useParams()
@@ -30,14 +30,14 @@ const Project = () => {
       <h1>{`${userContext?.user.username}/${project.name}`}</h1>
       <div className='project-container'>
         <Routes>
-          <Route path='/' element={<ProjectFeed project={project} setProject={setProject} />} />
-          <Route path='/settings' element={<ProjectSettings project={project} setProject={setProject} />} />
-          <Route path='/todos' element={<ProjectTodos project={project} setProject={setProject} />} />
-          <Route path='/bugs' element={<ProjectBugs project={project} setProject={setProject} />} />
+          <Route path='/' element={<ProjectFeedRoute project={project} setProject={setProject} />} />
+          <Route path='/settings' element={<ProjectSettingsRoute project={project} setProject={setProject} />} />
+          <Route path='/todos' element={<ProjectTodosRoute project={project} setProject={setProject} />} />
+          <Route path='/bugs' element={<ProjectBugsRoute project={project} setProject={setProject} />} />
         </Routes>
       </div>
     </div>
   )
 }
 
-export default Project
+export default ProjectRoute

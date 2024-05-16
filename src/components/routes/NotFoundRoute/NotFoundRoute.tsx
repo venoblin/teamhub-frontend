@@ -1,6 +1,6 @@
 import './NotFoundRoute.css'
 
-const NotFound = () => {
+const NotFoundRoute = () => {
 
   return (
     <div className='not-found route'>
@@ -9,4 +9,4 @@ const NotFound = () => {
   )
 }
 
-export default NotFound
+export default NotFoundRoute

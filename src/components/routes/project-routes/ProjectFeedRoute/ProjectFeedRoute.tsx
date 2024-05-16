@@ -2,7 +2,7 @@ import './ProjectFeedRoute.css'
 import { SetProjectPropsType } from '../../../../types/props'
 import Feed from '../../../Feed/Feed'
 
-const ProjectFeed = (props: SetProjectPropsType) => {
+const ProjectFeedRoute = (props: SetProjectPropsType) => {
   return (
     <div className='project-feed'>
       <Feed isNotPanel={true} events={props.project.events} />
@@ -10,4 +10,4 @@ const ProjectFeed = (props: SetProjectPropsType) => {
   )
 }
 
-export default ProjectFeed
+export default ProjectFeedRoute

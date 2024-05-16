@@ -10,7 +10,7 @@ import { UserContext } from '../../../../contexts/UserContext'
 import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 
-const ProjectBugs = (props: SetProjectPropsType) => {
+const ProjectBugsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [addMode, toggleAddMode] = useToggle(false)
@@ -79,4 +79,4 @@ const ProjectBugs = (props: SetProjectPropsType) => {
   )
 }
 
-export default ProjectBugs
+export default ProjectBugsRoute

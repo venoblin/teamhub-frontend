@@ -8,7 +8,7 @@ import { UserContext } from '../../../contexts/UserContext'
 import { UtilitiesContext } from '../../../contexts/UtilitiesContext'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 
-const NewProject = () => {
+const NewProjectRoute = () => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url'])
@@ -57,4 +57,4 @@ const NewProject = () => {
   )
 }
 
-export default NewProject
+export default NewProjectRoute

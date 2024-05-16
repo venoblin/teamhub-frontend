@@ -10,7 +10,7 @@ import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 
-const ProjectSettings = (props: SetProjectPropsType) => {
+const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState] = useFormState({
@@ -53,6 +53,10 @@ const ProjectSettings = (props: SetProjectPropsType) => {
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in updating Git link!' />)
     }
+  }
+
+  const collaboratorsHandler = () => {
+    
   }
   
   return (
@@ -113,4 +117,4 @@ const ProjectSettings = (props: SetProjectPropsType) => {
   )
 }
 
-export default ProjectSettings
+export default ProjectSettingsRoute
