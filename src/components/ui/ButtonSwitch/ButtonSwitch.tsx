@@ -1,14 +1,22 @@
 import './ButtonSwitch.css'
 import useToggle from '../../../hooks/useToggle'
-import { PropsWithChildren } from 'react'
 import { UiPropsType } from '../../../types/props'
 
-const ButtonSwitch = (props: UiPropsType) => {
+const ButtonSwitch = (props: UiPropsType & {onClick: () => void}) => {
   const [isClicked, toggleIsClicked] = useToggle()
   const classesBase: string = `btn-switch ${props.className ? props.className : ''}`
-  const classes = `${isClicked ? 'sucess' : 'danger'} ${classesBase}`
+  const classes = `${!isClicked ? 'success' : 'danger'} ${classesBase}`
+
+  const clickHandler = () => {
+    toggleIsClicked()
+    props.onClick()
+  }
   
   return (
-    <button className={classes}>{props.children}</button>
+    <button onClick={clickHandler} className={classes}>
+      {!isClicked ? props.children : 'X'}
+    </button>
   )
 }
+
+export default ButtonSwitch

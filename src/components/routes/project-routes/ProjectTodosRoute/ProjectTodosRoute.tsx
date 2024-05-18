@@ -9,14 +9,13 @@ import { submit } from '../../../../utils/formHandler'
 import Todos from '../../../Todos/Todos'
 import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
+import ButtonSwitch from '../../../ui/ButtonSwitch/ButtonSwitch'
 
 const ProjectTodosRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['todo'])
-  // switches between success and danger to change btn color
-  const [addBtnClass, setAddBtnClass] = useState('success')
 
   const createTodo = async () => {
     try {
@@ -38,16 +37,13 @@ const ProjectTodosRoute = (props: SetProjectPropsType) => {
   }
 
   const toggleMode = () => {
-    addBtnClass === 'success' ? setAddBtnClass('danger') : setAddBtnClass('success')
     resetFormState()
     toggleAddMode()
   }
   
   return (
     <div className='project-todos'>
-      <button className={`${addBtnClass} add-btn`} onClick={toggleMode}>
-        {addMode ? 'X' : 'Add'}
-      </button>
+      <ButtonSwitch onClick={toggleMode}>Add</ButtonSwitch>
 
       {addMode && 
         <form onSubmit={(evt) => submit(evt, createTodo)}>

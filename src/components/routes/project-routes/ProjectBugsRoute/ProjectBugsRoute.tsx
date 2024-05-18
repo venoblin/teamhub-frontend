@@ -9,14 +9,13 @@ import { useContext, useState } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
 import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
+import ButtonSwitch from '../../../ui/ButtonSwitch/ButtonSwitch'
 
 const ProjectBugsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [addMode, toggleAddMode] = useToggle(false)
   const [formState, setFormState, resetFormState] = useFormState(['bug', 'bug_info'])
-  // switches between success and danger to change btn color
-  const [addBtnClass, setAddBtnClass] = useState('success')
 
   const createBug = async () => {
     try {
@@ -39,16 +38,13 @@ const ProjectBugsRoute = (props: SetProjectPropsType) => {
   }
 
   const toggleMode = () => {
-    addBtnClass === 'success' ? setAddBtnClass('danger') : setAddBtnClass('success')
     resetFormState()
     toggleAddMode()
   }
   
   return (
     <div className='project-bugs'>
-      <button className={`${addBtnClass} add-btn`} onClick={toggleMode}>
-        {addMode ? 'X' : 'Add'}
-      </button>
+      <ButtonSwitch onClick={toggleMode}>Add</ButtonSwitch>
 
       {addMode && 
         <form onSubmit={(evt) => submit(evt, createBug)}>
