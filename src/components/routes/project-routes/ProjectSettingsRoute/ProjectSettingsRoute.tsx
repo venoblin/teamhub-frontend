@@ -10,6 +10,7 @@ import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 import Contributors from '../../../Contributors/Contributors'
+import AddContributors from '../../../AddContributors/AddContributors'
 
 const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
@@ -20,7 +21,6 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   })
   const [isUrlPresent, toggleUrlPresent] = useToggle(props.project.git_url.length ? true : false )
   const navigate = useNavigate()
-  const projectLink = `/${userContext?.user.username}/${props.project?.name}`
 
   const deleteProject = async () => {
     try {
@@ -58,7 +58,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   }
 
   const collaboratorsHandler = () => {
-    navigate(`${projectLink}/collaborators`)
+    utilitiesContext?.showPopUp(<AddContributors />)
   }
   
   return (
@@ -105,7 +105,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
         <h2>Contributors</h2>
         <Contributors project={props.project} setProject={props.setProject} />
       
-        <button onClick={collaboratorsHandler}>Edit Collaborators</button>
+        <button onClick={collaboratorsHandler}>Add Collaborators</button>
       </div>
       
       <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
