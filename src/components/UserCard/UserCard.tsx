@@ -1,17 +1,19 @@
 import './UserCard.css'
-import { UserPropsType } from '../../types/props'
+import { UserCardPropsType } from '../../types/props'
 import Card from '../ui/Card/Card'
 
-const UserCard = (props: UserPropsType) => {
+const UserCard = (props: UserCardPropsType) => {
   return (
     <Card className='user-card'>
       <div className='user-info'>
+        <p>Name: {props.user.name}</p>
         <p>Username: {props.user.username}</p>
         <p>Email: {props.user.email}</p>
-        <p>Name: {props.user.name}</p>
       </div>
 
-      <button className='success'>Invite</button>
+      {props.isAddMode && 
+        <button className='success'>Invite</button>
+      }
     </Card>
   )
 }

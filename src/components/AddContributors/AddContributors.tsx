@@ -7,7 +7,7 @@ const AddContributors = (props: SetProjectPropsType) => {
     <div className='add-contributors'>
       <h2>Add contributors</h2>
 
-      <Users />
+      <Users isAddMode={true} />
     </div>
   )
 }

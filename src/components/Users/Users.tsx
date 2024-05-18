@@ -6,7 +6,7 @@ import { GetUserByIdentifier } from '../../services'
 import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
 
-const Users = () => {
+const Users = (props: {isAddMode?: boolean}) => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
   const [user, setUser] = useUser()
 
@@ -39,7 +39,7 @@ const Users = () => {
       </form>
 
       {user.id && (
-        <UserCard user={user} />
+        <UserCard user={user} isAddMode={props.isAddMode} />
       )}
     </div>
   )
