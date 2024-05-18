@@ -59,6 +59,15 @@ button {
   color: #161616;
   background-color: #FFFFFF;
 }
+button:disabled {
+  cursor: default;
+  background: #828282;
+}
+button:disabled::after {
+  content: "";
+  height: 0;
+  width: 0;
+}
 button.success {
   background-color: #16D637;
 }

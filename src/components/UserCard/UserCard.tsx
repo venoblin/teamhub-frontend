@@ -1,8 +1,15 @@
 import './UserCard.css'
 import { UserCardPropsType } from '../../types/props'
 import Card from '../ui/Card/Card'
+import useToggle from '../../hooks/useToggle'
 
 const UserCard = (props: UserCardPropsType) => {
+  const [isClicked, toggleIsClicked] = useToggle()
+
+  const inviteHandler = (evt: React.MouseEvent) => {
+    toggleIsClicked()
+  }
+  
   return (
     <Card className='user-card'>
       <div className='user-info'>
@@ -12,7 +19,11 @@ const UserCard = (props: UserCardPropsType) => {
       </div>
 
       {props.isAddMode && 
-        <button className='success'>Invite</button>
+        (!isClicked ? (
+          <button className='success' onClick={inviteHandler}>Invite</button>
+          ) : (
+          <button disabled>Invited</button>
+        ))
       }
     </Card>
   )

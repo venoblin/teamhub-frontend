@@ -71,6 +71,17 @@ button {
   color: $bgColor;
   background-color: $whiteColor;
 
+  &:disabled {
+    cursor: default;
+    background: $mutedWhiteColor;
+
+    &::after {
+        content: '';
+        height: 0;
+        width: 0;
+      }
+  }
+
   &.success {
     background-color: $primaryColor;
   }
