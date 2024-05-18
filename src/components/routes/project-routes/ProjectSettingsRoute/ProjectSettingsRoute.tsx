@@ -58,7 +58,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   }
 
   const collaboratorsHandler = () => {
-    utilitiesContext?.showPopUp(<AddContributors />)
+    utilitiesContext?.showPopUp(<AddContributors project={props.project} setProject={props.setProject} />)
   }
   
   return (

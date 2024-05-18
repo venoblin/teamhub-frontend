@@ -5,8 +5,6 @@ import { submit } from '../../utils/formHandler'
 import { GetUserByIdentifier } from '../../services'
 import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
-import useToggle from '../../hooks/useToggle'
-import { useState } from 'react'
 
 const Users = () => {
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])

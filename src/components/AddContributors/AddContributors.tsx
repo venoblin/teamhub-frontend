@@ -1,8 +1,14 @@
-import './AddContributors'
+import './AddContributors.css'
+import { SetProjectPropsType } from '../../types/props'
+import Users from '../Users/Users'
 
-const AddContributors = () => {
+const AddContributors = (props: SetProjectPropsType) => {
   return (
-    <div className='add-contributors'>Add contributors</div>
+    <div className='add-contributors'>
+      <h2>Add contributors</h2>
+
+      <Users />
+    </div>
   )
 }
 
