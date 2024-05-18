@@ -9,7 +9,7 @@ import { UserContext } from '../../../../contexts/UserContext'
 import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
-import Collaborators from '../../../Collaborators/Collaborators'
+import Contributors from '../../../Contributors/Contributors'
 
 const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
@@ -103,7 +103,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
 
       <div className='contributors'>
         <h2>Contributors</h2>
-        <Collaborators collaborators={props.project.contributors} />
+        <Contributors project={props.project} setProject={props.setProject} />
       
         <button onClick={collaboratorsHandler}>Edit Collaborators</button>
       </div>
