@@ -56,10 +56,6 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in updating Git link!' />)
     }
   }
-
-  const collaboratorsHandler = () => {
-    utilitiesContext?.showPopUp(<AddContributors project={props.project} setProject={props.setProject} />)
-  }
   
   return (
     <div className='project-settings'>
@@ -104,8 +100,6 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       <div className='contributors'>
         <h2>Contributors</h2>
         <Contributors project={props.project} setProject={props.setProject} />
-      
-        <button onClick={collaboratorsHandler}>Add Collaborators</button>
       </div>
       
       <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>

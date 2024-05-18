@@ -1,7 +1,14 @@
 import './Contributors.css'
 import { SetProjectPropsType } from '../../types/props'
+import AddContributors from '../AddContributors/AddContributors'
+import useToggle from '../../hooks/useToggle'
 
 const Contributors = (props: SetProjectPropsType) => {
+  const [isAddMode, toggleIsAddMode] = useToggle()
+
+  const addCollaboratorsHandler = () => {
+    toggleIsAddMode()
+  }
 
   return (
     <div className='contributors'>
@@ -12,6 +19,12 @@ const Contributors = (props: SetProjectPropsType) => {
         ) : (
           <p>No contributors!</p>
         )
+      }
+
+      <button onClick={addCollaboratorsHandler}>Add Collaborators</button>
+
+      {isAddMode &&
+        <AddContributors project={props.project} setProject={props.setProject} />
       }
     </div>
   )
