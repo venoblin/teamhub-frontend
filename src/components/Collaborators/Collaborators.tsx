@@ -1,11 +1,11 @@
 import './Collaborators.css'
 import { ContributionType, ContributorType } from '../../types/contributor'
 
-const Collaborators = (props: {contributors: ContributorType[] | ContributionType[]}) => {
+const Collaborators = (props: {collaborators: ContributorType[] | ContributionType[]}) => {
   return (
     <div className='collaborators'>
-      {props.contributors.length ? (
-          props.contributors.map((c) => (
+      {props.collaborators.length ? (
+          props.collaborators.map((c) => (
             <p>(c.user.username)</p>
           ))
         ) : (

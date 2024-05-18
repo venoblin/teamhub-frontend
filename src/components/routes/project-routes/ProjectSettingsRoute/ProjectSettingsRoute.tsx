@@ -9,6 +9,7 @@ import { UserContext } from '../../../../contexts/UserContext'
 import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
+import Collaborators from '../../../Collaborators/Collaborators'
 
 const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
@@ -100,17 +101,11 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
         </div>
       </form> 
 
-      <div className='collaboraters'>
-        <h2>Collaborators</h2>
-        {props.project.contributors.length ? (
-          props.project.contributors.map((c) => (
-            <p>(c.user.username)</p>
-          ))
-        ) : (
-          <p>No collaborators!</p>
-        )}
-
-        <button onClick={collaboratorsHandler}>Add Collaborator</button>
+      <div className='contributors'>
+        <h2>Contributors</h2>
+        <Collaborators collaborators={props.project.contributors} />
+      
+        <button onClick={collaboratorsHandler}>Edit Collaborators</button>
       </div>
       
       <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
