@@ -2,6 +2,7 @@ import './Contributors.css'
 import { SetProjectPropsType } from '../../types/props'
 import AddContributors from '../AddContributors/AddContributors'
 import useToggle from '../../hooks/useToggle'
+import ButtonSwitch from '../ui/ButtonSwitch/ButtonSwitch'
 
 const Contributors = (props: SetProjectPropsType) => {
   const [isAddMode, toggleIsAddMode] = useToggle()
@@ -21,7 +22,7 @@ const Contributors = (props: SetProjectPropsType) => {
         )
       }
 
-      <button onClick={addCollaboratorsHandler}>Add Collaborators</button>
+      <ButtonSwitch onClick={addCollaboratorsHandler}>Add Collaborators</ButtonSwitch>
 
       {isAddMode &&
         <AddContributors project={props.project} setProject={props.setProject} />

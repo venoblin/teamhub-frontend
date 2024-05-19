@@ -30,7 +30,7 @@ const ProjectTodosRoute = (props: SetProjectPropsType) => {
           props.setProject
         ))
       }
-      toggleMode()
+      resetFormState()
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in posting todo!' />)
     }
