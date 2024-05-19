@@ -3,19 +3,23 @@ import useFormState from '../../hooks/useFormState'
 import { changeListen } from '../../utils/inputHandler'
 import { submit } from '../../utils/formHandler'
 import { GetUserByIdentifier } from '../../services'
+import { UtilitiesContext } from '../../contexts/UtilitiesContext'
 import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
+import { useContext } from 'react'
+import PopUpMessage from '../PopUpMessage/PopUpMessage'
 
 const Users = (props: {isAddMode?: boolean}) => {
+  const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
   const [user, setUser] = useUser()
 
   const submitHandler = async () => {
     try {
-      const user = await GetUserByIdentifier(formState.identifier)
+      const user = await utilitiesContext?.load(GetUserByIdentifier(formState.identifier))
       setUser({...user})
-    } catch (err: any) {
-      console.log(err)
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='User not found!' />)
     }
 
     resetFormState()
