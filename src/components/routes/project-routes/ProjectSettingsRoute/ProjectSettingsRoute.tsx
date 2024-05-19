@@ -10,7 +10,6 @@ import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 import Contributors from '../../../Contributors/Contributors'
-import AddContributors from '../../../AddContributors/AddContributors'
 
 const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
