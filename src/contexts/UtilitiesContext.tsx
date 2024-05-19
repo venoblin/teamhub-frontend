@@ -14,8 +14,9 @@ export const UtilitiesProvider = (props: PropsWithChildren) => {
 
   const load = (promise: Promise<any> | undefined) => {
     toggleIsLoading()
-    return promise?.then(() => {
+    return promise?.then((res) => {
       toggleIsLoading()
+      return res
     }).catch(() => {
       toggleIsLoading()
       throw new Error()
