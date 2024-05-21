@@ -6,7 +6,7 @@ import useToggle from '../../hooks/useToggle'
 const UserCard = (props: UserCardPropsType) => {
   const [isClicked, toggleIsClicked] = useToggle()
 
-  const inviteHandler = (evt: React.MouseEvent) => {
+  const inviteHandler = () => {
     toggleIsClicked()
   }
   
