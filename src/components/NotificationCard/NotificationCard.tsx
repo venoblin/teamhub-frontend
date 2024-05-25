@@ -20,15 +20,24 @@ const NotificationCard = (props: NotificationPropsType) => {
 
   return (
     <Card className={!seen ? 'notification-card' : 'notification-card seen'}>
+      <p>From: {props.singleNotification.sender.username}</p>
+      {props.singleNotification.project && 
+        <p>Project: {props.singleNotification.project.name}</p>
+      }
       <p>{props.singleNotification.notification}</p>
-      <p>{props.singleNotification.time}</p>
 
       <div className='inputs'>
+        {props.singleNotification.project &&
+          <button className='success'>Accept</button>
+        }
+        
         {!seen && 
           <button onClick={markAsReadHandler}>Mark as read</button>
         }
         <button onClick={deleteHandler} className="danger">Delete</button>
       </div>
+
+      <p>{props.singleNotification.time}</p>
     </Card>
   )
 }

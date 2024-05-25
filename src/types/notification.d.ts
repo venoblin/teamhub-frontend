@@ -1,3 +1,6 @@
+import { ProjectType } from "./project"
+import { UserType } from "./user"
+
 export interface NotificationPayloadType {
   notification: string,
   type: string,
@@ -9,7 +12,9 @@ export interface NotificationPayloadType {
 export interface NotificationType extends NotificationPayloadType {
   id: number,
   seen: boolean,
-  time: string
+  time: string,
+  sender: UserType,
+  project: ProjectType
 }
 
 export interface NotificationPatchType {
