@@ -9,8 +9,9 @@ import useUser from '../../hooks/useUser'
 import UserCard from '../UserCard/UserCard'
 import { useContext } from 'react'
 import PopUpMessage from '../PopUpMessage/PopUpMessage'
+import { ProjectType } from '../../types/project'
 
-const Users = (props: {isAddMode?: boolean}) => {
+const Users = (props: {isAddMode?: boolean, project?: ProjectType}) => {
   const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
   const [user, setUser] = useUser()
@@ -44,7 +45,7 @@ const Users = (props: {isAddMode?: boolean}) => {
       </form>
 
       {user.id && (
-        <UserCard user={user} isAddMode={props.isAddMode} />
+        <UserCard user={user} isAddMode={props.isAddMode} project={props.project} />
       )}
     </div>
   )

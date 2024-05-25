@@ -1,13 +1,32 @@
 import './UserCard.css'
 import { UserCardPropsType } from '../../types/props'
+import { UserContext } from '../../contexts/UserContext'
 import Card from '../ui/Card/Card'
 import useToggle from '../../hooks/useToggle'
+import { useContext } from 'react'
+import { UtilitiesContext } from '../../contexts/UtilitiesContext'
+import PopUpMessage from '../PopUpMessage/PopUpMessage'
 
 const UserCard = (props: UserCardPropsType) => {
+  const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [isClicked, toggleIsClicked] = useToggle()
 
-  const inviteHandler = () => {
-    toggleIsClicked()
+  const inviteHandler = async () => {
+    try {
+      await utilitiesContext?.load(
+        userContext?.postNotification({
+        notification: 'Invited to contribute.',
+        type: 'invitation',
+        user_id: props.user?.id,
+        sender_id: userContext.user.id,
+        project_id: props.project?.id || null
+      }))
+      toggleIsClicked()
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error inviting user!' />)
+    }
+    
   }
   
   return (
