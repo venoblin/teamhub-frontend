@@ -4,12 +4,4 @@
   &.seen {
     color: $mutedTextColor;
   }
-
-  .inputs {
-    button {
-      &:first-of-type {
-        margin-right: 1rem;
-      }
-    }
-  }
 }
