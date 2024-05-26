@@ -4,18 +4,29 @@ import { UserContext } from '../../contexts/UserContext'
 import { NotificationPropsType } from '../../types/props'
 import useToggle from '../../hooks/useToggle'
 import Card from '../ui/Card/Card'
+import { UtilitiesContext } from '../../contexts/UtilitiesContext'
+import PopUpMessage from '../PopUpMessage/PopUpMessage'
 
 const NotificationCard = (props: NotificationPropsType) => {
   const userContext = useContext(UserContext)
+  const utilitiesContext = useContext(UtilitiesContext)
   const [seen, toggleSeen] = useToggle(props.singleNotification.seen)
 
   const markAsReadHandler = async () => {
-    await userContext?.patchNotification(props.singleNotification, {seen: true})
-    toggleSeen()
+    try {
+      await utilitiesContext?.load(userContext?.patchNotification(props.singleNotification, {seen: true}))
+      toggleSeen()
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error marking as read!' />)
+    }
   }
 
   const deleteHandler = async () => {
-    await userContext?.deleteNotification(props.singleNotification)
+    try {
+      await utilitiesContext?.load(userContext?.deleteNotification(props.singleNotification))
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting!' />)
+    }
   }
 
   return (
