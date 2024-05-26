@@ -12,6 +12,14 @@ const NotificationCard = (props: NotificationPropsType) => {
   const utilitiesContext = useContext(UtilitiesContext)
   const [seen, toggleSeen] = useToggle(props.singleNotification.seen)
 
+  const acceptHandler = async () => {
+    try {
+      console.log('accepting')
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in accepting!' />)
+    }
+  }
+
   const markAsReadHandler = async () => {
     try {
       await utilitiesContext?.load(userContext?.patchNotification(props.singleNotification, {seen: true}))
@@ -39,7 +47,7 @@ const NotificationCard = (props: NotificationPropsType) => {
 
       <div className='inputs'>
         {props.singleNotification.project &&
-          <button className='success'>Accept</button>
+          <button onClick={acceptHandler} className='success'>Accept</button>
         }
         
         {!seen && 
