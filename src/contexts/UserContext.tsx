@@ -250,7 +250,7 @@ export const UserProvider = (props: PropsWithChildren) => {
     try {
       await PostContributor(notification.user_id!, notification.project_id!)
     } catch {
-
+      throw new Error('Error in posting contributor!')
     }
   }
 
