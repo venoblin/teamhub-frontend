@@ -246,6 +246,14 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
+  const acceptNotification = async () => {
+    try {
+
+    } catch {
+      
+    }
+  }
+
   const checkAndGet = async () => {
     try {
       const userPayload: UserType = await CheckSession()
@@ -296,6 +304,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         postNotification,
         patchNotification,
         deleteNotification,
+        acceptNotification,
         authenticated, 
         toggleAuthenticated,
         handleLogout
