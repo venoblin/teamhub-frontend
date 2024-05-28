@@ -18,8 +18,8 @@ const UserCard = (props: UserCardPropsType) => {
         userContext?.postNotification({
         notification: 'Invited to contribute.',
         type: 'invitation',
-        user_id: props.user?.id,
-        sender_id: userContext.user.id,
+        user_id: props.user?.id!,
+        sender_id: userContext.user.id!,
         project_id: props.project?.id || null
       }))
       toggleIsClicked()

@@ -5,8 +5,8 @@ export interface NotificationPayloadType {
   notification: string,
   type: string,
   project_id: number | null,
-  user_id: number | null,
-  sender_id: number | null
+  user_id: number,
+  sender_id: number
 }
 
 export interface NotificationType extends NotificationPayloadType {

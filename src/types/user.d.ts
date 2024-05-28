@@ -37,7 +37,7 @@ export interface UserContextType {
   postNotification: (payload: NotificationPayloadType) => Promise<void>,
   patchNotification: (notification: NotificationType, payload: NotificationPatchType) => Promise<void>,
   deleteNotification: (notification: NotificationType) => Promise<void>,
-  acceptNotification: () => Promise<void>,
+  acceptProjectInvite: (notification: NotificationType) => Promise<void>,
   authenticated: Boolean,
   toggleAuthenticated: (bool?: Boolean) => any[],
   handleLogout: () => void

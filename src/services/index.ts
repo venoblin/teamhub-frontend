@@ -148,3 +148,12 @@ export const DeleteNotification = async (id: number) => {
     throw err
   }
 }
+
+export const PostContributor = async (userId: number, projectId: number) => {
+  try {
+    const res = await Client.post('/contributors', {user_id: userId, project_id: projectId})
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}

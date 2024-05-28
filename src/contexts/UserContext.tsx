@@ -3,7 +3,7 @@ import { UtilitiesContext } from './UtilitiesContext'
 import PopUpMessage from '../components/PopUpMessage/PopUpMessage'
 import { UserType, UserContextType } from '../types/user'
 import { CheckSession, LoginUser, RegisterUser } from '../services/auth'
-import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
+import { DeleteBug, DeleteNotification, DeleteProject, DeleteTodo, GetUser, PatchBug, PatchNotification, PatchProject, PatchTodo, PostBug, PostContributor, PostEvent, PostNotification, PostProject, PostTodo } from '../services'
 import useToggle from '../hooks/useToggle'
 import useUser from '../hooks/useUser'
 import useUserProjects from '../hooks/useUserProjects'
@@ -246,11 +246,11 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
-  const acceptNotification = async () => {
+  const acceptProjectInvite = async (notification: NotificationType) => {
     try {
-
+      await PostContributor(notification.user_id!, notification.project_id!)
     } catch {
-      
+
     }
   }
 
@@ -304,7 +304,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         postNotification,
         patchNotification,
         deleteNotification,
-        acceptNotification,
+        acceptProjectInvite,
         authenticated, 
         toggleAuthenticated,
         handleLogout
