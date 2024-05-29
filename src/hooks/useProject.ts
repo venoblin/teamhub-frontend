@@ -3,6 +3,13 @@ import { ProjectType } from '../types/project'
 
 const useProject = (): [ProjectType, React.Dispatch<React.SetStateAction<ProjectType>>, () => void] => {
   const nullProject = {
+    owner: {
+      id: null,
+      name: '',
+      username: '',
+      email: '',
+      projects: []
+    },
     name: '',
     git_url: '',
     owner_id: null,

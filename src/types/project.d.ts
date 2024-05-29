@@ -2,6 +2,7 @@ import { BugType } from "./bug"
 import { ContributorType } from "./contributor"
 import { EventType } from "./event"
 import { TodoType } from "./todo"
+import { UserType } from "./user"
 
 export interface ProjectPayloadType {
   name: string,
@@ -10,6 +11,7 @@ export interface ProjectPayloadType {
 }
 
 export interface ProjectType extends ProjectPayloadType {
+  owner: UserType,
   id: number | null,
   bugs: BugType[],
   todos: TodoType[],
