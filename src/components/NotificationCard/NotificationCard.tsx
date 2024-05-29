@@ -14,7 +14,8 @@ const NotificationCard = (props: NotificationPropsType) => {
 
   const acceptHandler = async () => {
     try {
-      console.log('accepting')
+      await utilitiesContext?.load(userContext?.acceptProjectInvite(props.singleNotification))
+      markAsReadHandler()
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in accepting!' />)
     }
