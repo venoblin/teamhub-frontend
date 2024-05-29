@@ -11,7 +11,7 @@ import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/proj
 import { TodoPatchType, TodoPayloadType, TodoType } from '../types/todo'
 import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateObjInArr } from '../utils'
-import useUserContributor from '../hooks/useUserContributions'
+import useUserContribution from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
 import { LoginType, RegisterType } from "../types/auth"
 import { NotificationPatchType, NotificationPayloadType, NotificationType } from '../types/notification'
@@ -22,7 +22,7 @@ export const UserProvider = (props: PropsWithChildren) => {
   const utilitiesContext = useContext(UtilitiesContext)
   const [user, setUser, resetUser] = useUser()
   const [userProjects, setUserProjects] = useUserProjects()
-  const [userContributions, setUserContributions] = useUserContributor()
+  const [userContributions, setUserContributions] = useUserProjects()
   const [userNotifications, setUserNotifications] = useUserNotification()
   const [authenticated, toggleAuthenticated] = useToggle(false)
 
@@ -69,8 +69,10 @@ export const UserProvider = (props: PropsWithChildren) => {
   }
 
   const findProject = (name: string) => {
+    const allProjects = [...userProjects, ...userContributions]
     let foundProject = null
-    userProjects.forEach(project => {
+
+    allProjects.forEach(project => {
       if (project.name === name) foundProject = project
     })
     return foundProject
