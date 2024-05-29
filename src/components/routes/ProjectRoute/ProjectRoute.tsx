@@ -27,7 +27,7 @@ const ProjectRoute = () => {
     <div className='project'>
       <ProjectNav project={project} />
       
-      <h1>{`${userContext?.user.username}/${project.name}`}</h1>
+      <h1>{`${project.owner.username}/${project.name}`}</h1>
       <div className='project-container'>
         <Routes>
           <Route path='/' element={<ProjectFeedRoute project={project} setProject={setProject} />} />
