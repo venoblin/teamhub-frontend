@@ -1,9 +1,14 @@
 import './ProjectNav.css'
 import { Link } from 'react-router-dom'
 import { ProjectPropsType } from '../../types/props'
+import { useEffect } from 'react'
 
 const ProjectNav = (props: ProjectPropsType) => {
-  const projectLink = `/${props.project.owner.username}/${props.project?.name}`
+  let projectLink = ''
+
+  useEffect(() => {
+    projectLink = `/${props.project?.owner.username}/${props.project?.name}`
+  }, [])
   
   return (
     <nav className='project-nav'>
