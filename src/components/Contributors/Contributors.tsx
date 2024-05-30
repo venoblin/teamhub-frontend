@@ -15,7 +15,7 @@ const Contributors = (props: SetProjectPropsType) => {
     <div className='contributors'>
       {props.project.contributors.length ? (
           props.project.contributors.map((c) => (
-            <p>{c.user_id}</p>
+            <p key={c.user_id}>{c.user_id}</p>
           ))
         ) : (
           <p>No contributors!</p>

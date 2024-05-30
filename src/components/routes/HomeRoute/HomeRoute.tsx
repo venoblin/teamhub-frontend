@@ -11,6 +11,7 @@ const HomeRoute = () => {
     <div className="home route">
       {userContext?.authenticated ? (
         <div>
+          <h1>Hello, {userContext.user.name}!</h1>
           <RecentProjects />
         </div>
       ) : (
