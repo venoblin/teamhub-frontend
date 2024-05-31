@@ -27,7 +27,7 @@ const App = () => {
             <Route path='/' element={<HomeRoute />} />
             <Route path='/notifications' element={<NotificationsRouteHomeRoute />} />
             <Route path='/projects/new' element={<NewProjectRouteHomeRoute />} />
-            <Route path='/:username/:projectName/*' element={<ProjectRouteHomeRoute />} />
+            <Route path='/:ownerUsername/:projectName/*' element={<ProjectRouteHomeRoute />} />
             <Route path='*' element={<NotFoundRouteHomeRoute />} />
           </Routes>
         ) : (

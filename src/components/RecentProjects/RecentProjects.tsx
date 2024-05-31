@@ -19,20 +19,20 @@ const RecentProjects = () => {
       <button className="success" onClick={newHandler}>New</button>
 
       <div className='projects'>
-        {userContext?.userProjects.length &&
+        {userContext?.userProjects.length ?
           userContext.userProjects.map(project => (
             <ProjectLink key={project.id} project={project} />
-          ))
+          )) : ''
         }
 
-        {userContext?.userContributions.length &&
+        {userContext?.userContributions.length ?
           userContext.userContributions.map(project => (
             <ProjectLink key={project.id} project={project} />
-          ))
+          )) : ''
         }
 
-        {!userContext?.userProjects.length && !userContext?.userContributions.length && 
-          <p>No projects!</p>
+        {!userContext?.userProjects.length && !userContext?.userContributions.length ? 
+          <p>No projects!</p> : ''
         }
       </div>
     </Panel>

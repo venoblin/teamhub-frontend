@@ -12,11 +12,11 @@ import ProjectBugsRoute from '../project-routes/ProjectBugsRoute/ProjectBugsRout
 const ProjectRoute = () => {
   const userContext = useContext(UserContext)
   const [project, setProject] = useProject()
-  const { projectName } = useParams()
+  const { ownerUsername, projectName } = useParams()
 
   useEffect(() => {
-    if (typeof projectName !== 'undefined') {
-      const foundProject = userContext?.findProject(projectName)
+    if (typeof ownerUsername !== 'undefined' && typeof projectName !== 'undefined') {
+      const foundProject = userContext?.findProject(ownerUsername, projectName)
 
       if (foundProject) setProject(foundProject)
     }

@@ -68,12 +68,14 @@ export const UserProvider = (props: PropsWithChildren) => {
     }
   }
 
-  const findProject = (name: string) => {
+  const findProject = (ownerUsername: string, projectName: string) => {
     const allProjects = [...userProjects, ...userContributions]
     let foundProject = null
 
     allProjects.forEach(project => {
-      if (project.name === name) foundProject = project
+      if (project.owner.username === ownerUsername && project.name === projectName) {
+        foundProject = project
+      }
     })
     return foundProject
   }

@@ -20,7 +20,7 @@ export interface UserContextType {
   getAndSetUser: (id: number) => Promise<void>,
   userProjects: ProjectType[],
   setUserProjects: (projects: ProjectType[]) => void,
-  findProject: (name: string) => ProjectType | null,
+  findProject: (ownerUsername: string, projectName: string) => ProjectType | null,
   postProject: (payload: ProjectPayloadType) => Promise<void>,
   deleteProject: (project: ProjectType) => Promise<void>,
   patchProject: (project: ProjectType, update: ProjectPatchType, setProject: React.Dispatch<React.SetStateAction<ProjectType>>) => Project<void>,
