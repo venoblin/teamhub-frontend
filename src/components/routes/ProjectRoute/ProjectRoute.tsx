@@ -20,12 +20,11 @@ const ProjectRoute = () => {
 
       if (foundProject) setProject(foundProject)
     }
-
   }, [])
 
   return (
     <div className='project'>
-      <ProjectNav project={project} />
+      <ProjectNav project={project} ownerUsername={ownerUsername!} projectName={projectName!} />
       
       <h1>{`${project.owner.username}/${project.name}`}</h1>
       <div className='project-container'>
