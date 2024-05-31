@@ -52,7 +52,9 @@ const BugCard = (props: BugPropsType) => {
 
       <div className='btns'>
         {props.singleBug.bug_info &&
-          <button className='view-info-btn' onClick={clickHandler}>View Info</button>
+          <button className='view-info-btn' onClick={clickHandler}>
+            {isShown ? 'Hide Info' : 'View Info'}
+          </button>
         }
         {!props.singleBug.completed &&
           <div className='edit-btns'>
