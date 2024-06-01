@@ -19,6 +19,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
     git_url: props.project.git_url
   })
   const [isUrlPresent, toggleUrlPresent] = useToggle(props.project.git_url.length ? true : false )
+  const [isOwner] = useToggle(props.project.owner.id === userContext?.user.id ? true : false)
   const navigate = useNavigate()
 
   const deleteProject = async () => {
@@ -31,6 +32,14 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting project!' />)
     }
     
+  }
+
+  const leaveProject = async () => {
+    try {
+
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in leaving project!' />)
+    }
   }
 
   const renameProject = async () => {
@@ -61,7 +70,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       <h1>Settings</h1>
       
       <form onSubmit={(evt) => submit(evt, renameProject)}>
-        <label htmlFor='name'>Rename Project</label>
+        <label htmlFor='name'>{isOwner ? 'Rename Project' : 'Project Name'}</label>
         <input
           type='text'
           name='name'
@@ -71,13 +80,17 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <div className='btns'>
-          <button>Rename</button>
-        </div>
+        {isOwner &&
+          <div className='btns'>
+            <button>Rename</button>
+          </div>
+        }
       </form>
 
       <form onSubmit={(evt) => submit(evt, updateGitLink)}>
-        <label htmlFor='git_url'>{isUrlPresent ? "Change Git Url" : "Add Git Url"}</label>
+        <label htmlFor='git_url'>
+          {isOwner ? (isUrlPresent ? 'Change Git Url' : 'Add Git Url') : 'Git Url'}
+        </label>
         <input
           type='url'
           name='git_url'
@@ -87,21 +100,28 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <div className='btns'>
-          <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
+        {isOwner &&
+          <div className='btns'>
+            <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
 
-          {isUrlPresent &&
-            <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
-          }
-        </div>
+            {isUrlPresent &&
+              <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
+            }
+          </div>
+        }
       </form> 
 
       <div className='contributors'>
         <h2>Contributors</h2>
-        <Contributors project={props.project} setProject={props.setProject} />
+        <Contributors project={props.project} setProject={props.setProject} isOwner={isOwner} />
       </div>
       
-      <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
+      {isOwner ? (
+          <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
+        ) : (
+          <button className='danger delete-project' onClick={leaveProject}>Leave Project</button>
+        )
+      }
     </div>
   )
 }
