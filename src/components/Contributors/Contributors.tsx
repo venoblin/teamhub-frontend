@@ -13,6 +13,8 @@ const Contributors = (props: SetProjectPropsType & {isOwner: boolean}) => {
 
   return (
     <div className='contributors'>
+      Owner: {props.project.owner.username}
+      
       {props.project.contributors.length ? (
           props.project.contributors.map((c) => (
             <p key={c.id}>{c.username}</p>
