@@ -252,7 +252,8 @@ export const UserProvider = (props: PropsWithChildren) => {
 
   const acceptProjectInvite = async (notification: NotificationType) => {
     try {
-      await PostContributor(notification.user_id!, notification.project_id!)
+      const data = await PostContributor(notification.user_id!, notification.project_id!)
+      console.log(data)
     } catch {
       throw new Error('Error in posting contributor!')
     }
