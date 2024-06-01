@@ -1,5 +1,10 @@
-export const changeListen = (event: React.ChangeEvent, state: Object, setState: Function) => {
+export const changeListen = (event: React.ChangeEvent, state: Object | string, setState: Function) => {
   // listens for input change
   const target: any = event.target
-  setState({...state, [target.name]: target.value})
+
+  if (typeof state === 'string') {
+    setState(target.value)
+  } else {
+    setState({...state, [target.name]: target.value})
+  }
 }
