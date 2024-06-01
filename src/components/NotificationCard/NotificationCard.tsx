@@ -47,7 +47,7 @@ const NotificationCard = (props: NotificationPropsType) => {
       <p>{props.singleNotification.notification}</p>
 
       <div className='inputs'>
-        {props.singleNotification.project &&
+        {props.singleNotification.project && !seen &&
           <button onClick={acceptHandler} className='success'>Accept</button>
         }
         
