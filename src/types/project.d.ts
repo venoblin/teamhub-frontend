@@ -16,7 +16,7 @@ export interface ProjectType extends ProjectPayloadType {
   bugs: BugType[],
   todos: TodoType[],
   events: EventType[],
-  contributors: ContributorType[]
+  contributors: UserType[]
 }
 
 export interface ProjectPatchType {
