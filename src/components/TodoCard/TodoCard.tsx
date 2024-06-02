@@ -14,7 +14,17 @@ const TodoCard = (props: TodoPropsType) => {
   const [todoValue, setTodoValue] = useState(props.singleTodo.todo)
   const [editMode, toggleEditMode] = useToggle()
 
-  const editHandler = () => {
+  const applyEditHandler = async () => {
+    try {
+      await utilitiesContext?.load(userContext?.patchTodo(
+        props.project,
+        props.singleTodo,
+        {todo: todoValue},
+        props.setProject
+      ))
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in editing todo!' />)
+    }
     toggleEditMode()
   }
 
@@ -54,11 +64,19 @@ const TodoCard = (props: TodoPropsType) => {
       
       {!props.singleTodo.completed && 
         <div className='btns'>
-          <div className='edit-btns'>
-            <button onClick={editHandler}>Edit</button>
-            <button className='success' onClick={completeHandler}>Complete</button>
-            <button className='danger' onClick={deleteHandler}>Delete</button>
-          </div>
+            {editMode ? (
+                <div className='edit-btns'>
+                  <button onClick={applyEditHandler} className='success'>Apply</button>
+                </div>
+              ) : (
+                <div className='edit-btns'>
+                  <button onClick={toggleEditMode}>Edit</button>
+                  <button className='success' onClick={completeHandler}>Complete</button>
+                  <button className='danger' onClick={deleteHandler}>Delete</button>
+                </div>
+              )
+            }
+            
         </div>
       }
     </Card>

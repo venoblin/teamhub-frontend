@@ -108,6 +108,14 @@ button {
   }
 }
 
+.bug-todo-card {
+  textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+  }
+}
+
 .bug-todo-card,
 .event-card,
 .user-card {
