@@ -11,9 +11,10 @@ const BugCard = (props: BugPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
   const [isShown, toggleShown] = useToggle()
+  const [editMode, toggleEditMode] = useToggle()
 
-  const clickHandler = () => {
-    toggleShown()
+  const applyEditHandler = async () => {
+    toggleEditMode()
   }
 
   const completeHandler =async () => {
@@ -51,17 +52,24 @@ const BugCard = (props: BugPropsType) => {
       </div>
 
       <div className='btns'>
-        {props.singleBug.bug_info &&
-          <button className='view-info-btn' onClick={clickHandler}>
+        {props.singleBug.bug_info && !editMode &&
+          <button className='view-info-btn' onClick={() => toggleShown()}>
             {isShown ? 'Hide Info' : 'View Info'}
           </button>
         }
         {!props.singleBug.completed &&
-          <div className='edit-btns'>
-            <button>Edit</button>
-            <button className='success' onClick={completeHandler}>Complete</button>
-            <button className='danger' onClick={deleteHandler}>Delete</button>
-          </div>
+          (editMode ? (
+              <div className='edit-btns'>
+                <button className='success' onClick={applyEditHandler}>Apply</button>
+              </div>
+            ) : (
+              <div className='edit-btns'>
+                <button onClick={() => toggleEditMode()}>Edit</button>
+                <button className='success' onClick={completeHandler}>Complete</button>
+                <button className='danger' onClick={deleteHandler}>Delete</button>
+              </div>
+            )
+          )
         }
       </div> 
     </Card>

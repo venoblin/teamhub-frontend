@@ -70,7 +70,7 @@ const TodoCard = (props: TodoPropsType) => {
                 </div>
               ) : (
                 <div className='edit-btns'>
-                  <button onClick={toggleEditMode}>Edit</button>
+                  <button onClick={() => toggleEditMode()}>Edit</button>
                   <button className='success' onClick={completeHandler}>Complete</button>
                   <button className='danger' onClick={deleteHandler}>Delete</button>
                 </div>
