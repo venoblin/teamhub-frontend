@@ -7,11 +7,14 @@ import PopUpMessage from '../PopUpMessage/PopUpMessage'
 import Card from '../ui/Card/Card'
 import useToggle from '../../hooks/useToggle'
 import { changeListen } from '../../utils/inputHandler'
+import useFormState from '../../hooks/useFormState'
 
 const TodoCard = (props: TodoPropsType) => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
-  const [todoValue, setTodoValue] = useState(props.singleTodo.todo)
+  const [formState, setFormState] = useFormState({
+    todo: props.singleTodo.todo
+  })
   const [editMode, toggleEditMode] = useToggle()
 
   const applyEditHandler = async () => {
@@ -19,7 +22,7 @@ const TodoCard = (props: TodoPropsType) => {
       await utilitiesContext?.load(userContext?.patchTodo(
         props.project,
         props.singleTodo,
-        {todo: todoValue},
+        formState,
         props.setProject
       ))
     } catch {
@@ -56,7 +59,11 @@ const TodoCard = (props: TodoPropsType) => {
   return (
     <Card className='bug-todo-card todo-card'>
       {editMode ? (
-          <textarea onChange={(evt) => changeListen(evt, todoValue, setTodoValue)} value={todoValue}></textarea>
+          <textarea 
+            name='todo'
+            onChange={(evt) => changeListen(evt, formState, setFormState)} 
+            value={formState.todo}
+          ></textarea>
         ) : (
           <p>{props.singleTodo.todo}</p>
         )
