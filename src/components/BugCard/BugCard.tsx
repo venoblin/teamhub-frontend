@@ -21,12 +21,12 @@ const BugCard = (props: BugPropsType) => {
 
   const applyEditHandler = async () => {
     try {
-      await userContext?.patchBug(
+      await utilitiesContext?.load(userContext?.patchBug(
         props.project,
         props.singleBug,
         formState,
         props.setProject
-      )
+      ))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in editing bug!' />)
     }
