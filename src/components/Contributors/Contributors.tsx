@@ -3,8 +3,11 @@ import { SetProjectPropsType } from '../../types/props'
 import AddContributors from '../AddContributors/AddContributors'
 import useToggle from '../../hooks/useToggle'
 import ButtonSwitch from '../ui/ButtonSwitch/ButtonSwitch'
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/UserContext'
 
 const Contributors = (props: SetProjectPropsType & {isOwner: boolean}) => {
+  const userContext = useContext(UserContext)
   const [isAddMode, toggleIsAddMode] = useToggle()
 
   const addContributorsHandler = () => {
@@ -17,7 +20,9 @@ const Contributors = (props: SetProjectPropsType & {isOwner: boolean}) => {
       
       {props.project.contributors.length ? (
           props.project.contributors.map((c) => (
-            <p key={c.id}>{c.username}</p>
+            <p key={c.id}>
+              {`${c.username} ${c.id === userContext?.user.id ? '(You)' : ''}`}
+            </p>
           ))
         ) : (
           <p>No contributors!</p>
