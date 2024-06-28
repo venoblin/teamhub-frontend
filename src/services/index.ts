@@ -157,3 +157,12 @@ export const PostContributor = async (userId: number, projectId: number) => {
     throw err
   }
 }
+
+export const DeleteContributor = async (id: number) => {
+  try {
+    const res = await Client.delete(`/contributors/${id}`)
+    return res.data
+  } catch (err) {
+    throw err
+  }
+}

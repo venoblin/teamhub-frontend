@@ -11,7 +11,6 @@ import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/proj
 import { TodoPatchType, TodoPayloadType, TodoType } from '../types/todo'
 import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
 import { updateObjInArr } from '../utils'
-import useUserContribution from '../hooks/useUserContributions'
 import useUserNotification from '../hooks/useUserNotifications'
 import { LoginType, RegisterType } from "../types/auth"
 import { NotificationPatchType, NotificationPayloadType, NotificationType } from '../types/notification'
@@ -258,6 +257,14 @@ export const UserProvider = (props: PropsWithChildren) => {
       setUserContributions(updatedContributions)
     } catch {
       throw new Error('Error in posting contributor!')
+    }
+  }
+
+  const leaveProject = async (project: ProjectType) => {
+    try {
+      
+    } catch {
+      throw new Error('Error leaving project!')
     }
   }
 
