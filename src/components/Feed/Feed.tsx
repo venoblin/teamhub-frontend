@@ -12,7 +12,7 @@ const Feed = (props: FeedPropsType) => {
       <div className="feed">
         <h2>Project Feed</h2>
         {events.length && (
-          events.reverse().map(singleEvent => (
+          events.map(singleEvent => (
             <EventCard 
               key={singleEvent.id}
               singleEvent={singleEvent}
