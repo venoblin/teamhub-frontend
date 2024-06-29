@@ -14,7 +14,7 @@ import { ProjectType } from '../../types/project'
 const Users = (props: {isAddMode?: boolean, project?: ProjectType}) => {
   const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState, resetFormState] = useFormState(['identifier'])
-  const [user, setUser] = useUser()
+  const [user, setUser, resetUser] = useUser()
 
   const submitHandler = async () => {
     try {
@@ -45,7 +45,12 @@ const Users = (props: {isAddMode?: boolean, project?: ProjectType}) => {
       </form>
 
       {user.id && (
-        <UserCard user={user} isAddMode={props.isAddMode} project={props.project} />
+        <UserCard 
+          user={user} 
+          resetUser={resetUser}
+          isAddMode={props.isAddMode} 
+          project={props.project} 
+        />
       )}
     </div>
   )

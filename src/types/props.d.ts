@@ -10,7 +10,8 @@ export interface UserPropsType extends Props {
 }
 
 export interface UserCardPropsType extends UserPropsType {
-  isAddMode?: boolean
+  resetUser?: () => void,
+  isAddMode?: boolean,
   project?: ProjectType
 }
 
