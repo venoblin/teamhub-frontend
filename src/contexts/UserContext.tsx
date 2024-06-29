@@ -100,7 +100,7 @@ export const UserProvider = (props: PropsWithChildren) => {
       const updatedProjects = [...userProjects]
       updatedProjects.forEach((p, i) => {
         if (p.id === project.id) {
-          updatedProjects.splice(i, 1);
+          updatedProjects.splice(i, 1)
         }
       })
       setUserProjects(updatedProjects)

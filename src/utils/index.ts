@@ -11,3 +11,15 @@ export const updateObjInArr = <T extends {id: number | null}>(arr: T[], objToUpd
 
   return newArr
 }
+
+export const spliceObjInArr = <T extends {id: number | null}>(arr: T[], objToRemove: T) => {
+  const newArr = [...arr]
+
+  newArr.forEach((p, i) => {
+    if (p.id === objToRemove.id) {
+      newArr.splice(i, 1)
+    }
+  })
+
+  return newArr
+}
