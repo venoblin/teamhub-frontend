@@ -26,7 +26,6 @@ const UserCard = (props: UserCardPropsType) => {
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error inviting user!' />)
     }
-    
   }
   
   return (
