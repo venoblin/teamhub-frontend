@@ -319,6 +319,7 @@ export const UserProvider = (props: PropsWithChildren) => {
         patchNotification,
         deleteNotification,
         acceptProjectInvite,
+        leaveProject,
         authenticated, 
         toggleAuthenticated,
         handleLogout
