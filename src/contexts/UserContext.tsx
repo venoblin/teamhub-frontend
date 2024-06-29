@@ -10,7 +10,7 @@ import useUserProjects from '../hooks/useUserProjects'
 import { ProjectPatchType, ProjectPayloadType, ProjectType } from '../types/project'
 import { TodoPatchType, TodoPayloadType, TodoType } from '../types/todo'
 import { BugPatchType, BugPayloadType, BugType } from '../types/bug'
-import { updateObjInArr } from '../utils'
+import { spliceObjInArr, updateObjInArr } from '../utils'
 import useUserNotification from '../hooks/useUserNotifications'
 import { LoginType, RegisterType } from "../types/auth"
 import { NotificationPatchType, NotificationPayloadType, NotificationType } from '../types/notification'
@@ -97,12 +97,7 @@ export const UserProvider = (props: PropsWithChildren) => {
   const deleteProject = async (project: ProjectType) => {
     try {
       await DeleteProject(project.id)
-      const updatedProjects = [...userProjects]
-      updatedProjects.forEach((p, i) => {
-        if (p.id === project.id) {
-          updatedProjects.splice(i, 1)
-        }
-      })
+      const updatedProjects = spliceObjInArr(userProjects, project)
       setUserProjects(updatedProjects)
     } catch {
       throw new Error('Error in deleting project!')
