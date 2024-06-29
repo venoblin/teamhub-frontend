@@ -158,7 +158,7 @@ export const PostContributor = async (userId: number, projectId: number) => {
   }
 }
 
-export const DeleteContributor = async (id: number) => {
+export const DeleteContributor = async (id: number | null | undefined) => {
   try {
     const res = await Client.delete(`/contributors/${id}`)
     return res.data

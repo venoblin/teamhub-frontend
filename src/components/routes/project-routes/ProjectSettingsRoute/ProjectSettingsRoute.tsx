@@ -24,10 +24,8 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
 
   const deleteProject = async () => {
     try {
-      if (props.project.id) {
-        await utilitiesContext?.load(userContext?.deleteProject(props.project))
-        navigate('/')
-      }
+      await utilitiesContext?.load(userContext?.deleteProject(props.project))
+      navigate('/')
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting project!' />)
     }
@@ -36,7 +34,8 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
 
   const leaveProject = async () => {
     try {
-
+      await utilitiesContext?.load(userContext?.leaveProject(props.project))
+      navigate('/')
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in leaving project!' />)
     }

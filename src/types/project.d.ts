@@ -11,6 +11,7 @@ export interface ProjectPayloadType {
 }
 
 export interface ProjectType extends ProjectPayloadType {
+  contribution_id?: number | null
   owner: UserType,
   id: number | null,
   bugs: BugType[],
