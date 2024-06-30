@@ -21,6 +21,10 @@ const RegisterRoute = () => {
   const navigate = useNavigate()
 
   const registerUser = async () => {
+    if (formState.password !== formState.confirmPassword) {
+      return utilitiesContext?.showPopUp(<PopUpMessage msg='Passwords do not match!' />)
+    }
+    
     try {
       await utilitiesContext?.load(userContext?.registerUser(formState))
       navigate('/')
