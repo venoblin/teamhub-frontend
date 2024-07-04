@@ -84,7 +84,8 @@ export const UserProvider = (props: PropsWithChildren) => {
       const newProject = await PostProject({
         name: payload.name,
         git_url: payload.git_url,
-        owner_id: user.id
+        owner_id: user.id,
+        is_private: payload.is_private
       })
       const updatedProjects = [...userProjects]
       updatedProjects.push(newProject)

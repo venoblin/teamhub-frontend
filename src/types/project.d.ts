@@ -7,7 +7,8 @@ import { UserType } from "./user"
 export interface ProjectPayloadType {
   name: string,
   git_url: string,
-  owner_id?: number | null
+  is_private: boolean
+  owner_id?: number | null,
 }
 
 export interface ProjectType extends ProjectPayloadType {

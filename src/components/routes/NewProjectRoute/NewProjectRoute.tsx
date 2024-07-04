@@ -11,7 +11,7 @@ import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 const NewProjectRoute = () => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
-  const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url'])
+  const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url', 'is_private'])
   const navigate = useNavigate()
 
   const createProject = async () => {
@@ -19,6 +19,7 @@ const NewProjectRoute = () => {
       await utilitiesContext?.load(userContext?.postProject({
         name: formState.name,
         git_url: formState.git_url,
+        is_private: formState.is_private
       }))
       navigate(`/${userContext?.user.username}/${formState.name}`)
     } catch {

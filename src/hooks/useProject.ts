@@ -13,6 +13,7 @@ const useProject = (): [ProjectType, React.Dispatch<React.SetStateAction<Project
     name: '',
     git_url: '',
     owner_id: null,
+    is_private: false,
     id: null,
     bugs: [],
     todos: [],
