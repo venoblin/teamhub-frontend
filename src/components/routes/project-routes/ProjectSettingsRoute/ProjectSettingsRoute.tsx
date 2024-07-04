@@ -125,7 +125,12 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
             }
           </div>
         }
-      </form> 
+      </form>
+
+      <div className='visibility'>
+        <p>Visibility: {props.project.is_private ? 'Private' : 'Public'}</p>
+        <button>Change</button>
+      </div>
 
       <div className='contributors'>
         <h2>Contributors</h2>
