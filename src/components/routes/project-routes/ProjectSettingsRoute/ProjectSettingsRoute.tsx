@@ -29,7 +29,6 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in deleting project!' />)
     }
-    
   }
 
   const leaveProject = async () => {
@@ -70,14 +69,23 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       
       <form onSubmit={(evt) => submit(evt, renameProject)}>
         <label htmlFor='name'>{isOwner ? 'Rename Project' : 'Project Name'}</label>
-        <input
-          type='text'
-          name='name'
-          id='name'
-          required
-          value={formState.name}
-          onChange={(evt) => changeListen(evt, formState, setFormState)}
-        />
+
+        {isOwner ? (
+          <input
+            type='text'
+            name='name'
+            id='name'
+            required
+            value={formState.name}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
+          />
+        ) : (
+          <input
+            value={formState.name}
+            disabled
+          />
+        )}
+        
 
         {isOwner &&
           <div className='btns'>
@@ -90,14 +98,23 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
         <label htmlFor='git_url'>
           {isOwner ? (isUrlPresent ? 'Change Git Url' : 'Add Git Url') : 'Git Url'}
         </label>
-        <input
-          type='url'
-          name='git_url'
-          id='git_url'
-          placeholder='https://git-url.com'
-          value={formState.git_url}
-          onChange={(evt) => changeListen(evt, formState, setFormState)}
-        />
+
+        {isOwner ? (
+          <input
+            type='url'
+            name='git_url'
+            id='git_url'
+            placeholder='https://git-url.com'
+            value={formState.git_url}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
+          />
+        ) : (
+          <input
+            value={formState.git_url}
+            disabled
+          />
+        )}
+        
 
         {isOwner &&
           <div className='btns'>

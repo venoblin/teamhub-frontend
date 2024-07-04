@@ -23,10 +23,10 @@ const UserCard = (props: UserCardPropsType) => {
         project_id: props.project?.id || null
       }))
       toggleIsClicked()
+      props.resetUser!()
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error inviting user!' />)
     }
-    
   }
   
   return (
