@@ -11,7 +11,11 @@ import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 const NewProjectRoute = () => {
   const userContext = useContext(UserContext)
   const utilitiesContext = useContext(UtilitiesContext)
-  const [formState, setFormState, resetFormState] = useFormState(['name', 'git_url', 'is_private'])
+  const [formState, setFormState, resetFormState] = useFormState({
+    'name': '', 
+    'git_url': '', 
+    'is_private': false
+  })
   const navigate = useNavigate()
 
   const createProject = async () => {
@@ -54,12 +58,26 @@ const NewProjectRoute = () => {
 
         <div className='visibility'>
           <div className='radio-container'>
-            <input type='radio' id='public' value='public' name='visibility' checked />
+            <input 
+              type='radio' 
+              id='public' 
+              value='false' 
+              name='is_private'
+              checked={formState.is_private ? false : true} 
+              onChange={(evt) => changeListen(evt, formState, setFormState)}
+            />
             <label htmlFor="public">Public</label>
           </div>
           
           <div className='radio-container'>
-            <input type='radio' id='private' value='private' name='visibility' />
+            <input 
+              type='radio' 
+              id='private' 
+              value='true' 
+              name='is_private'
+              checked={formState.is_private ? true : false}
+              onChange={(evt) => changeListen(evt, formState, setFormState)} 
+            />
             <label htmlFor="private">Private</label>
           </div>
         </div>
