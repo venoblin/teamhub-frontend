@@ -29,7 +29,7 @@ const NewProjectRoute = () => {
   }
   
   return (
-    <div className='new-poject route'>
+    <div className='new-project route hi'>
       <h1>New Project</h1>
 
       <form onSubmit={(evt) => submit(evt, createProject)}>
@@ -52,6 +52,17 @@ const NewProjectRoute = () => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
+        <div className='visibility'>
+          <div className='radio-container'>
+            <input type='radio' id='public' value='public' name='visibility' checked />
+            <label htmlFor="public">Public</label>
+          </div>
+          
+          <div className='radio-container'>
+            <input type='radio' id='private' value='private' name='visibility' />
+            <label htmlFor="private">Private</label>
+          </div>
+        </div>
         <button>Create</button>
       </form>
     </div>

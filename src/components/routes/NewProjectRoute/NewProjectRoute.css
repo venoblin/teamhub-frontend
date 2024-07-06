@@ -1,1 +1,6 @@
-/*# sourceMappingURL=NewProjectRoute.css.map */
+.new-project .visibility {
+  margin-top: 2rem;
+}
+.new-project .visibility .radio-container:first-of-type {
+  margin-bottom: 0.2rem;
+}/*# sourceMappingURL=NewProjectRoute.css.map */
