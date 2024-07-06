@@ -1,6 +1,9 @@
 .project-settings .visibility {
   margin: 2rem 0;
 }
+.project-settings .visibility button {
+  margin-top: 1rem;
+}
 .project-settings .users {
   margin-top: 1rem;
 }

@@ -1,6 +1,6 @@
 import './ProjectSettingsRoute.css'
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import useToggle from '../../../../hooks/useToggle'
 import useFormState from '../../../../hooks/useFormState'
 import { submit } from '../../../../utils/formHandler'
@@ -16,7 +16,8 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const utilitiesContext = useContext(UtilitiesContext)
   const [formState, setFormState] = useFormState({
     name: props.project.name, 
-    git_url: props.project.git_url
+    git_url: props.project.git_url,
+    is_private: props.project.is_private
   })
   const [isUrlPresent, toggleUrlPresent] = useToggle(props.project.git_url.length ? true : false )
   const [isOwner] = useToggle(props.project.owner.id === userContext?.user.id ? true : false)
@@ -45,6 +46,14 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       await utilitiesContext?.load(userContext?.patchProject(props.project, {name: formState.name}, props.setProject))
     } catch {
       utilitiesContext?.showPopUp(<PopUpMessage msg='Error in renaming project!' />)
+    }
+  }
+
+  const updateVisibilityProject = async () => {
+    try {
+      await utilitiesContext?.load(userContext?.patchProject(props.project, {is_private: formState.is_private}, props.setProject))
+    } catch {
+      utilitiesContext?.showPopUp(<PopUpMessage msg='Error in updating visibility!' />)
     }
   }
 
@@ -86,7 +95,6 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
           />
         )}
         
-
         {isOwner &&
           <div className='btns'>
             <button>Rename</button>
@@ -128,8 +136,37 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
       </form>
 
       <div className='visibility'>
-        <p>Visibility: {props.project.is_private ? 'Private' : 'Public'}</p>
-        <button>Change</button>
+        {isOwner ? (
+          <div>
+            <div className='radio-container'>
+              <input 
+                type='radio' 
+                id='public' 
+                value='false' 
+                name='is_private'
+                checked={formState.is_private ? false : true} 
+                onChange={(evt) => changeListen(evt, formState, setFormState)}
+              />
+              <label htmlFor="public">Public</label>
+            </div>
+              
+            <div className='radio-container'>
+              <input 
+                type='radio' 
+                id='private' 
+                value='true' 
+                name='is_private'
+                checked={formState.is_private ? true : false}
+                onChange={(evt) => changeListen(evt, formState, setFormState)}
+              />
+              <label htmlFor="private">Private</label>
+            </div>
+
+            <button onClick={updateVisibilityProject}>Save</button>
+          </div>
+        ) : (
+          <p>Visibility: {props.project.is_private ? 'Private' : 'Public'}</p>
+        )}
       </div>
 
       <div className='contributors'>

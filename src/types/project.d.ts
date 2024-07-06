@@ -23,5 +23,6 @@ export interface ProjectType extends ProjectPayloadType {
 
 export interface ProjectPatchType {
   name?: string,
-  git_url?: string
+  git_url?: string,
+  is_private?: boolean
 }
