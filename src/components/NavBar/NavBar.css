@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   border-bottom: 1px solid #595b5d;
 }
 .main-nav a {
