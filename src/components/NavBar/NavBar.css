@@ -2,8 +2,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #161616;
-  border-bottom: 1px solid #2E2E2E;
   padding: 1rem 2rem;
 }
 .main-nav a {
