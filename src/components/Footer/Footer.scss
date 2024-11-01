@@ -1,3 +1,5 @@
+@import '../../styles/vars/variables.scss';
+
 footer {
   padding: 2rem 0;
   text-align: center;
@@ -5,5 +7,6 @@ footer {
   p {
     margin: 0;
     font-size: 0.75rem;
+    color: $grayColor;
   }
 }
