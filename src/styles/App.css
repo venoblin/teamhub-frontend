@@ -7,9 +7,9 @@ form label {
   margin-bottom: 0.5rem;
 }
 form input {
-  background-color: #343740;
-  color: #e8e8e8;
-  border: 2px solid #343740;
+  background-color: #262d33;
+  color: #FFFFFF;
+  border: 2px solid #262d33;
   padding: 1rem;
   outline: none;
   border-radius: 10rem;
@@ -20,7 +20,7 @@ form input:last-of-type {
   margin-bottom: 0;
 }
 form input:focus {
-  border-color: #c5755c;
+  border-color: #34f799;
 }
 form button {
   margin-top: 1.5rem;
@@ -36,7 +36,7 @@ form .btns button:last-of-type {
 }
 
 a {
-  color: #e8e8e8;
+  color: #FFFFFF;
   text-decoration: none;
 }
 a:hover {
@@ -56,12 +56,12 @@ button {
   border: none;
   border-radius: 5px;
   padding: 5px 20px;
-  color: #28292d;
-  background-color: #e8e8e8;
+  color: #070707;
+  background-color: #FFFFFF;
 }
 button:disabled {
   cursor: default;
-  background: #828282;
+  background: #595b5d;
 }
 button:disabled::after {
   content: "";
@@ -69,7 +69,7 @@ button:disabled::after {
   width: 0;
 }
 button.success {
-  background-color: #c5755c;
+  background-color: #34f799;
 }
 button.danger {
   background-color: #ff394f;
@@ -85,7 +85,7 @@ button::after {
   border-radius: 5px;
 }
 button:hover::after {
-  background: rgba(40, 41, 45, 0.3);
+  background: rgba(7, 7, 7, 0.3);
 }
 
 .bug-todo-card textarea {

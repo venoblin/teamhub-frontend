@@ -73,7 +73,7 @@ button {
 
   &:disabled {
     cursor: default;
-    background: $mutedWhiteColor;
+    background: $grayColor;
 
     &::after {
         content: '';
