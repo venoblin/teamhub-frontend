@@ -108,6 +108,9 @@ svg {
 svg:hover {
   fill: #34f799;
 }
+svg.active {
+  fill: #34f799;
+}
 
 .bug-todo-card,
 .event-card,
