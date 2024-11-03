@@ -3,8 +3,8 @@ import './Footer.css'
 const Footer = () => {
   return (
     <footer>
-      <p>Jon / Web Dev</p>
-      <p>Project Manager</p>
+      <p className='mutedWhiteColor'>Jon / Web Dev</p>
+      <p className='mutedWhiteColor'>Project Manager</p>
     </footer>
   )
 }

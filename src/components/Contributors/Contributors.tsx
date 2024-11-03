@@ -26,7 +26,7 @@ const Contributors = (props: SetProjectPropsType & {isOwner: boolean}) => {
             </p>
           ))
         ) : (
-          <p>No contributors!</p>
+          <p className='mutedWhiteColor'>No contributors!</p>
         )
       }
 

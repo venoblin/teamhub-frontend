@@ -36,6 +36,10 @@ form .btns button:last-of-type {
   margin-right: 0;
 }
 
+p.mutedWhiteColor {
+  color: #595b5d;
+}
+
 a {
   color: #FFFFFF;
   text-decoration: underline;

@@ -10,6 +10,7 @@ import { UtilitiesContext } from '../../../../contexts/UtilitiesContext'
 import { SetProjectPropsType } from '../../../../types/props'
 import PopUpMessage from '../../../PopUpMessage/PopUpMessage'
 import Contributors from '../../../Contributors/Contributors'
+import Panel from '../../../ui/Panel/Panel'
 
 const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   const userContext = useContext(UserContext)
@@ -74,112 +75,114 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
   
   return (
     <div className='project-settings'>
-      <h1>Settings</h1>
-      
-      <form onSubmit={(evt) => submit(evt, renameProject)}>
-        <label htmlFor='name'>{isOwner ? 'Rename Project' : 'Project Name'}</label>
-
-        {isOwner ? (
-          <input
-            type='text'
-            name='name'
-            id='name'
-            required
-            value={formState.name}
-            onChange={(evt) => changeListen(evt, formState, setFormState)}
-          />
-        ) : (
-          <input
-            value={formState.name}
-            disabled
-          />
-        )}
+      <Panel>
+        <h1>Settings</h1>
         
-        {isOwner &&
-          <div className='btns'>
-            <button className='success'>Rename</button>
-          </div>
-        }
-      </form>
+        <form onSubmit={(evt) => submit(evt, renameProject)}>
+          <label htmlFor='name'>{isOwner ? 'Rename Project' : 'Project Name'}</label>
 
-      <form onSubmit={(evt) => submit(evt, updateGitLink)}>
-        <label htmlFor='git_url'>
-          {isOwner ? (isUrlPresent ? 'Change Git Url' : 'Add Git Url') : 'Git Url'}
-        </label>
+          {isOwner ? (
+            <input
+              type='text'
+              name='name'
+              id='name'
+              required
+              value={formState.name}
+              onChange={(evt) => changeListen(evt, formState, setFormState)}
+            />
+          ) : (
+            <input
+              value={formState.name}
+              disabled
+            />
+          )}
+          
+          {isOwner &&
+            <div className='btns'>
+              <button className='success'>Rename</button>
+            </div>
+          }
+        </form>
 
-        {isOwner ? (
-          <input
-            type='url'
-            name='git_url'
-            id='git_url'
-            placeholder='https://git-url.com'
-            value={formState.git_url}
-            onChange={(evt) => changeListen(evt, formState, setFormState)}
-          />
-        ) : (
-          <input
-            value={formState.git_url}
-            disabled
-          />
-        )}
+        <form onSubmit={(evt) => submit(evt, updateGitLink)}>
+          <label htmlFor='git_url'>
+            {isOwner ? (isUrlPresent ? 'Change Git Url' : 'Add Git Url') : 'Git Url'}
+          </label>
+
+          {isOwner ? (
+            <input
+              type='url'
+              name='git_url'
+              id='git_url'
+              placeholder='https://git-url.com'
+              value={formState.git_url}
+              onChange={(evt) => changeListen(evt, formState, setFormState)}
+            />
+          ) : (
+            <input
+              value={formState.git_url}
+              disabled
+            />
+          )}
+          
+
+          {isOwner &&
+            <div className='btns'>
+              <button className='success' type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
+
+              {isUrlPresent &&
+                <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
+              }
+            </div>
+          }
+        </form>
+
+        <div className='visibility'>
+          {isOwner ? (
+            <div>
+              <div className='radio-container'>
+                <input 
+                  type='radio' 
+                  id='public' 
+                  value='false' 
+                  name='is_private'
+                  checked={formState.is_private ? false : true} 
+                  onChange={(evt) => changeListen(evt, formState, setFormState)}
+                />
+                <label htmlFor="public">Public</label>
+              </div>
+                
+              <div className='radio-container'>
+                <input 
+                  type='radio' 
+                  id='private' 
+                  value='true' 
+                  name='is_private'
+                  checked={formState.is_private ? true : false}
+                  onChange={(evt) => changeListen(evt, formState, setFormState)}
+                />
+                <label htmlFor="private">Private</label>
+              </div>
+
+              <button className='success' onClick={updateVisibilityProject}>Save</button>
+            </div>
+          ) : (
+            <p>Visibility: {props.project.is_private ? 'Private' : 'Public'}</p>
+          )}
+        </div>
+
+        <div className='contributors'>
+          <h2>Contributors</h2>
+          <Contributors project={props.project} setProject={props.setProject} isOwner={isOwner} />
+        </div>
         
-
-        {isOwner &&
-          <div className='btns'>
-            <button className='success' type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
-
-            {isUrlPresent &&
-              <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
-            }
-          </div>
-        }
-      </form>
-
-      <div className='visibility'>
         {isOwner ? (
-          <div>
-            <div className='radio-container'>
-              <input 
-                type='radio' 
-                id='public' 
-                value='false' 
-                name='is_private'
-                checked={formState.is_private ? false : true} 
-                onChange={(evt) => changeListen(evt, formState, setFormState)}
-              />
-              <label htmlFor="public">Public</label>
-            </div>
-              
-            <div className='radio-container'>
-              <input 
-                type='radio' 
-                id='private' 
-                value='true' 
-                name='is_private'
-                checked={formState.is_private ? true : false}
-                onChange={(evt) => changeListen(evt, formState, setFormState)}
-              />
-              <label htmlFor="private">Private</label>
-            </div>
-
-            <button className='success' onClick={updateVisibilityProject}>Save</button>
-          </div>
-        ) : (
-          <p>Visibility: {props.project.is_private ? 'Private' : 'Public'}</p>
-        )}
-      </div>
-
-      <div className='contributors'>
-        <h2>Contributors</h2>
-        <Contributors project={props.project} setProject={props.setProject} isOwner={isOwner} />
-      </div>
-      
-      {isOwner ? (
-          <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
-        ) : (
-          <button className='danger delete-project' onClick={leaveProject}>Leave Project</button>
-        )
-      }
+            <button className='danger delete-project' onClick={deleteProject}>Delete Project</button>
+          ) : (
+            <button className='danger delete-project' onClick={leaveProject}>Leave Project</button>
+          )
+        }
+      </Panel>
     </div>
   )
 }

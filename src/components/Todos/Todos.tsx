@@ -10,7 +10,7 @@ const Todos = (props: SetProjectPropsType) => {
   return (
     <KanbanBoard className='todos'>
       <div>
-      <h2>Todos</h2>
+        <h2>Todos</h2>
         {todos.length ? (
           todos.map(singleTodo => (
             <TodoCard 
@@ -21,12 +21,12 @@ const Todos = (props: SetProjectPropsType) => {
             />
           ))
         ) : (
-          <p>No todos!</p>
+          <p className='mutedWhiteColor'>No todos!</p>
         )}
       </div>
 
       <div>
-      <h2>Completed Todos</h2>
+        <h2>Completed Todos</h2>
         {completedTodos.length ? (
           completedTodos.map(singleTodo => (
             <TodoCard 
@@ -37,7 +37,7 @@ const Todos = (props: SetProjectPropsType) => {
             />
           ))
         ) : (
-          <p>No completed todos!</p>
+          <p className='mutedWhiteColor'>No completed todos!</p>
         )}
       </div>
     </KanbanBoard>

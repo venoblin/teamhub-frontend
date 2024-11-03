@@ -48,6 +48,10 @@ form {
   }
 }
 
+p.mutedWhiteColor {
+  color: $grayColor;
+}
+
 a {
   color: $whiteColor;
   text-decoration: underline;
