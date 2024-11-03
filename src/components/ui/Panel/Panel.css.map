@@ -1,1 +1,1 @@
-{"version":3,"sources":["Panel.scss","../../../styles/vars/variables.scss","Panel.css"],"names":[],"mappings":"AAEA;EACE,yBCEa;EDDb,aAAA;EACA,kBAAA;AEDF","file":"Panel.css"}
+{"version":3,"sources":["Panel.scss","../../../styles/vars/variables.scss","Panel.css"],"names":[],"mappings":"AAEA;EACE,yBCEa;EDDb,aAAA;EACA,kBAAA;EACA,gBAAA;AEDF","file":"Panel.css"}

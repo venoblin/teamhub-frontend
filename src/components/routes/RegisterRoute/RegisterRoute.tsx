@@ -7,6 +7,7 @@ import { UserContext } from '../../../contexts/UserContext'
 import useFormState from '../../../hooks/useFormState'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
 import { UtilitiesContext } from '../../../contexts/UtilitiesContext'
+import Panel from '../../ui/Panel/Panel'
 
 const RegisterRoute = () => {
   const utilitiesContext = useContext(UtilitiesContext)  
@@ -36,61 +37,63 @@ const RegisterRoute = () => {
 
   return (
     <div className='register route'>
-      <h1>Register</h1>
+      <Panel>
+        <h1>Register</h1>
 
-      <form onSubmit={(evt) => submit(evt, registerUser)}>
-        <label htmlFor='email'>Email</label>
-        <input 
-          type='email'
-          id='email'
-          name='email'
-          required
-          value={formState.email}
-          onChange={(evt) => changeListen(evt, formState, setFormState)} 
-        />
+        <form onSubmit={(evt) => submit(evt, registerUser)}>
+          <label htmlFor='email'>Email</label>
+          <input 
+            type='email'
+            id='email'
+            name='email'
+            required
+            value={formState.email}
+            onChange={(evt) => changeListen(evt, formState, setFormState)} 
+          />
 
-        <label htmlFor='password'>Password</label>
-        <input 
-          type='password' 
-          id='password' 
-          name='password' 
-          required
-          value={formState.password}
-          onChange={(evt) => changeListen(evt, formState, setFormState)} 
-        />
+          <label htmlFor='password'>Password</label>
+          <input 
+            type='password' 
+            id='password' 
+            name='password' 
+            required
+            value={formState.password}
+            onChange={(evt) => changeListen(evt, formState, setFormState)} 
+          />
 
-        <label htmlFor='confirmPassword'>Confirm Password</label>
-        <input 
-          type='password' 
-          id='confirmPassword' 
-          name='confirmPassword' 
-          required
-          value={formState.confirmPassword}
-          onChange={(evt) => changeListen(evt, formState, setFormState)} 
-        />
-        
-        <label htmlFor="name">Name</label>
-        <input 
-          type='text' 
-          id='name' 
-          name='name' 
-          required
-          value={formState.name}
-          onChange={(evt) => changeListen(evt, formState, setFormState)} 
-        />
-        
-        <label htmlFor='username'>Username</label>
-        <input 
-          type='text' 
-          id='username' 
-          name='username' 
-          required
-          value={formState.username}
-          onChange={(evt) => changeListen(evt, formState, setFormState)}
-        />
+          <label htmlFor='confirmPassword'>Confirm Password</label>
+          <input 
+            type='password' 
+            id='confirmPassword' 
+            name='confirmPassword' 
+            required
+            value={formState.confirmPassword}
+            onChange={(evt) => changeListen(evt, formState, setFormState)} 
+          />
+          
+          <label htmlFor="name">Name</label>
+          <input 
+            type='text' 
+            id='name' 
+            name='name' 
+            required
+            value={formState.name}
+            onChange={(evt) => changeListen(evt, formState, setFormState)} 
+          />
+          
+          <label htmlFor='username'>Username</label>
+          <input 
+            type='text' 
+            id='username' 
+            name='username' 
+            required
+            value={formState.username}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
+          />
 
-        <button className='button'>Register</button>
-      </form>
+          <button className='success'>Register</button>
+        </form>
+      </Panel>
     </div>
   )
 }

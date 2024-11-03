@@ -7,6 +7,7 @@ import { changeListen } from '../../../utils/inputHandler'
 import { submit } from '../../../utils/formHandler'
 import useFormState from '../../../hooks/useFormState'
 import PopUpMessage from '../../PopUpMessage/PopUpMessage'
+import Panel from '../../ui/Panel/Panel'
 
 const LoginRoute = () => {
   const utilitiesContext = useContext(UtilitiesContext)
@@ -26,33 +27,36 @@ const LoginRoute = () => {
 
   return (
     <div className='login route'>
-      <h1>Login</h1>
 
-      <form onSubmit={(evt) => submit(evt, loginUser)}>
-        <label htmlFor='email'>Email</label>
-        <input 
-          type='email' 
-          id='email' 
-          name='email' 
-          required
-          value={formState.email}
-          onChange={(evt) => changeListen(evt, formState, setFormState)}
-        />
+      <Panel>
+        <h1>Login</h1>
 
-        <label htmlFor='password'>Password</label>
-        <input 
-          type='password' 
-          id='password' 
-          name='password' 
-          required
-          value={formState.password}
-          onChange={(evt) => changeListen(evt, formState, setFormState)}
-        />
+        <form onSubmit={(evt) => submit(evt, loginUser)}>
+          <label htmlFor='email'>Email</label>
+          <input 
+            type='email' 
+            id='email' 
+            name='email' 
+            required
+            value={formState.email}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
+          />
 
-        <button className='success'>Login</button>
-      </form>
+          <label htmlFor='password'>Password</label>
+          <input 
+            type='password' 
+            id='password' 
+            name='password' 
+            required
+            value={formState.password}
+            onChange={(evt) => changeListen(evt, formState, setFormState)}
+          />
 
-      <Link to='/register'>Register</Link>
+          <button className='success'>Login</button>
+        </form>
+
+        <Link to='/register'>Register</Link>
+      </Panel>
     </div>
   )
 }
