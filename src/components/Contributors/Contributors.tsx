@@ -5,13 +5,14 @@ import useToggle from '../../hooks/useToggle'
 import ButtonSwitch from '../ui/ButtonSwitch/ButtonSwitch'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
+import { UtilitiesContext } from '../../contexts/UtilitiesContext'
 
 const Contributors = (props: SetProjectPropsType & {isOwner: boolean}) => {
   const userContext = useContext(UserContext)
-  const [isAddMode, toggleIsAddMode] = useToggle()
+  const utilitiesContext = useContext(UtilitiesContext)
 
   const addContributorsHandler = () => {
-    toggleIsAddMode()
+    utilitiesContext?.showPopUp(<AddContributors project={props.project} setProject={props.setProject} />)
   }
 
   return (
@@ -30,11 +31,7 @@ const Contributors = (props: SetProjectPropsType & {isOwner: boolean}) => {
       }
 
       {props.isOwner &&
-        <ButtonSwitch onClick={addContributorsHandler}>Add Contributors</ButtonSwitch>
-      }
-
-      {isAddMode &&
-        <AddContributors project={props.project} setProject={props.setProject} />
+        <button onClick={addContributorsHandler}>Add Contributors</button>
       }
     </div>
   )
