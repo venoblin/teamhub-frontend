@@ -7,9 +7,9 @@ form label {
   margin-bottom: 0.5rem;
 }
 form input {
-  background-color: #262d33;
+  background-color: #0c0f11;
   color: #FFFFFF;
-  border: 2px solid #262d33;
+  border: 2px solid #595b5d;
   padding: 1rem;
   outline: none;
   border-radius: 10rem;
@@ -21,6 +21,7 @@ form input:last-of-type {
 }
 form input:focus {
   border-color: #34f799;
+  color: #34f799;
 }
 form button {
   margin-top: 1.5rem;

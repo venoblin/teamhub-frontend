@@ -89,7 +89,7 @@ const RegisterRoute = () => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <button>Register</button>
+        <button className='button'>Register</button>
       </form>
     </div>
   )

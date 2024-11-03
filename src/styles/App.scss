@@ -10,9 +10,9 @@ form {
   }
 
   input {
-    background-color: $wrapperColor;
+    background-color: $darkWrapperColor;
     color: $whiteColor;
-    border: 2px solid $wrapperColor;
+    border: 2px solid $grayColor;
     padding: 1rem;
     outline: none;
     border-radius: 10rem;
@@ -25,6 +25,7 @@ form {
     
     &:focus {
       border-color: $primaryColor;
+      color: $primaryColor;
     }
   }
 

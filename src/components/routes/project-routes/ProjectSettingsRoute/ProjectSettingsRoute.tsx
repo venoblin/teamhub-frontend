@@ -97,7 +97,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
         
         {isOwner &&
           <div className='btns'>
-            <button>Rename</button>
+            <button className='success'>Rename</button>
           </div>
         }
       </form>
@@ -126,7 +126,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
 
         {isOwner &&
           <div className='btns'>
-            <button type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
+            <button className='success' type='submit'>{isUrlPresent ? "Change" : "Add"}</button>
 
             {isUrlPresent &&
               <button className='danger' onClick={() => updateGitLink(true)} type='button'>Remove Url</button>  
@@ -162,7 +162,7 @@ const ProjectSettingsRoute = (props: SetProjectPropsType) => {
               <label htmlFor="private">Private</label>
             </div>
 
-            <button onClick={updateVisibilityProject}>Save</button>
+            <button className='success' onClick={updateVisibilityProject}>Save</button>
           </div>
         ) : (
           <p>Visibility: {props.project.is_private ? 'Private' : 'Public'}</p>

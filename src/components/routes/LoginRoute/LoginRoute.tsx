@@ -49,7 +49,7 @@ const LoginRoute = () => {
           onChange={(evt) => changeListen(evt, formState, setFormState)}
         />
 
-        <button>Login</button>
+        <button className='success'>Login</button>
       </form>
 
       <Link to='/register'>Register</Link>

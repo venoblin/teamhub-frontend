@@ -5,7 +5,7 @@ import { UiPropsType } from '../../../types/props'
 const ButtonSwitch = (props: UiPropsType & {onClick: () => void}) => {
   const [isClicked, toggleIsClicked] = useToggle(false)
   const classesBase: string = `btn-switch ${props.className ? props.className : ''}`
-  const classes = `${!isClicked ? 'success' : 'danger'} ${classesBase}`
+  const classes = `${isClicked ? 'danger' : ''} ${classesBase}`
 
   const clickHandler = () => {
     toggleIsClicked()
