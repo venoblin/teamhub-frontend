@@ -37,14 +37,15 @@ form .btns button:last-of-type {
 
 a {
   color: #FFFFFF;
-  text-decoration: none;
+  text-decoration: underline;
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-max-content;
   height: max-content;
+  transition: color 0.3s ease-in;
 }
 a:hover {
-  text-decoration: underline;
+  color: #34f799;
 }
 
 .hide-font-size {

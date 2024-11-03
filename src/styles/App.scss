@@ -49,12 +49,13 @@ form {
 
 a {
   color: $whiteColor;
-  text-decoration: none;
+  text-decoration: underline;
   width: fit-content;
   height: max-content;
+  transition: color 0.3s ease-in;
 
   &:hover {
-    text-decoration: underline;
+    color: $primaryColor;
   }
 }
 
