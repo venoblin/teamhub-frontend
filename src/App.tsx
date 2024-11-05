@@ -1,4 +1,5 @@
 import './styles/App.css'
+import './styles/responsive.css'
 import { useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { UserContext } from './contexts/UserContext'
