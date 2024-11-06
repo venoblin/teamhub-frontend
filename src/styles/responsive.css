@@ -1,6 +1,13 @@
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .project-container, .route {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  .project .project-nav {
+    position: relative;
+    flex-direction: row;
+  }
+  .project .project-nav .links {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=responsive.css.map */
