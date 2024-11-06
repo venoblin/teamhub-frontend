@@ -1,5 +1,7 @@
 @media (max-width: 600px) {
-  .project-container, .route {
+  .project-container, 
+  .route, 
+  .project h1 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -7,6 +9,10 @@
   .project .project-nav {
     position: relative;
     flex-direction: row;
+
+    * {
+      margin-right: 10px;
+    }
 
     .links {
       flex-direction: row;
