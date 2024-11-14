@@ -19,4 +19,11 @@
   .kanban-board {
     flex-direction: column;
   }
+  nav.main-nav {
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+  nav.main-nav a {
+    margin: 0 5px;
+  }
 }/*# sourceMappingURL=responsive.css.map */
