@@ -1,7 +1,8 @@
 @media (max-width: 600px) {
   .project .project-container,
   .route,
-  .project h1 {
+  .project h1,
+  .home h1 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
