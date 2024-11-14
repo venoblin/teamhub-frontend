@@ -9,7 +9,7 @@ const Bugs = (props: SetProjectPropsType) => {
 
   return (
     <KanbanBoard className='bugs'>
-      <div>
+      <div className='all-bugs'>
         <h2>Bugs</h2>
         {bugs.length ? (
           bugs.map(singleBug => (
@@ -23,11 +23,11 @@ const Bugs = (props: SetProjectPropsType) => {
             )
           ))
         ) : (
-          <p className='mutedWhiteColor'>No bugs!</p>
+          <p className='muted-color'>No bugs!</p>
         )}
       </div>
 
-      <div>
+      <div className='completed_bugs'>
         <h2>Completed Bugs</h2>
         {completedBugs.length ? (
           completedBugs.map(singleBug => (
@@ -39,7 +39,7 @@ const Bugs = (props: SetProjectPropsType) => {
             />
           ))
         ) : (
-          <p className='mutedWhiteColor'>No completed bugs!</p>
+          <p className='muted-color'>No completed bugs!</p>
         )}
       </div>
     </KanbanBoard>

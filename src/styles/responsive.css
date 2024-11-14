@@ -15,4 +15,7 @@
   .project .project-nav .links {
     flex-direction: row;
   }
+  .kanban-board {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=responsive.css.map */
